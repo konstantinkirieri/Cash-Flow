@@ -1,3 +1,4 @@
+import { History } from "./components/History/History";
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom"
 // import { OutputReport } from "./components/OutputReport/outputReport"
 import { Report } from "./components/Report/Report"
@@ -6,8 +7,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Cash Flow
       </header>
+      <History />
 
       <BrowserRouter>
         <Link to='/report'>Report</Link>
