@@ -22,6 +22,11 @@ $f-family: Roboto;
     font-size: 18px;
     line-height: 21px;
 }
+@mixin chart-rad {
+    height: 227px;
+    width: 227px;
+    margin: 0 auto;
+}
 $inp-h: 36px;
 $inp-r: 5px;
 

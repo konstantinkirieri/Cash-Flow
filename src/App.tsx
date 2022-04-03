@@ -16,8 +16,7 @@ function App() {
           <Route path="/report" element={<Report />}></Route>
         </Routes>
       </BrowserRouter>
-      {/* <OutputReport where="income" summ="3500"/>
-      <OutputReport where="expences" summ="1200"/> */}
+
     </div>
   );
 }

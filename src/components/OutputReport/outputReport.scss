@@ -13,3 +13,6 @@
 #expences {
     background-color: $color-2;
 }
+#doughnutReport {
+    @include chart-rad();
+}
