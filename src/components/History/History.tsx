@@ -1,12 +1,12 @@
-//import React from 'react'
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
 import Divider from '@mui/material/Divider';
 import "./history.scss";
+//import Report from '../Report/Report';
+//import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import { HistoryItem } from '../HistoryItem/HistoryItem';
 
 const itemsList: IList[] = [
   {
@@ -95,16 +95,15 @@ export const History = () => {
     return (
       <div className='historyPage'>
         <div className='historyMenu'>
-          <IconButton
+        <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="open drawer"
             //sx={{ mr: 2 }}
-          >
-            <ArrowBackIosIcon className='menu' />
-          </IconButton>
-          
+          >  
+            <ArrowBackIosIcon className='arrowBack'></ArrowBackIosIcon>
+          </IconButton>    
           <IconButton
             size="large"
             edge="start"
@@ -120,14 +119,11 @@ export const History = () => {
         <Divider className='divider' />
         <List>
           {itemsList.map((item) => (
-            <div>
-              <ListItem button key={item.id}>
-                <ListItemText className='listItem' primary={item.categoryId}/>
-                <ListItemText className='listItem' primary={item.amount}/>
-                <ListItemText className='listItem' primary={item.date}/>
-              </ListItem>
-              <Divider className='divider'/>
-            </div>
+            
+              <div key={item.id}>
+                <HistoryItem item={item} />
+              </div>
+              
           ))
           }
         </List>

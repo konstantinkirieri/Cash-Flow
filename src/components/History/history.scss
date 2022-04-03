@@ -1,9 +1,7 @@
 .historyPage {
-    background-image: url(../../../public/img/image2.png);
+    background-image: url(../../../public/img/backCommon.png);
     background-repeat: no-repeat;
-    background-size: 100%;
-    //height: 100%;
-    //width: 100%;
+    background-size: cover;
     padding: 5vh;
 }
 .divider {
@@ -27,13 +25,6 @@ h3 {
     text-align: center;
     color: #FFFFFF;
 }
-.listItem {
-    color:#FFFFFF;
-    font-family: Roboto;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-}
 .menu {
     color: #84ABC7;
 }
@@ -41,4 +32,8 @@ h3 {
     display: flex;
     justify-content: space-between;
     padding: 0 5vh 0 5vh;
+    align-items: center;
+}
+.arrowBack {
+    color: #84ABC7;
 }

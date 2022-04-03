@@ -1,0 +1,22 @@
+.report {
+    background-image: url(../../../public/img/backReport.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5vh;
+    height: 100%;
+}
+    h2 {
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 28px;
+        color: #655C5C;
+    }
+
+.reportMenu {
+    display: flex;
+    justify-content: space-between;
+}
+.reportMenuBtn {
+    color: #54A5BF;
+}
