@@ -1,0 +1,50 @@
+$bgimg-main_style: url(../../Cash-Flow/public/img/img-main.png);
+$bgimg-report_style: url(../../Cash-Flow/public/img/img-report.png);
+$color-0: #ffffff; // Белый
+$color-1: #CEABA0; // Розово-серый
+$color-2: #54A5BF; // Сине-серый Крайола
+$color-3: #84ABC7; // Сизый
+$color-4: #89A6AF; // Пастельно-бирюзовый
+$color-5: #91A0A8; // Серое-окно
+$f-family: Roboto;
+@mixin font-style_header {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 56px;
+}
+@mixin font-style_main {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+}
+@mixin font-style_second {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+}
+$inp-h: 36px;
+$inp-r: 5px;
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: $f-family;
+}
+a {
+    text-decoration: none;
+    color: $color-0;
+}
+.App-header {
+    color: $color-1;
+    font-family: 'Sahitya';
+    font-style: normal;
+    @include font-style_header();
+}
+.App {
+    background-image: $bgimg-main_style;
+    // background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5vh;
+    color: white;
+    height: 90vh;
+}
