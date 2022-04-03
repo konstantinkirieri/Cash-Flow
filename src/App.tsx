@@ -27,6 +27,7 @@ function App() {
               </Routes>
               </BrowserRouter>
       
+      <Category />
     </div>
   );
 }
