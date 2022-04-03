@@ -1,9 +1,14 @@
-function App() {
+import React from "react";
+import Category from "./components/Category/Category"
+import "./App.scss";
+
+const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        Cash Flow
+        CashFlow
       </header>
+      <Category />
     </div>
   );
 }
