@@ -16,6 +16,10 @@
 #doughnutReport {
     @include chart-rad();
     position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 #doughbutHoleReport {
     background-color: $color-0;
@@ -24,8 +28,6 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 25%;
-    right: 24%;
     align-items: center;
     height: 117px;
     text-align: center;
