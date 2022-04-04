@@ -27,15 +27,19 @@ export function OutputReport(params:any) {
  * @returns Doughnut diagram
  */
 const data = {
-    labels: ["Red", "Blue", "Yellow", "Purple"],
+    labels: ["Red", "Blue", "Yellow", "Purple", "Cyan", "Broiun"],
     datasets: [{
-        data: [12, 19, 32, 45],
-        backgroundColor: ["red", "blue", "yellow", "purple"]
+        data: [30, 25, 16, 9, 9, 12],
+        backgroundColor: ["#CE9684", "#54A5BF", "#ACAD62", "#C58D9E", "#7BB1AB", "#825656"]
     }]
 }
 export function DoughnutReport() {
     return <div id="doughnutReport">
             <Doughnut data={data} />
+            <div id="doughbutHoleReport">
+                <span>Total balance</span>
+                <p>25</p>
+            </div>
         </div>
 }
 

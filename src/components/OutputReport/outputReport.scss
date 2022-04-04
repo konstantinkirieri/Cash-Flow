@@ -15,4 +15,21 @@
 }
 #doughnutReport {
     @include chart-rad();
+    position: relative;
+}
+#doughbutHoleReport {
+    background-color: $color-0;
+    color: $color-6;
+    @include font-style_doughnut();
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 25%;
+    right: 24%;
+    align-items: center;
+    height: 117px;
+    text-align: center;
+    justify-content: center;
+    width: 117px;
+    border-radius: 50%;
 }

@@ -6,6 +6,7 @@ $color-2: #54A5BF; // Сине-серый Крайола
 $color-3: #84ABC7; // Сизый
 $color-4: #89A6AF; // Пастельно-бирюзовый
 $color-5: #91A0A8; // Серое-окно
+$color-6: #655C5C; // Тусклый серый
 $f-family: Roboto;
 @mixin font-style_header {
     font-weight: 700;
@@ -21,6 +22,11 @@ $f-family: Roboto;
     font-weight: 700;
     font-size: 18px;
     line-height: 21px;
+}
+@mixin font-style_doughnut {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
 }
 @mixin chart-rad {
     height: 227px;
