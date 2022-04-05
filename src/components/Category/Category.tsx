@@ -13,7 +13,11 @@ import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
 import AddIcon from '@mui/icons-material/Add';
 import "./category.scss";
 
+<<<<<<< refs/remotes/origin/testingBeforeDev
 export const caregoriesList: Category[] = [
+=======
+const caregoriesList: Category[] = [
+>>>>>>> dummy update
     {
         id: 1,
         img: "../images/Icons/house.png",
@@ -102,6 +106,7 @@ const ExpIcons: React.FC = () => {
                 <p className="cat-name">All Categories</p>
             </div>
 <<<<<<< refs/remotes/origin/testingBeforeDev
+<<<<<<< refs/remotes/origin/testingBeforeDev
         </div>
 
             <div className="cat-block">
@@ -126,6 +131,22 @@ const ExpIcons: React.FC = () => {
             } */}
         </div>
 >>>>>>> MUI icons added
+=======
+        </div>
+
+            <div className="cat-block">
+                {caregoriesList.map((item) => (
+                    
+                    <div className="cat-item" key={item.id}>
+                        <div className="cat-icon">
+                            <img className="cat-icon" {...item.img} alt=""/>
+                        </div>
+                    <p className="cat-name">{item.name}</p>
+                    </div> 
+                ))
+                }
+            </div>
+>>>>>>> dummy update
     </div>
 )}
 
