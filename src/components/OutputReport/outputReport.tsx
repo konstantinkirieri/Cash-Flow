@@ -1,7 +1,8 @@
 import "./outputReport.scss"
-import { Chart, ArcElement } from 'chart.js'
+import { Chart, ArcElement, DoughnutController } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 Chart.register(ArcElement)
+Chart.register(DoughnutController)
 /**
  * 
  * @param params Where: "income || expences" Data: {id: , categoryId: , amount: , date: }
@@ -26,14 +27,29 @@ export function OutputReport(params: any) {
  * 
  * @returns Doughnut diagram
  */
-const data = {
-    labels: ["Red", "Blue", "Yellow", "Purple", "Cyan", "Broiun"],
-    datasets: [{
-        data: [30, 25, 16, 9, 9, 12],
-        backgroundColor: ["#CE9684", "#54A5BF", "#ACAD62", "#C58D9E", "#7BB1AB", "#825656"]
-    }]
-}
-export function DoughnutReport() {
+export function DoughnutReport(param: any) {
+    const test = param.param
+
+    const data = {
+        labels: [""],
+        datasets: [{
+            data: [0],
+            backgroundColor: ["#CE9684", "#54A5BF", "#ACAD62", "#C58D9E", "#7BB1AB", "#825656", "#C4D600", "#635087"] // ?
+        }]
+    }
+
+    const test3 = data.datasets
+
+    test.forEach((element: { id: string , amount: number}) => {
+        data.labels.push((element.id).toString())
+        test3[0].data.push(element.amount)
+    });
+
+    if(data.labels.length >= 1) {
+        data.labels.shift()
+        test3[0].data.shift()
+    }
+    
     return <div id="doughnutReport">
             <Doughnut data={data} />
             <div id="doughbutHoleReport">
@@ -42,4 +58,3 @@ export function DoughnutReport() {
             </div>
         </div>
 }
-
