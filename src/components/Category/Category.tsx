@@ -101,6 +101,7 @@ const ExpIcons: React.FC = () => {
                 <div className="cat-icon"><AlignHorizontalLeftIcon/></div>
                 <p className="cat-name">All Categories</p>
             </div>
+<<<<<<< refs/remotes/origin/testingBeforeDev
         </div>
 
             <div className="cat-block">
@@ -115,6 +116,16 @@ const ExpIcons: React.FC = () => {
                 ))
                 }
             </div>
+=======
+            {/* {CaregoriesList.map((cat) => (
+                <div>
+                    <img className="iconImg" {...cat.link} alt=""/>
+                    <span className="icon-name" {...cat.name}/>
+                </div>
+            ))
+            } */}
+        </div>
+>>>>>>> MUI icons added
     </div>
 )}
 
