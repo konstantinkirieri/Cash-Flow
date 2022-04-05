@@ -13,45 +13,45 @@ import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
 import AddIcon from '@mui/icons-material/Add';
 import "./category.scss";
 
-const CaregoriesList: Category[] = [
+const caregoriesList: Category[] = [
     {
         id: 1,
-        link: "../images/Icons/house.png",
+        img: "../images/Icons/house.png",
         name: "House",
     },
     {
         id: 2,
-        link: "../images/Icons/food.png",
+        img: "../images/Icons/food.png",
         name: "Food",
     },
     {
         id: 3,
-        link: "../images/Icons/sport.png",
+        img: "../images/Icons/sport.png",
         name: "Sport",
     },
     {
         id: 4,
-        link: "../images/Icons/health.png",
+        img: "../images/Icons/health.png",
         name: "Health",
     },
     {
         id: 5,
-        link: "../images/Icons/car.png",
+        img: "../images/Icons/car.png",
         name: "Car",
     },
     {
         id: 6,
-        link: "../images/Icons/cloth.png",
+        img: "../images/Icons/cloth.png",
         name: "Cloth",
     },
     {
         id: 7,
-        link: "../images/Icons/lunch.png",
+        img: "../images/Icons/lunch.png",
         name: "Lunch",
     },
     {
         id: 8,
-        link: "../images/Icons/all.png",
+        img: "../images/Icons/all.png",
         name: "All Categories",
   },
   ]
@@ -101,14 +101,20 @@ const ExpIcons: React.FC = () => {
                 <div className="cat-icon"><AlignHorizontalLeftIcon/></div>
                 <p className="cat-name">All Categories</p>
             </div>
-            {/* {CaregoriesList.map((cat) => (
-                <div>
-                    <img className="iconImg" {...cat.link} alt=""/>
-                    <span className="icon-name" {...cat.name}/>
-                </div>
-            ))
-            } */}
         </div>
+
+            <div className="cat-block">
+                {caregoriesList.map((item) => (
+                    
+                    <div className="cat-item" key={item.id}>
+                        <div className="cat-icon">
+                            <img className="cat-icon" {...item.img} alt=""/>
+                        </div>
+                    <p className="cat-name">{item.name}</p>
+                    </div> 
+                ))
+                }
+            </div>
     </div>
 )}
 
