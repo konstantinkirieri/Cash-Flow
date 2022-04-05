@@ -11,7 +11,6 @@ Chart.register(DoughnutController)
 export function OutputReport(params: any) {
     const arrayHandler = params.param
     let amountOutput = 0
-
     if(arrayHandler !== undefined) {
         arrayHandler.forEach(function amountHandler(elem: any) {
             return amountOutput = amountOutput + elem.amount
@@ -29,7 +28,6 @@ export function OutputReport(params: any) {
  */
 export function DoughnutReport(param: any) {
     const test = param.param
-
     const data = {
         labels: [""],
         datasets: [{
@@ -37,19 +35,15 @@ export function DoughnutReport(param: any) {
             backgroundColor: ["#CE9684", "#54A5BF", "#ACAD62", "#C58D9E", "#7BB1AB", "#825656", "#C4D600", "#635087"] // ?
         }]
     }
-
     const test3 = data.datasets
-
     test.forEach((element: { id: string , amount: number}) => {
         data.labels.push((element.id).toString())
         test3[0].data.push(element.amount)
     });
-
     if(data.labels.length >= 1) {
         data.labels.shift()
         test3[0].data.shift()
     }
-    
     return <div id="doughnutReport">
             <Doughnut data={data} />
             <div id="doughbutHoleReport">
