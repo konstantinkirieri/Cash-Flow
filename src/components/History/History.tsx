@@ -7,6 +7,7 @@ import "./history.scss";
 //import Report from '../Report/Report';
 //import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import { HistoryItem } from '../HistoryItem/HistoryItem';
+import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
 
 const itemsList: IList[] = [
   {
@@ -114,8 +115,9 @@ export const History = () => {
             <MenuIcon className='menu' />
           </IconButton>
         </div>
-        <h2>History</h2>
-        <h3>March 2022</h3> 
+        <h2 className='historyHeader'>History</h2>
+        
+        <HistoryCalendar /> 
         <Divider className='divider' />
         <List>
           {itemsList.map((item) => (

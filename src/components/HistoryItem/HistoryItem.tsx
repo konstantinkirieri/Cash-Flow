@@ -6,6 +6,7 @@ import Divider from '@mui/material/Divider';
 import { deleteItem } from '../store/items/actions';
 import { IconButton } from '@mui/material';
 import "./historyItem.scss";
+import EditIcon from '@mui/icons-material/Edit';
 
 export const HistoryItem = ({ item }: any) => {
     //const dispatch = useDispatch();
@@ -19,6 +20,7 @@ export const HistoryItem = ({ item }: any) => {
             <ListItemText className='listItem' primary={item.categoryId}/>
             <ListItemText className='listItem' primary={item.amount}/>
             <ListItemText className='listItem' primary={item.date}/>
+            <IconButton><EditIcon className='editBtn'/></IconButton>
             <IconButton onClick={handleDeleteClick}><DeleteForeverIcon className='deleteBtn'></DeleteForeverIcon>
             </IconButton>
           </ListItem>

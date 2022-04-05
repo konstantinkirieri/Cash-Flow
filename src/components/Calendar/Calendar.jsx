@@ -11,9 +11,10 @@ export function Calendar() {
     </button>
   ));
 
-  function onChangeDateHandler(value) {
+  function onChangeDateHandler(value: any) {
     setStartDate(value);
   }
+
   return (
     <>
       <div className="calendar">
@@ -45,7 +46,7 @@ export function Calendar() {
           withPortal
         />
       </div>
-      <h3>{`March`}</h3>
+      <h3 className="calendarOutput">March</h3>
     </>
   );
 }
