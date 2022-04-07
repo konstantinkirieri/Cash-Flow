@@ -8,6 +8,7 @@ import "./history.scss";
 //import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import { HistoryItem } from '../HistoryItem/HistoryItem';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
+// import { caregoriesList } from '../Category/Category'
 
 export const itemsList: IList[] = [
   {

@@ -1,12 +1,11 @@
 //import Calendar from "./components/Calendar/Calendar";
 import { History } from "./components/History/History";
+import Category from "./components/Category/Category";
 import { Report } from "./components/Report/Report";
-import { BrowserRouter, Link, Routes, Route, useParams } from "react-router-dom";
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import "./app.scss";
 
 function App() {
-  const test = useParams();
-  console.log(test);
   
   return (
     <div className="App">
@@ -20,14 +19,17 @@ function App() {
                 <Link to='/history'>
                   History
                 </Link>
+                <Link to='/category'>
+                  Category
+                </Link>
               
               <Routes>
                 <Route path="/report" element={<Report />} />
                 <Route path="/history" element={<History />} />
+                <Route path="/category" element={<Category />} />
               </Routes>
               </BrowserRouter>
       
-      <Category />
     </div>
   );
 }

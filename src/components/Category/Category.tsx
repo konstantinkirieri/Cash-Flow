@@ -13,7 +13,7 @@ import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
 import AddIcon from '@mui/icons-material/Add';
 import "./category.scss";
 
-const caregoriesList: Category[] = [
+export const caregoriesList: Category[] = [
     {
         id: 1,
         img: "../images/Icons/house.png",
