@@ -6,7 +6,7 @@ import HistoryIcon from '@mui/icons-material/History';
 import { OutputReport, DoughnutReport } from "../OutputReport/outputReport"
 import { itemsList } from "../../components/History/History"
 
-const income = [{amount: 13500}]
+const income = [{amount: 16500}]
 const expences = itemsList
 
 export const Report = () => {
@@ -30,7 +30,7 @@ export const Report = () => {
             <Calendar />
             <OutputReport where="income" param={income} />
             <OutputReport where="expences" param={expences} />
-            <DoughnutReport param={expences} />
+            <DoughnutReport expences={expences} income={income}/>
         </div>
     )
 }

@@ -5,29 +5,39 @@ Chart.register(ArcElement)
 Chart.register(DoughnutController)
 /**
  * 
- * @param params Where: "income || expences" Data: {id: , categoryId: , amount: , date: }
- * @returns Block with sum
+ * @param arrayHandler Массив с данными из файла JSON
+ * @param amountOutput Элемент для возврата
+ * @returns Сумма элементов amount массива
  */
-export function OutputReport(params: any) {
-    const arrayHandler = params.param
-    let amountOutput = 0
+function sumAmountArr(arrayHandler: any, amountOutput: number) {
     if(arrayHandler !== undefined) {
         arrayHandler.forEach(function amountHandler(elem: any) {
             return amountOutput = amountOutput + elem.amount
         })
     }
+    return amountOutput
+} 
+/**
+ * 
+ * @param params Where: "income || expences" Data: {id: , categoryId: , amount: , date: }
+ * @returns Блок с обработанными данными
+ */
+export function OutputReport(params: any) {
+    const arrayHandler = params.param
+    let amountOutput = 0
+    amountOutput = sumAmountArr(arrayHandler, amountOutput)
     return <div id={params.where}>
         <div>{params.where}</div>
-        {/* <div>{params.summ}</div> */}
         <div>{amountOutput}</div>
         </div>
 }
 /**
  * 
- * @returns Doughnut diagram
+ * @returns Диаграмма "Пончик"
  */
-export function DoughnutReport(param: any) {
-    const test = param.param
+export function DoughnutReport(params: any) {
+    const income = params.income[0].amount
+    const expences = params.expences
     const data = {
         labels: [""],
         datasets: [{
@@ -35,20 +45,23 @@ export function DoughnutReport(param: any) {
             backgroundColor: ["#CE9684", "#54A5BF", "#ACAD62", "#C58D9E", "#7BB1AB", "#825656", "#C4D600", "#635087"] // ?
         }]
     }
-    const test3 = data.datasets
-    test.forEach((element: { id: string , amount: number}) => {
+    let amountOutput = 0
+    amountOutput = sumAmountArr(expences, amountOutput)
+    const diffAmounts = income - amountOutput
+    const datasetHandler = data.datasets
+    expences.forEach((element: { id: string , amount: number}) => {
         data.labels.push((element.id).toString())
-        test3[0].data.push(element.amount)
+        datasetHandler[0].data.push(element.amount)
     });
     if(data.labels.length >= 1) {
         data.labels.shift()
-        test3[0].data.shift()
+        datasetHandler[0].data.shift()
     }
     return <div id="doughnutReport">
             <Doughnut data={data} />
             <div id="doughbutHoleReport">
                 <span>Total balance</span>
-                <p>25</p>
+                <p>{diffAmounts}</p>
             </div>
         </div>
 }
