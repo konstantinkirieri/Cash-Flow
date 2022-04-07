@@ -20,7 +20,7 @@ const caregoriesList: Category[] = [
 >>>>>>> dummy update
     {
         id: 1,
-        img: "../images/Icons/house.png",
+        img: "src='../images/Icons/house.png'",
         name: "House",
     },
     {
