@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+  }
+
+  .App {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../images/background.png);
+    background-size: cover;
+    font-family: "Sahitya";
+
+    &-header {
+        font-size: 40px;
+        margin: 30px;
+        color: #C9886C;
+        z-index: 1;
+
+        @media (max-width: 800px) {
+            margin: 20px;
+            font-size: 35px;
+        }
+    }
+}
+
+.icons-block {
+    margin: 30px;
+}
+

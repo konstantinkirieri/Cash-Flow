@@ -1,0 +1,37 @@
+@import '../../app.scss';
+
+#income, #expences {
+    background-color: $color-1;
+    height: $inp-h;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px 0;
+    padding: 5px;
+    border-radius: $inp-r;
+}
+#expences {
+    background-color: $color-2;
+}
+#doughnutReport {
+    @include chart-rad();
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+#doughbutHoleReport {
+    background-color: $color-0;
+    color: $color-6;
+    @include font-style_doughnut();
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 117px;
+    text-align: center;
+    justify-content: center;
+    width: 117px;
+    border-radius: 50%;
+}
