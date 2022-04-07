@@ -9,7 +9,7 @@ import "./history.scss";
 import { HistoryItem } from '../HistoryItem/HistoryItem';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
 
-const itemsList: IList[] = [
+export const itemsList: IList[] = [
   {
     id: 1,
     categoryId: 1,

@@ -8,6 +8,7 @@ $color-4: #89A6AF; // Пастельно-бирюзовый
 $color-5: #91A0A8; // Серое-окно
 $color-6: #655C5C; // Тусклый серый
 $f-family: Roboto;
+// $bgimg-report_active: true;
 @mixin font-style_header {
     font-weight: 700;
     font-size: 36px;
@@ -56,6 +57,9 @@ a {
     // background-repeat: no-repeat;
     background-size: cover;
     padding: 5vh;
-    color: white;
+    color: $color-0;
     height: 90vh;
+    // @if($bgimg-report_active) {
+    //     background-image: $bgimg-report_style;
+    // }
 }

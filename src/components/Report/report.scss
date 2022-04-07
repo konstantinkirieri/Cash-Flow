@@ -1,10 +1,11 @@
-.report {
-    background-image: url(../../../public/img/backReport.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 5vh;
-    height: 100%;
-}
+@import '../../app.scss';
+
+// .report {
+//     background-image: $bgimg-report_style;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     padding: 5vh;
+// }
 .reportHeader {
     font-family: Roboto;
     font-size: 24px;

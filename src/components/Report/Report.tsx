@@ -3,6 +3,11 @@ import Calendar from "../Calendar/Calendar"
 import './report.scss';
 import MenuIcon from '@mui/icons-material/Menu';
 import HistoryIcon from '@mui/icons-material/History';
+import { OutputReport, DoughnutReport } from "../OutputReport/outputReport"
+import { itemsList } from "../../components/History/History"
+
+const income = [{amount: 13500}]
+const expences = itemsList
 
 export const Report = () => {
     return (
@@ -23,6 +28,9 @@ export const Report = () => {
             </div>
             <h2 className="reportHeader">Report</h2>
             <Calendar />
+            <OutputReport where="income" param={income} />
+            <OutputReport where="expences" param={expences} />
+            <DoughnutReport param={expences} />
         </div>
     )
 }
