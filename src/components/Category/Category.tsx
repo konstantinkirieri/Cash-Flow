@@ -2,14 +2,6 @@ import React from "react";
 import { Category } from "../../model";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
-import HouseIcon from '@mui/icons-material/House';
-import RestaurantIcon from '@mui/icons-material/Restaurant';
-import SportsTennisIcon from '@mui/icons-material/SportsTennis';
-import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import CheckroomIcon from '@mui/icons-material/Checkroom';
-import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
-import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
 import AddIcon from '@mui/icons-material/Add';
 import "./category.scss";
 
@@ -20,7 +12,7 @@ const caregoriesList: Category[] = [
 >>>>>>> dummy update
     {
         id: 1,
-        img: "src='../images/Icons/house.png'",
+        img: "../images/Icons/house.png",
         name: "House",
     },
     {
@@ -55,7 +47,7 @@ const caregoriesList: Category[] = [
     },
     {
         id: 8,
-        img: "../images/Icons/all.png",
+        img: "../images/Icons/all_cat.png",
         name: "All Categories",
   },
   ]
@@ -72,7 +64,9 @@ const ExpIcons: React.FC = () => {
                 <AddIcon className='addIcon'/>
             </IconButton>
         </div>
+        
         <div className="cat-block">
+<<<<<<< refs/remotes/origin/testingBeforeDev
             <div className="cat-item">
                 <div className="cat-icon"><HouseIcon/></div>
                 <p className="cat-name">House</p>
@@ -147,6 +141,19 @@ const ExpIcons: React.FC = () => {
                 }
             </div>
 >>>>>>> dummy update
+=======
+            {caregoriesList.map((item) => (
+                
+                <div className="cat-item" key={item.id}>
+                    <div className="cat-icon">
+                        <img className="cat-icon" src={item.img} alt=""/>
+                    </div>
+                <p className="cat-name">{item.name}</p>
+                </div> 
+            ))
+            }
+        </div>
+>>>>>>> icons src fix
     </div>
 )}
 

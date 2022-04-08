@@ -32,15 +32,16 @@ h2 {
 .cat-block {
     margin: 20px;
     display: flex;
+    // margin-left: auto;
+    // margin-right: auto;
     flex-wrap: wrap;
-    // flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    // align-items: center;
 }
 
 .cat-item {
     align-items: center;
-    margin: 20px;
+    margin: 10px 20px;
     width: 50px;
 }
 
@@ -51,10 +52,9 @@ h2 {
 }
 
 .cat-icon {
-    color: rgb(40, 54, 65);
-    margin: 10px;
-    align-items: center;
-
+    display: block;
+    height: 40px;
+    margin: 5px auto;
 }
 
 @media (max-width: 700px) {
