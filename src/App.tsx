@@ -1,4 +1,5 @@
 //import Calendar from "./components/Calendar/Calendar";
+import { Home } from "./components/Home/Home"
 import { History } from "./components/History/History";
 import Category from "./components/Category/Category";
 import { Report } from "./components/Report/Report";
@@ -13,6 +14,9 @@ function App() {
       </header>
     
       <BrowserRouter>
+                <Link to="/">
+                  Home
+                </Link>
                 <Link to='/report'>
                   Report
                 </Link>
@@ -24,6 +28,7 @@ function App() {
                 </Link>
               
               <Routes>
+                <Route path="/" element={<Home />}/>
                 <Route path="/report" element={<Report />} />
                 <Route path="/history" element={<History />} />
                 <Route path="/category" element={<Category />} />
