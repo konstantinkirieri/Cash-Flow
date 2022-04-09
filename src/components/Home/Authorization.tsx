@@ -8,7 +8,7 @@ export function Authorization() {
         </div>
         <div className="auth_elem">
             <span>password</span>
-            <input />
+            <input type="password"/>
         </div>
     </div>
 }
