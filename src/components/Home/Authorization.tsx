@@ -1,3 +1,5 @@
+import React from "react";
+
 export function Authorization() {
     return <div className="authorization">
         <div className="auth_elem">

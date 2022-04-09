@@ -1,4 +1,4 @@
-@import '../../app.scss';
+@import '../../mixin.scss';
 
 h1, H1 {
     color: $color-7;
@@ -33,6 +33,7 @@ input {
     border: none;
     border-bottom: 1px solid $color-9;
     border-radius: 0;
+    color: $color-3;
 }
     input:focus, input:hover, input:active {
         border: none;

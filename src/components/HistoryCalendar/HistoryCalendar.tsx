@@ -2,6 +2,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import './historyCalendar.scss';
+import React from "react";
 
 export function HistoryCalendar() {
     const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([new Date(), new Date()]);

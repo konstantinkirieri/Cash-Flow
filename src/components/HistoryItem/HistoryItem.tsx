@@ -7,6 +7,7 @@ import { deleteItem } from '../store/items/actions';
 import { IconButton } from '@mui/material';
 import "./historyItem.scss";
 import EditIcon from '@mui/icons-material/Edit';
+import React from 'react';
 
 export const HistoryItem = ({ item }: any) => {
     //const dispatch = useDispatch();

@@ -5,6 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HistoryIcon from '@mui/icons-material/History';
 import { OutputReport, DoughnutReport } from "../OutputReport/outputReport"
 import { itemsList } from "../../components/History/History"
+import React from "react";
 
 const income = [{amount: 16500}]
 const expences = itemsList

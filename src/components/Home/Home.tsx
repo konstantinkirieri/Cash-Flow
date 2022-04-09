@@ -1,6 +1,7 @@
 import "./home.scss"
 import { Authorization } from "./Authorization"
 import { useNavigate } from "react-router-dom"
+import React from "react"
 
 export function Home() {
     const navigate = useNavigate()

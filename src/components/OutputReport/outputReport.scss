@@ -1,4 +1,4 @@
-@import '../../app.scss';
+@import '../../mixin.scss';
 
 #income, #expences {
     @include buttonSet();

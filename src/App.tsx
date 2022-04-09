@@ -4,7 +4,9 @@ import { History } from "./components/History/History";
 import Category from "./components/Category/Category";
 import { Report } from "./components/Report/Report";
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
-import "./app.scss";
+import "./App.scss";
+// import "./mixin.scss";
+import React from "react";
 
 function App() {
   
