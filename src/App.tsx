@@ -1,8 +1,11 @@
+import './App.css';
+import { AddCategory }from './components/newCategory/newCategory/newCategory';
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Cash Flow
+        <AddCategory />
       </header>
     </div>
   );

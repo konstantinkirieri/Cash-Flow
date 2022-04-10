@@ -1,0 +1,115 @@
+.category {
+    &-header {
+        display: flex;
+        margin-top: 60px;
+        margin-bottom: 55px;
+    }
+
+    &-title {
+        margin: 0;
+        margin-right: 48px;
+        margin-left: 48px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+        color: #84ABC7;
+    }
+
+    &-inputes {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-field {
+        background: none;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #D2CECE;
+        margin-bottom: 28px;
+        color: #FFFFFF;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+
+        &::placeholder {
+            margin-bottom: 14px;
+            color:#FFFFFF;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 21px;
+            
+            padding-left: 5px;
+        }
+
+    }
+
+    &-tick {
+        border: none;
+        background: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
+    &-option {
+        background: lightslategrey;
+    }
+
+    &-section {
+        position: relative;
+        display: flex;
+        width: 313px;
+        height: 3em;
+        line-height: 3;
+        overflow: hidden;
+        border-radius: inherit;
+        border-bottom: 1px solid #D2CECE;
+        margin: 0;
+        padding: 0;
+        color: #FFFFFF;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+
+        &::after {
+            content: url(../../../../public/images/category-select.png);
+            position: absolute;
+            top: 16px;
+            right: -14px;
+            padding: 0 1em;
+            cursor: nonepointer;
+            pointer-events:none;
+            transition:.25s all ease;
+        }
+    }
+
+    &-select {
+        appearance:none;
+        outline:0;
+        box-shadow:none;
+        border:0!important;
+        background: none;
+        flex: 1;
+        padding: 0 .5em;
+        color:#fff;
+        cursor: pointer;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        margin-bottom: -26px;
+        margin-left: -2px;
+    }
+}
+ 
