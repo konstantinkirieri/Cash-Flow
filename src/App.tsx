@@ -11,11 +11,13 @@ import React from "react";
 import { Provider }from "react-redux"
 import {store} from "./components/store/index"
 
+import { AddCategory }from './components/newCategory/newCategory/newCategory';
 function App() {
   
   return (
     <div className="App">
       <header className="App-header">
+        <AddCategory />
       </header>
     
     <Provider store={store}>
