@@ -7,6 +7,8 @@ import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import "./App.scss";
 // import "./mixin.scss";
 import React from "react";
+import { Provider }from "react-redux"
+import {store} from "./components/store/index"
 
 function App() {
   
@@ -15,6 +17,7 @@ function App() {
       <header className="App-header">
       </header>
     
+    <Provider store={store}>
       <BrowserRouter>
                 <Link to="/">
                   Home
@@ -36,6 +39,7 @@ function App() {
                 <Route path="/category" element={<Category />} />
               </Routes>
               </BrowserRouter>
+    </Provider>
       
     </div>
   );

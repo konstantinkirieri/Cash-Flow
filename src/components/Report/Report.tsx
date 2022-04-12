@@ -43,11 +43,11 @@ export interface NewData {
   dateTrans: Date,
   enteredData: number,  
 }
-const test: NewData = {
+const enteredData: NewData = {
   idTrans: 1,
   categoryId: 1,
   dateTrans: new Date(),
   enteredData: 15400,
 }
-EnteredDataHandler(test)
+EnteredDataHandler(enteredData)
 export default Report;

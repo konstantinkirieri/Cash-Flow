@@ -1,3 +1,4 @@
+import { GetFetch } from "../GetFetch/GetFetch";
 import { NewData } from "../Report/Report";
 
 export function EnteredDataHandler(props: NewData) {
@@ -8,3 +9,5 @@ export function EnteredDataHandler(props: NewData) {
     console.log(idTrans, categoryId, enteredData, dateTrans);
     
 }
+
+GetFetch()
