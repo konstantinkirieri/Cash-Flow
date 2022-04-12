@@ -17,7 +17,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <AddCategory />
       </header>
     
     <Provider store={store}>
@@ -34,16 +33,19 @@ function App() {
                 <Link to='/history'>
                   History
                 </Link>
-                <Link to='/category'>
+                <Link to='/categoryExp'>
+                  CategoryExp
+                </Link>
+                <Link to='/addcategory'>
                   Category
                 </Link>
-              
               <Routes>
                 <Route path="/" element={<Home />}/>
-                <Route path="/category" element={<ExpIcons />} />
+                <Route path="/categoryExp" element={<ExpIcons />} />
                 <Route path="/report" element={<Report />} />
                 <Route path="/history" element={<History />} />
                 <Route path="/category" element={<Category />} />
+                <Route path="/addcategory" element={<AddCategory />} />
               </Routes>
               </BrowserRouter>
     </Provider>
