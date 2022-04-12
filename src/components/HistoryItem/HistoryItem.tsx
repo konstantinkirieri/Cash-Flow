@@ -16,7 +16,7 @@ export const HistoryItem = ({ item }: any) => {
     };
 
     return (
-        <>
+              <>
           <ListItem className="listItem">
             <ListItemText className='listItem' primary={item.categoryId}/>
             <ListItemText className='listItem' primary={item.amount}/>
@@ -29,3 +29,4 @@ export const HistoryItem = ({ item }: any) => {
         </>
       );
     };
+                

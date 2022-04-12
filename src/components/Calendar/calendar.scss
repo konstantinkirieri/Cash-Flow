@@ -1,16 +1,40 @@
-.calendar {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center;
+.dates {
+    display: flex;
+    justify-content: stretch;
+    height: 35px;
 }
-.date {
-    background-color: #CEABA0 !important;
-}
-.calendarOutput {
+
+.datesBtn {
+    width: 33.33%;
+    background-color: #91A0A8;
+    border: 3px solid #CEABA0;
     font-family: Roboto;
     font-size: 18px;
     font-weight: 400;
     line-height: 21px;
-    color: #655C5C;
+    color: #ffffff;
+    transition-duration: 0.3s;
+
+    &.left {
+        border-radius: 3px 0 0 3px;
+    }
+    &.right {
+        border-radius: 0 3px 3px 0;
+    }
+    &:hover {
+        background-color: #CEABA0;
+        transition-duration: 0.3s;
+    }
+}
+
+.outputDate {
+    margin-top: 22px;
+    margin-bottom: 25px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
     text-align: center;
+    color: #655C5C;
+    ;
 }

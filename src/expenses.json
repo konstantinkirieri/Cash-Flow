@@ -1,0 +1,89 @@
+{  
+    "items": [
+        {
+            "id": 1,
+            "categoryId": 1,
+            "amount": 1000,
+            "date": "15.03.2022"
+        },
+        {
+            "id": 2,
+            "categoryId": 2,
+            "amount": 500,
+            "date": "15.03.2022"
+        },
+        {
+            "id": 3,
+            "categoryId": 4,
+            "amount": 5000,
+            "date": "05.03.2022"
+        },
+        {
+            "id": 4,
+            "categoryId": 3,
+            "amount": 3600,
+            "date": "05.03.2022"
+        },
+        {
+            "id": 5,
+            "categoryId": 2,
+            "amount": 1200,
+            "date": "15.03.2022"
+        },
+        {
+            "id": 6,
+            "categoryId": 5,
+            "amount": 1190,
+            "date": "07.03.2022"
+        },
+        {
+            "id": 7,
+            "categoryId": 6,
+            "amount": 1100,
+            "date": "07.03.2022"
+        }
+    ],
+    "categoryList": [
+        {
+            "id": 1,
+            "img": "../images/Icons/house.png",
+            "name": "House"
+        },
+        {
+            "id": 2,
+            "img": "../images/Icons/food.png",
+            "name": "Food"
+        },
+        {
+            "id": 3,
+            "img": "../images/Icons/sport.png",
+            "name": "Sport"
+        },
+        {
+            "id": 4,
+            "img": "../images/Icons/health.png",
+            "name": "Health"
+        },
+        {
+            "id": 5,
+            "img": "../images/Icons/car.png",
+            "name": "Car"
+        },
+        {
+            "id": 6,
+            "img": "../images/Icons/cloth.png",
+            "name": "Cloth"
+        },
+        {
+            "id": 7,
+            "img": "../images/Icons/lunch.png",
+            "name": "Lunch"
+        },
+        {
+            "id": 8,
+            "img": "../images/Icons/all_cat.png",
+            "name": "All Categories"
+      }
+      ]
+}
+

@@ -1,0 +1,22 @@
+.App {
+  height: 100%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.App-header {
+  color: #CEABA0;
+  font-family: "Sahitya";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 56px;
+}

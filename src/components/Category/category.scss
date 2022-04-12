@@ -1,5 +1,11 @@
-.category-menu {
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+.icons-block {
     margin: 30px;
+}
+
+.category-menu {
+    // margin: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,11 +22,11 @@ h2 {
     color: #84ABC7;
 }
 
-.historyMenu {
-    display: flex;
-    justify-content: space-around;
-    padding: 0 5vh 0 5vh;
-}
+// .historyMenu {
+//     display: flex;
+//     justify-content: space-around;
+//     padding: 0 5vh 0 5vh;
+// }
 .arrowBack  {
     color: #84ABC7;
 }
@@ -30,15 +36,17 @@ h2 {
 }
 
 .cat-block {
-    // margin: 10px;
+    margin: 20px;
     display: flex;
     flex-wrap: wrap;
+    // flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .cat-item {
     align-items: center;
-    margin: 10px 20px;
+    margin: 20px;
     width: 50px;
 }
 
@@ -49,11 +57,18 @@ h2 {
 }
 
 .cat-icon {
-    display: block;
-    height: 40px;
-    margin: 5px auto;
+    color: rgb(40, 54, 65);
+    margin: 10px;
+    align-items: center;
+
 }
 
 @media (max-width: 700px) {
  }
-      
+   
+.category-page {
+ background-image:  url(../../../public/img/backCommon.png);
+ background-repeat: no-repeat;
+ background-size: cover;
+ padding: 5vh;
+}
