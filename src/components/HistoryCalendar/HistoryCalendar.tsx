@@ -8,7 +8,7 @@ export function HistoryCalendar() {
     const [startDate, endDate] = dateRange;
     return (
       <div className="historyCalendar">
-      <DatePicker
+      <DatePicker className="datepickerHistory"
         selectsRange={true}
         startDate={startDate}
         endDate={endDate}

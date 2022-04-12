@@ -1,9 +1,9 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState, forwardRef } from "react";
-import "./calendar.scss";
+import "./calendar1.scss";
 
-export function Calendar() {
+export function Calendar1() {
   const [startDate, setStartDate] = useState(new Date());
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
     <button className="example-custom-input" onClick={onClick} ref={ref}>
@@ -11,7 +11,7 @@ export function Calendar() {
     </button>
   ));
 
-  function onChangeDateHandler(value: any) {
+  function onChangeDateHandler(value) {
     setStartDate(value);
   }
 
@@ -51,4 +51,4 @@ export function Calendar() {
   );
 }
 
-export default Calendar;
+export default Calendar1;

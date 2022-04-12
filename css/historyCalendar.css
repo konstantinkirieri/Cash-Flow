@@ -1,0 +1,17 @@
+.historyCalendar {
+  text-align: center;
+  margin-top: 18px;
+  margin-bottom: 30px;
+}
+
+.datepickerHistory {
+  background: transparent;
+  text-align: center;
+  border: transparent;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  color: #ffffff;
+}
