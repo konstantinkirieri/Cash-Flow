@@ -48,6 +48,8 @@ h2 {
     align-items: center;
     margin: 20px;
     width: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
 .cat-name {
