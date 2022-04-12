@@ -12,6 +12,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
 import { useEffect } from "react";
 import { useState } from "react";
+import React from "react";
 
 export function History(): any {
     // let headers = new Headers();

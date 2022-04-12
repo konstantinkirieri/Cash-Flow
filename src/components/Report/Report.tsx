@@ -1,5 +1,5 @@
 import { IconButton } from "@mui/material";
-import Calendar from "../Calendar/Calendar"
+import { Calendar } from "../Calendar/Calendar"
 import './report.scss';
 import MenuIcon from '@mui/icons-material/Menu';
 import HistoryIcon from '@mui/icons-material/History';
