@@ -6,6 +6,7 @@ import HistoryIcon from '@mui/icons-material/History';
 import { OutputReport, DoughnutReport } from "../OutputReport/outputReport"
 import { itemsList } from "../../components/History/History"
 import React from "react";
+import { EnteredDataHandler } from "../EnteredData/EnteredDataHandler";
 
 const income = [{amount: 16500}]
 const expences = itemsList
@@ -36,4 +37,17 @@ export const Report = () => {
     )
 }
 
+export interface NewData {
+  idTrans: number,
+  categoryId: number,
+  dateTrans: Date,
+  enteredData: number,  
+}
+const test: NewData = {
+  idTrans: 1,
+  categoryId: 1,
+  dateTrans: new Date(),
+  enteredData: 15400,
+}
+EnteredDataHandler(test)
 export default Report;
