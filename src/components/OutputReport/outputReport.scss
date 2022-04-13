@@ -1,18 +1,21 @@
-@import '../../app.scss';
+@import '../../App.scss';
+@import '../../mixin.scss';
 
-#income, #expences {
+#income,
+#expences {
+    @include buttonSet();
     background-color: $color-1;
-    height: $inp-h;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 25px 0;
     padding: 5px;
-    border-radius: $inp-r;
 }
+
 #expences {
     background-color: $color-2;
 }
+
 #doughnutReport {
     @include chart-rad();
     position: relative;
@@ -21,6 +24,7 @@
     flex-direction: column;
     justify-content: center;
 }
+
 #doughbutHoleReport {
     background-color: $color-0;
     color: $color-6;
@@ -40,4 +44,3 @@
     text-align: center;
     margin: 20px;
 }
-
