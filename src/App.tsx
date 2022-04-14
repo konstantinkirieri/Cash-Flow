@@ -4,7 +4,7 @@ import { History } from "./components/History/History";
 import Category from "./components/Category/Category";
 import { Report } from "./components/Report/Report";
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
-import "./App.scss";
+import "./app.scss";
 // import "./mixin.scss";
 import React from "react";
 import { Provider } from "react-redux"
