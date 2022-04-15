@@ -1,0 +1,32 @@
+@import '../../mixin.scss';
+
+.switcher {
+    background-color: $color-2;
+    display: flex;
+    justify-content: space-around;
+    width: 250px;
+    height: 40px;
+    color: $color-0;
+    border-radius: 3px;
+    margin: 30px auto;
+}
+
+.exp-btn,.inc-btn {
+    background-color: $color-2;
+    color: $color-0;
+    width: 48%;
+    font-size: 18px;
+    margin: 3px;
+    text-align: center;
+    border: none;
+    border-radius: 3px;
+}
+
+.exp-btn {
+    background-color: $color-5;
+}
+
+.inc-btn:active {
+    background-color: $color-5;
+    color: $color-0;
+}
