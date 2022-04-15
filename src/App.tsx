@@ -11,6 +11,7 @@ import { Provider } from "react-redux"
 import { store } from "./components/store/index"
 import AllCategories from "./components/AllCategories/AllCategories";
 import { AddCategory } from './components/newCategory/newCategory/newCategory';
+import Switcher from "./components/Switcher/Switcher";
 
 
 
@@ -51,7 +52,7 @@ function App() {
             <Route path="/category" element={<Category />} />
             <Route path="/addcategory" element={<AddCategory />} />
             <Route path="/allCategories" element={<AllCategories />} />
-            <Route path="/switch" element={<ExpIncSwitch />} />
+            <Route path="/switch" element={<Switcher />} />
           </Routes>
         </BrowserRouter>
       </Provider>
