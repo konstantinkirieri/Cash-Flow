@@ -7,26 +7,32 @@
     width: 250px;
     height: 40px;
     color: $color-0;
-    border-radius: 3px;
+    border-radius: 5px;
     margin: 30px auto;
 }
 
-.exp-btn,.inc-btn {
+.exp-btn, .inc-btn {
     background-color: $color-2;
     color: $color-0;
-    width: 48%;
+    width: 50%;
     font-size: 18px;
-    margin: 3px;
     text-align: center;
+    margin: 3px;
     border: none;
-    border-radius: 3px;
 }
 
 .exp-btn {
+    border-radius: 5px 0 0 5px;
+}
+
+.exp-btn:focus {
     background-color: $color-5;
 }
 
-.inc-btn:active {
+.inc-btn {
+    border-radius: 0 5px 5px 0;
+}
+
+.inc-btn:focus {
     background-color: $color-5;
-    color: $color-0;
 }

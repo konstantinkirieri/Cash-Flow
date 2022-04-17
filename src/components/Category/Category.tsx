@@ -78,7 +78,7 @@ const Categories: React.FC = () => {
                 
                 <div className="cat-item" key={item.id}>
                     <div className="cat-icon">
-                        <img className="cat-icon" src={item.img} alt=""/>
+                        <img src={item.img} alt=""/>
                     </div>
                     <p className="cat-name">{item.name}</p>
                 </div> 

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
 
+.category-page {
+    margin-top: 30px;
+}
+
 .icons-block {
     margin: 30px;
 }
@@ -31,12 +35,12 @@ h2 {
     color: #84ABC7;
 }
 
-.addIcon {
-    color: #84ABC7;
-}
+// .add-icon {
+    
+// }
 
 .cat-block {
-    margin: 20px;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     // flex-direction: row;
@@ -56,11 +60,13 @@ h2 {
     color: #fff;
     font-size: 13px;
     text-align: center;
+    padding-top: 15px;
 }
 
 .cat-icon {
     color: rgb(40, 54, 65);
-    margin: 10px;
+    // margin: 10px;
+    height: 35px;
     align-items: center;
 
 }
