@@ -1,5 +1,5 @@
 import './App.css';
-import { AddCategory }from './components/newCategory/newCategory/newCategory';
+import { AddCategory }from './components/newCategory/newCategory';
 
 function App() {
   return (
