@@ -7,7 +7,6 @@ export function EnteredDataHandler(props: NewData) {
     const enteredData: number = props.enteredData;
     const dateTrans: Date = props.dateTrans;
     console.log(idTrans, categoryId, enteredData, dateTrans);
-    
 }
 
 GetFetch()
