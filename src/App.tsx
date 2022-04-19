@@ -12,7 +12,7 @@ import { store } from "./components/store/index"
 import AllCategories from "./components/AllCategories/AllCategories";
 import { AddCategory } from './components/newCategory/newCategory/newCategory';
 import Switcher from "./components/Switcher/Switcher";
-import KeyBoard from "./components/KeyBoard/Keyboard";
+import KeyBoard from "./components/KeyBoard/KeyBoard";
 
 function App() {
 
