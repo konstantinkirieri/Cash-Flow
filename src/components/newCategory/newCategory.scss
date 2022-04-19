@@ -2,7 +2,7 @@
     &-header {
         display: flex;
         margin-top: 60px;
-        margin-bottom: 55px;
+        margin-bottom: 30px;
     }
 
     &-title {
@@ -24,8 +24,10 @@
     }
 
     &-field {
+        width: 313px;
+        text-align: right;
         background: none;
-        outline: none;
+        // outline: none;
         border: none;
         border-bottom: 1px solid #D2CECE;
         margin-bottom: 28px;
@@ -36,18 +38,10 @@
         font-size: 18px;
         line-height: 21px;
 
-        &::placeholder {
-            margin-bottom: 14px;
-            color:#FFFFFF;
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 18px;
-            line-height: 21px;
-            
-            padding-left: 5px;
+        &:hover {
+            border-color: black;
+            cursor: pointer;
         }
-
     }
 
     &-tick {
@@ -82,7 +76,7 @@
         line-height: 21px;
 
         &::after {
-            content: url(../../../../public/images/category-select.png);
+            content: url(../../../public/images/category-select.png);
             position: absolute;
             top: 16px;
             right: -14px;
@@ -92,24 +86,45 @@
             transition:.25s all ease;
         }
     }
+}
 
-    &-select {
-        appearance:none;
-        outline:0;
-        box-shadow:none;
-        border:0!important;
-        background: none;
-        flex: 1;
-        padding: 0 .5em;
-        color:#fff;
-        cursor: pointer;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 21px;
-        margin-bottom: -26px;
-        margin-left: -2px;
+
+.form-control {
+    width: 313px;
+    &::after {
+      position: absolute;
+      top: 13px;
+      right: -17px;
+      padding: 0 1em;
+      cursor: nonepointer;
+      pointer-events:none;
+      transition:.25s all ease;
     }
+}
+  
+#demo-simple-select-standard-label {
+    padding: 0;
+    margin-top: 10px;
+    margin-left: -6px;
+}
+  
+.icon-text {
+    color: white;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.input-placeholder {
+    margin-left: 6px;
+    margin-top: -14px;
+    margin-bottom: -14px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
 }
  

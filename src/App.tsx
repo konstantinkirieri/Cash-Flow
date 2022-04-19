@@ -10,7 +10,7 @@ import React from "react";
 import { Provider } from "react-redux"
 import { store } from "./components/store/index"
 import AllCategories from "./components/AllCategories/AllCategories";
-import { AddCategory } from './components/newCategory/newCategory/newCategory';
+import { AddCategory } from './components/newCategory/newCategory';
 import Switcher from "./components/Switcher/Switcher";
 import KeyBoard from "./components/KeyBoard/Keyboard";
 
