@@ -1,3 +1,4 @@
+import React from 'react';
 import { SetStateAction, useState } from 'react';
 import './newCategory.scss'
 
