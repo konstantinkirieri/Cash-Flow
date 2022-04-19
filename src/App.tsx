@@ -10,9 +10,8 @@ import React from "react";
 import { Provider } from "react-redux"
 import { store } from "./components/store/index"
 import AllCategories from "./components/AllCategories/AllCategories";
-import { AddCategory } from './components/newCategory/newCategory';
 import Switcher from "./components/Switcher/Switcher";
-import KeyBoard from "./components/KeyBoard/Keyboard";
+import { AddCategory }from './components/newCategory/newCategory';
 
 function App() {
 
@@ -26,16 +25,16 @@ function App() {
           <Link to="/">
             Home
           </Link>
-          <Link to='/category'>
+          {/* <Link to='/category'>
             Category
-          </Link>
-          <Link to='/report'>
+          </Link> */}
           <Link to='/allCategories'>
             All Categories
           </Link>
           <Link to='/switch'>
             Switcher
           </Link>
+          <Link to='/report'>
             Report
           </Link>
           <Link to='/history'>
@@ -44,9 +43,6 @@ function App() {
           <Link to='/addcategory'>
             Add Category
           </Link>         
-          <Link to='/KeyBoard'>
-            KeyBoard
-          </Link>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/report" element={<Report />} />
@@ -55,7 +51,6 @@ function App() {
             <Route path="/addcategory" element={<AddCategory />} />
             <Route path="/allCategories" element={<AllCategories />} />
             <Route path="/switch" element={<Switcher />} />
-            <Route path="/KeyBoard" element={<KeyBoard />} />
           </Routes>
         </BrowserRouter>
       </Provider>

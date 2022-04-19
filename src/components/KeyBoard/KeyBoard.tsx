@@ -52,13 +52,13 @@ function KeyBoard() {
                     9
                 </button>
                 <div className="keybrd-btn">
-                    <img src="../../public/images/ok-btn.png" alt="ok" />
+                    <img className="img-btn" src="../images/Icons/ok.png" alt="ok" />
                 </div>
                 <button className="keybrd-btn" value="0" onClick={clickBtn}>
                     0
                 </button>
                 <div className="keybrd-btn" onClick={deleteValue}>
-                    -
+                    <img className="img-btn" src="../images/Icons/back_arrow.png" alt=""/>
                 </div>
             </div>
         </form>
