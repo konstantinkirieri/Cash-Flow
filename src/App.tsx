@@ -1,7 +1,7 @@
 //import Calendar from "./components/Calendar/Calendar";
 import { Home } from "./components/Home/Home"
 import { History } from "./components/History/History";
-import Category from "./components/Category/Category";
+import Category, { categoriesList } from "./components/Category/Category";
 import { Report } from "./components/Report/Report";
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import "./app.scss";
@@ -49,7 +49,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/report" element={<Report />} />
             <Route path="/history" element={<History />} />
-            <Route path="/category" element={<Category />} />
+            <Route path="/category" element={<Category cats={categoriesList} />} />
             <Route path="/addcategory" element={<AddCategory />} />
             <Route path="/allCategories" element={<AllCategories />} />
             <Route path="/switch" element={<Switcher />} />

@@ -10,7 +10,7 @@ export function Home() {
             <h2 className="greeting">Welcome back!</h2>
             <Authorization />
             <button className="btnLog" onClick={() => {
-                navigate("/report")
+                navigate("/switch")
             }}>Sign in</button>
     </div>
 }

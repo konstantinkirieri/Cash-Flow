@@ -5,7 +5,7 @@ import { Category } from "../../model";
 // import AddIcon from '@mui/icons-material/Add';
 import "./category.scss";
 
-export const caregoriesList: Category[] = [
+export const categoriesList: Category[] = [
     {
         id: 1,
         typeId: 2,
@@ -71,26 +71,29 @@ export const caregoriesList: Category[] = [
     },
   ]
 
-const Categories: React.FC = () => {
-  return (
-      <div className="cat-block">
-            {caregoriesList.map((item) => (
-                
-                <div className="cat-item" key={item.id}>
+export const Categories: React.FC<{cats: Category[]}> = ({cats}) => {
+    console.log(cats);
+
+    return (
+        <div className="cat-block">
+                {cats.map((item) => (
+                    
+                    <div className="cat-item" key={item.id}>
+                        <div className="cat-icon">
+                            <img src={item.img} alt=""/>
+                        </div>
+                        <p className="cat-name">{item.name}</p>
+                    </div> 
+                ))
+                }
+                {/* <div className="cat-item">
                     <div className="cat-icon">
-                        <img src={item.img} alt=""/>
+                        <img className="cat-icon" src="../images/Icons/all_cat.png" alt=""/>
                     </div>
-                    <p className="cat-name">{item.name}</p>
-                </div> 
-            ))
-            }
-            {/* <div className="cat-item">
-                <div className="cat-icon">
-                    <img className="cat-icon" src="../images/Icons/all_cat.png" alt=""/>
-                </div>
-                <p className="cat-name">All Categories</p>
-            </div> */}
-        </div>
-)}
+                    <p className="cat-name">All Categories</p>
+                </div> */}
+            </div>
+    )
+}
 
 export default Categories;

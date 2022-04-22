@@ -36,3 +36,13 @@
 .inc-btn:focus {
     background-color: $color-5;
 }
+
+.active-btn {
+    background-color: $color-5;
+    color: $color-0;
+    width: 50%;
+    font-size: 18px;
+    text-align: center;
+    margin: 3px;
+    border: none;
+}
