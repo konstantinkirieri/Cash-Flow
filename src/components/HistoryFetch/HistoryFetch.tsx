@@ -81,7 +81,7 @@ export const HistoryFetch = () => {
         cleanupFunction = false;
         setLoading(false);
       });
-    }, []);
+    }, [items]);
     
     return (
       <div className="historyPage">

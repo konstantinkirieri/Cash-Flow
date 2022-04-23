@@ -22,6 +22,7 @@
     import storage from "redux-persist/lib/storage";
     import { persistStore, persistReducer } from "redux-persist";
     import { itemsReducer } from "./history/reducer";
+    import { homeReducer } from "./auth/reducer";
     
     declare global {
             interface Window {
@@ -34,11 +35,14 @@
     const config = {
       key: "CashFlow",
       storage,
-      blacklist: ["items"],
+      blacklist: ["home", "items"],
     };
     const persistedReducer = persistReducer(
       config,
-     itemsReducer,
+      combineReducers({
+        home: homeReducer,
+        items: itemsReducer
+      })  
     );
     
     export const store = createStore(

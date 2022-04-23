@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { signUp } from "../../services/firebase";
 import { Authorization } from "./Authorization";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom" ;
 
 export const SignUp = () => {
-    const navigate: any = useNavigate();
+    //const navigate: any = useNavigate();
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -24,9 +25,9 @@ export const SignUp = () => {
   return (
     <>
       <Authorization onSubmit={handleSignUp} error={error} loading={loading} />
-      <button className="btnLog" onClick={() => {
-                navigate("/")
-            }}>Sign in</button>
+      <Link to="/">
+      <button className="btnLog" >Sign in</button>
+      </Link>
     </>
   );
 };

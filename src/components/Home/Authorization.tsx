@@ -32,6 +32,7 @@ export function Authorization({ onSubmit, error, loading }: any): any {
           value={pass}
           onChange={handleChangePass}/>
         </div>
+        <input className="signBtn" type="submit" disabled={loading} />
     </form>
     {error && <h4>{error}</h4>}
     </>

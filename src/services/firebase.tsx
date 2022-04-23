@@ -5,7 +5,7 @@ import {
     signInWithEmailAndPassword,
     signOut,
   } from "firebase/auth";
-  import { getDatabase } from "firebase/database";
+  import { getDatabase, ref } from "firebase/database";
 
 
 const firebaseConfig = {
@@ -26,3 +26,4 @@ export const logIn = async (email:string, pass: any) =>
   await signInWithEmailAndPassword(auth, email, pass);
 export const logOut = async () => await signOut(auth);
 export const db = getDatabase(app);
+export const userRef = ref(db, 'user');
