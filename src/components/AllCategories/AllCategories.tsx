@@ -1,9 +1,8 @@
 import React from "react";
 import Categories, { categoriesList } from "../Category/Category";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
-// import AddIcon from '@mui/icons-material/Add';
 import "../Category/category.scss";
 
 
@@ -13,7 +12,9 @@ const AllCategories: React.FC = () => {
     <div className="category-page">
         <div className='category-menu'>
             <IconButton>  
-                <ArrowBackIosIcon className='arrowBack'></ArrowBackIosIcon>
+                <ArrowBackIosIcon className='arrowBack' onClick={() => {
+                    navigate("/switch")
+                     }}></ArrowBackIosIcon>
             </IconButton>    
             <h2>Categories</h2>
             <IconButton>

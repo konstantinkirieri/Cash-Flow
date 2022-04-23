@@ -25,15 +25,11 @@
     border-radius: 5px 0 0 5px;
 }
 
-.exp-btn:focus {
-    background-color: $color-5;
-}
-
 .inc-btn {
     border-radius: 0 5px 5px 0;
 }
 
-.inc-btn:focus {
+.btn_focus {
     background-color: $color-5;
 }
 

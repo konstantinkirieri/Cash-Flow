@@ -1,5 +1,6 @@
 import React from 'react';
 import { SetStateAction, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import './newCategory.scss'
 
 export const AddCategory = () => {
@@ -33,10 +34,15 @@ export const AddCategory = () => {
     console.log(newCategory);
   }
 
+  const navigate = useNavigate();
+
     return(
       <>
         <header className="category-header">
-          <img alt="back" src="images/category-back.png" width='24' height='24' />
+          <img alt="back" src="images/category-back.png" width='24' height='24' 
+              onClick={() => {
+                    navigate("/allCategories")
+                     }}/>
           <h3 className="category-title">
             New Category
           </h3>

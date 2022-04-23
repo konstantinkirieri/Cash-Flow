@@ -7,50 +7,29 @@ import { categoriesList } from "../Category/Category";
 
 const Switcher: React.FC = () => {
 
-    // const [catView, setCatView] = useState(false);
-
-    // const icons = {
-        //     inc: [{}, {}, {}],
-        //     exp: [{}, {}, {}]
-        // }
-        
-        // const expView: [] = Categories;
-        
-        // icons[catView].map((item: {}, index: number, arr: []) => {
-        //     if(index < 7) return (
-        //     )
-        // })
+    const [typeIcon, setTypeIcon] = useState<1 | 2>(2);
 
     const handleClickExpenses: any = () => {
-        const expenses = categoriesList.filter(v => v.typeId === 2).slice(0,7);
-        console.log(expenses);
-        
-        return (<Categories cats={expenses}/>);
+        setTypeIcon(2)
     }
 
     const handleClickIncome: any = () => {
-        const income = categoriesList.filter(v => v.typeId === 1);
-        console.log(income);
-        return (<Categories cats={income}/>);
+        setTypeIcon(1)
     };
     
     return (
         <>
-        <div className='switcher'>
+            <div className='switcher'>
 
-            <button className="exp-btn" autoFocus onClick={handleClickExpenses}>
-                Expenses
-            </button>    
-            <button className="inc-btn" onClick={handleClickIncome}>
-                Income
-            </button>
-        </div>
-        <div>
+                <button className={"exp-btn" + (typeIcon === 2 ? " btn_focus" : "")} onClick={handleClickExpenses}>
+                    Expenses
+                </button>    
+                <button className={"inc-btn" + (typeIcon === 1 ? " btn_focus" : "")} onClick={handleClickIncome}>
+                    Income
+                </button>
+            </div>
             <KeyBoard />
-        </div>
-        {/* <div>
-            <Categories cats={categoriesList} />
-        </div> */}
+            <Categories cats={categoriesList.filter(item => item.typeId === typeIcon)} />
         </>
     )
 }
