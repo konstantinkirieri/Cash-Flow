@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 
 export function Authorization({ onSubmit, error, loading }: any): any {
     const [email, setEmail] = useState("");
@@ -32,7 +33,7 @@ export function Authorization({ onSubmit, error, loading }: any): any {
           value={pass}
           onChange={handleChangePass}/>
         </div>
-        <input className="signBtn" type="submit" disabled={loading} />
+        <input className="btnLog" type="submit" value="Sign In" disabled={loading} />
     </form>
     {error && <h4>{error}</h4>}
     </>

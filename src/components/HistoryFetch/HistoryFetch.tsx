@@ -13,6 +13,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { CircularProgress } from "@mui/material";
 import { API } from "../GetFetch/GetFetch";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 // import {
 //   selectItemsError,
 //   selectItemsList,
@@ -22,7 +24,7 @@ import { API } from "../GetFetch/GetFetch";
 // import { useDispatch, useSelector } from "react-redux";
 
 export const HistoryFetch = () => {
-
+  const navigate = useNavigate();
   // 1ый вариант с использованием store =>
 
     // const dispatch = useDispatch();
@@ -93,7 +95,9 @@ export const HistoryFetch = () => {
             aria-label="open drawer"
             //sx={{ mr: 2 }}
           >
-            <ArrowBackIosIcon className="arrowBack"></ArrowBackIosIcon>
+            <ArrowBackIosIcon className="arrowBack" onClick={() => {
+                    navigate("/report")
+                     }}></ArrowBackIosIcon>
           </IconButton>
           <IconButton
             size="large"

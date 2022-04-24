@@ -37,7 +37,7 @@ export const AddCategory = () => {
   const navigate = useNavigate();
 
     return(
-      <>
+      <div className='newCategory'>
         <header className="category-header">
           <img alt="back" src="images/category-back.png" width='24' height='24' 
               onClick={() => {
@@ -68,6 +68,6 @@ export const AddCategory = () => {
             </select>
           </div>
         </main>
-      </>
+      </div>
     )
 }

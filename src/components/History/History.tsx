@@ -4,8 +4,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
 import Divider from '@mui/material/Divider';
 import "./history.scss";
-//import Report from '../Report/Report';
-//import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { HistoryItem } from '../HistoryItem/HistoryItem';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
 import React from 'react';
@@ -95,6 +94,7 @@ interface CList {
 }
 
 export const History = () => {
+  const navigate = useNavigate();
     return (
       <div className='historyPage'>
         <div className='historyMenu'>
@@ -105,7 +105,9 @@ export const History = () => {
             aria-label="open drawer"
             //sx={{ mr: 2 }}
           >  
-            <ArrowBackIosIcon className='arrowBack'></ArrowBackIosIcon>
+            <ArrowBackIosIcon className='arrowBack' onClick={() => {
+                    navigate("/report")
+                     }}></ArrowBackIosIcon>
           </IconButton>    
           <IconButton
             size="large"

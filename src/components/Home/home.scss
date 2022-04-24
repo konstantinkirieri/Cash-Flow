@@ -1,5 +1,6 @@
 @import '../../mixin.scss';
 
+
 h1, H1 {
     color: $color-7;
 }
@@ -7,25 +8,28 @@ h1, H1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 90vh;
+    //height: 90vh;
 }
 .greeting {
     @include font-style_greeting();
     color: $color-3;
     margin-top: 85px;
+    margin-bottom: 60px
 }
 .btnLog {
     @include font-style_second();
     @include buttonSet();
-    margin-bottom: 70px;
+    //margin-bottom: 70px;
     background-color: $color-8;
     color: $color-0;
+    width: -webkit-fill-available;
+    margin-top: 20px;
 }
 .authorization {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 140px;
+    //height: 140px;
 }
 input {
     @include buttonSet();

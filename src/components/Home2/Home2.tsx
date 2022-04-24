@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { logIn } from "../../services/firebase";
+import React from "react";
 import { Authorization } from "../Home/Authorization";
+import "../Home/home.scss";
 
 export const Home2 = () => {
   const [error, setError] = useState("");
@@ -20,12 +22,13 @@ export const Home2 = () => {
   };
 
   return (
-    <>
-      <h3>HOME</h3>
+      <div id="homeComponent">
+            <h1>CashFlow</h1>
+            <h2 className="greeting">Welcome back!</h2>
       <Authorization onSubmit={handleSignIn} error={error} loading={loading} />
       <Link to="/signup">
-        <button className="dlt_button signout">Sign Up</button>
+        <button className="btnLog">Sign Up</button>
       </Link>
-    </>
+      </div>
   );
 };

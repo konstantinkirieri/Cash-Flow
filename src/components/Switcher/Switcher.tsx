@@ -5,7 +5,7 @@ import "./switch.scss";
 import { categoriesList } from "../Category/Category";
 
 
-const Switcher: React.FC = () => {
+export const Switcher: React.FC = () => {
 
     const [typeIcon, setTypeIcon] = useState<1 | 2>(2);
 
@@ -34,4 +34,4 @@ const Switcher: React.FC = () => {
     )
 }
 
-export default Switcher;  
+//export default Switcher;  

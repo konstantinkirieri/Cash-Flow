@@ -6,14 +6,14 @@ import IconButton from '@mui/material/IconButton';
 import "../Category/category.scss";
 
 
-const AllCategories: React.FC = () => {
+export const AllCategories: React.FC = () => {
     const navigate = useNavigate();
     return (
     <div className="category-page">
         <div className='category-menu'>
             <IconButton>  
                 <ArrowBackIosIcon className='arrowBack' onClick={() => {
-                    navigate("/switch")
+                    navigate("/switcher")
                      }}></ArrowBackIosIcon>
             </IconButton>    
             <h2>Categories</h2>
@@ -31,4 +31,4 @@ const AllCategories: React.FC = () => {
     </div>
 )}
 
-export default AllCategories;
+//export default AllCategories;

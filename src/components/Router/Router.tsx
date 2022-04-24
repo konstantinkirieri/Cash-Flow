@@ -1,12 +1,10 @@
 import { Home2 } from "../Home2/Home2";
 import { HistoryFetch } from "../HistoryFetch/HistoryFetch";
-import Category from "../Category/Category";
-import { Report } from "../Report/Report";
+import Category, { categoriesList } from "../Category/Category";
+import { Switcher } from "../Switcher/Switcher";
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
-import "../../app.scss";
-// import "./mixin.scss";
-//import { Provider } from "react-redux"
-//import { store } from "../../components/store/index";
+//import "../../app.scss";
+import "./router.scss";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AddCategory } from '../newCategory/newCategory/newCategory';
@@ -15,7 +13,10 @@ import { signIn, signOut } from "../../components/store/auth/actions";
 import { PrivateRoute } from "../../HOCS/PrivateRoute";
 import { PublicOutlet } from "../../HOCS/PublicRoute";
 import { SignUp } from "../Home/SignUp";
-import { ConnectedHome } from "../Home/Home";
+import { Home } from "../Home/Home";
+import { AllCategories } from "../AllCategories/AllCategories";
+import { Report } from "../Report/Report";
+import React from "react";
 
 export const Router = () => {
 
@@ -35,47 +36,13 @@ export const Router = () => {
 
 
   return (
-//     <div className="App">
-//       <header className="App-header">
-//       </header>
-
-//       <Provider store={store}>
-//         <BrowserRouter>
-//           <Link to="/">
-//             Home
-//           </Link>
-//           <Link to='/category'>
-//             Category
-//           </Link>
-//           <Link to='/report'>
-//             Report
-//           </Link>
-//           <Link to='/history'>
-//             History
-//           </Link>
-//           <Link to='/addcategory'>
-//             Category
-//           </Link>
-//           <Routes>
-//             <Route path="/" element={<Home />} />
-//             <Route path="/report" element={<Report />} />
-//             <Route path="/history" element={<HistoryFetch />} />
-//             <Route path="/category" element={<Category />} />
-//             <Route path="/addcategory" element={<AddCategory />} />
-//           </Routes>
-//         </BrowserRouter>
-//       </Provider>
-
-//     </div>
-//   );
-// }
 
 
 <BrowserRouter>
       <ul className="links">
         <li className="mainLinks">
           <Link className="eachLink" to="/">
-            Home2
+            Auth
           </Link>
         </li>
         <li className="mainLinks">
@@ -83,6 +50,16 @@ export const Router = () => {
             Category
           </Link>
         </li>
+        <li className="mainLinks">
+        <Link to='/allCategories'>
+            All Categories
+          </Link>
+          </li>
+          <li className="mainLinks">
+          <Link to='/switcher'>
+            Switcher
+          </Link>
+          </li>
         <li className="mainLinks">
           <Link className="eachLink" to="/home">
             Home
@@ -112,12 +89,12 @@ export const Router = () => {
         <Route path="/signup" element={<PublicOutlet />}>
           <Route path="" element={<SignUp />} />
         </Route>
-        <Route path="report">
+        <Route path="switcher">
           <Route
             index
             element={
               <PrivateRoute>
-                <Report />
+                <Switcher />
               </PrivateRoute>
             }
           />
@@ -126,7 +103,7 @@ export const Router = () => {
           path="home"
           element={
             <PrivateRoute>
-              <ConnectedHome />
+              <Home />
             </PrivateRoute>
           }
         />
@@ -142,7 +119,15 @@ export const Router = () => {
           path="category"
           element={
             <PrivateRoute>
-              <Category />
+              <Category cats={categoriesList}/>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="allCategories"
+          element={
+            <PrivateRoute>
+              <AllCategories />
             </PrivateRoute>
           }
         />
@@ -151,6 +136,14 @@ export const Router = () => {
           element={
             <PrivateRoute>
               <AddCategory />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="report"
+          element={
+            <PrivateRoute>
+              <Report />
             </PrivateRoute>
           }
         />

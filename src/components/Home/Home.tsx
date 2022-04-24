@@ -6,6 +6,7 @@ import { changeName, toggleCheckbox } from "../../components/store/auth/actions"
 import { selectName } from "../../components/store/auth/selectors";
 import { onValue, set } from "firebase/database";
 import { logOut, userRef } from "../../services/firebase";
+import { Authorization } from "./Authorization";
 
 export const Home = ({ checkboxValue, setName, changeChecked }: any) => {
     const name = useSelector(selectName, shallowEqual);
@@ -20,20 +21,20 @@ export const Home = ({ checkboxValue, setName, changeChecked }: any) => {
         return unsubscribe;
   }, [setName]);
 
-const handleChangeText = (e: any) => {
-    setValue(e.target.value);
-  };
+// const handleChangeText = (e: any) => {
+//     setValue(e.target.value);
+//   };
 
-  const handleChange = () => {
-    changeChecked();
-  };
+//   const handleChange = () => {
+//     changeChecked();
+//   };
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    set(userRef, {
-      name: value,
-    });
-  };
+//   const handleSubmit = (e: any) => {
+//     e.preventDefault();
+//     set(userRef, {
+//       name: value,
+//     });
+//   };
 
   const handleLogOutClick = async () => {
     try {
@@ -47,7 +48,7 @@ const handleChangeText = (e: any) => {
       <div id="homeComponent">
             <h1>CashFlow</h1>
             <h2 className="greeting">Welcome back!</h2>
-      <input type="checkbox" checked={checkboxValue} onChange={handleChange} />
+      {/* <input type="checkbox" checked={checkboxValue} onChange={handleChange} />
       <form className="signForm" onSubmit={handleSubmit}>
         <input
           className="signInput"
@@ -56,9 +57,10 @@ const handleChangeText = (e: any) => {
           onChange={handleChangeText}
         />
         <input className="signBtn" type="submit" />
-      </form>
-      <button className="dlt_button signout" onClick={handleLogOutClick}>
-        SIGN OUT
+      </form> 
+      <Authorization />*/}
+      <button className="btnLog" onClick={handleLogOutClick}>
+        Sign Out
       </button>
     </div>
   );

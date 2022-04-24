@@ -7,16 +7,21 @@ import { OutputReport, DoughnutReport } from "../OutputReport/outputReport"
 import { itemsList } from "../../components/History/History"
 import React from "react";
 import { EnteredDataHandler } from "../EnteredData/EnteredDataHandler";
+import { useNavigate } from "react-router-dom";
 
 const income = [{amount: 16500}]
 const expences = itemsList
 
 export const Report = () => {
+  const navigate = useNavigate();
+
     return (
         <div className="report">
             <div className="reportMenu">
             <IconButton>
-                <HistoryIcon className="reportMenuBtn"/>
+                <HistoryIcon className="reportMenuBtn" onClick={() => {
+                    navigate("/history")
+                     }}/>
             </IconButton>
             <IconButton
             size="large"
