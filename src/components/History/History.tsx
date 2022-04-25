@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { HistoryItem } from '../HistoryItem/HistoryItem';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
 import React from 'react';
+import { logOut } from "../../services/firebase";
+import "../Switcher/switch.scss";
 // import { caregoriesList } from '../Category/Category'
 
 export const itemsList: IList[] = [
@@ -95,6 +97,14 @@ interface CList {
 
 export const History = () => {
   const navigate = useNavigate();
+  const handleLogOutClick = async () => {
+    try {
+      await logOut();
+    } catch (err) {
+      console.log(err);
+    }
+    navigate("/")
+  };
     return (
       <div className='historyPage'>
         <div className='historyMenu'>
@@ -109,15 +119,21 @@ export const History = () => {
                     navigate("/report")
                      }}></ArrowBackIosIcon>
           </IconButton>    
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            //sx={{ mr: 2 }}
-          >
-            <MenuIcon className='menu' />
-          </IconButton>
+          <details className="dropdownSummary">
+                <summary className="dropdownSummary">
+                <MenuIcon className='menu' />
+            </summary>
+            <div className="dropdownMenu">
+                <ul>
+                    <li className="dropdownItem" onClick={() => {
+                            navigate("/switcher")}}>Main</li>
+                    <li className="dropdownItem"onClick={() => {
+                            navigate("/addcategory")}}>Add category</li>
+                    <li className="dropdownItem signout"onClick={
+                             handleLogOutClick}>Sign Out</li>
+                </ul>
+            </div>
+            </details>
         </div>
         <h2 className='historyHeader'>History</h2>
         

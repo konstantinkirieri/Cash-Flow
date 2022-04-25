@@ -15,6 +15,8 @@ import { CircularProgress } from "@mui/material";
 import { API } from "../GetFetch/GetFetch";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { logOut } from "../../services/firebase";
+import "../Switcher/switch.scss";
 // import {
 //   selectItemsError,
 //   selectItemsList,
@@ -84,6 +86,15 @@ export const HistoryFetch = () => {
         setLoading(false);
       });
     }, [items]);
+
+    const handleLogOutClick = async () => {
+      try {
+        await logOut();
+      } catch (err) {
+        console.log(err);
+      }
+      navigate("/")
+    };
     
     return (
       <div className="historyPage">
@@ -99,15 +110,21 @@ export const HistoryFetch = () => {
                     navigate("/report")
                      }}></ArrowBackIosIcon>
           </IconButton>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            //sx={{ mr: 2 }}
-          >
-            <MenuIcon className="menu" />
-          </IconButton>
+          <details className="dropdownSummary">
+                <summary className="dropdownSummary">
+                <MenuIcon className='menu' />
+            </summary>
+            <div className="dropdownMenu">
+                <ul>
+                    <li className="dropdownItem" onClick={() => {
+                            navigate("/switcher")}}>Main</li>
+                    <li className="dropdownItem"onClick={() => {
+                            navigate("/addcategory")}}>Add category</li>
+                    <li className="dropdownItem signout"onClick={
+                             handleLogOutClick}>Sign Out</li>
+                </ul>
+            </div>
+            </details>
         </div>
         <h2 className="historyHeader">History</h2>
   

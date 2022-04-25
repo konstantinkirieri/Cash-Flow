@@ -1,5 +1,6 @@
 import { useState } from "react";
 import React from "react";
+import "./home.scss";
 
 export function Authorization({ onSubmit, error, loading }: any): any {
     const [email, setEmail] = useState("");

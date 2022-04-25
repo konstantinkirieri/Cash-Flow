@@ -21,7 +21,7 @@ export function Calendar() {
 
   if (outputMessage === currentDay) {
     return (
-      <>
+      <div className="calendarBox">
         <div className="dates">
           <button className="datesBtn left" onClick={handleClickDay}>
             Day
@@ -34,11 +34,11 @@ export function Calendar() {
           </button>
         </div>
         <div className="outputDate">Today</div>
-      </>
+      </div>
     );
   } else {
     return (
-      <>
+      <div className="calendarBox">
         <div className="dates">
           <button className="datesBtn left" onClick={handleClickDay}>
             Day
@@ -51,7 +51,7 @@ export function Calendar() {
           </button>
         </div>
         <div className="outputDate">{outputMessage}</div>
-      </>
+      </div>
     );
   }
 }

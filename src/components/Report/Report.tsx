@@ -8,12 +8,22 @@ import { itemsList } from "../../components/History/History"
 import React from "react";
 import { EnteredDataHandler } from "../EnteredData/EnteredDataHandler";
 import { useNavigate } from "react-router-dom";
+import { logOut } from "../../services/firebase";
+import "../Switcher/switch.scss";
 
 const income = [{amount: 16500}]
 const expences = itemsList
 
 export const Report = () => {
   const navigate = useNavigate();
+  const handleLogOutClick = async () => {
+    try {
+      await logOut();
+    } catch (err) {
+      console.log(err);
+    }
+    navigate("/")
+  };
 
     return (
         <div className="report">
@@ -23,15 +33,21 @@ export const Report = () => {
                     navigate("/history")
                      }}/>
             </IconButton>
-            <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon className='menu' />
-          </IconButton>
+            <details className="dropdownSummary">
+                <summary className="dropdownSummary">
+                <MenuIcon className='menu' />
+            </summary>
+            <div className="dropdownMenu">
+                <ul>
+                    <li className="dropdownItem" onClick={() => {
+                            navigate("/switcher")}}>Main</li>
+                    <li className="dropdownItem"onClick={() => {
+                            navigate("/addcategory")}}>Add category</li>
+                    <li className="dropdownItem signout"onClick={
+                             handleLogOutClick}>Sign Out</li>
+                </ul>
+            </div>
+            </details>
             </div>
             <h2 className="reportHeader">Report</h2>
             <Calendar />

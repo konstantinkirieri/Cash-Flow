@@ -37,6 +37,7 @@ h2 {
     // flex-direction: row;
     // justify-content: space-between;
     align-items: center;
+    justify-content: center;
 }
 
 .cat-item {
@@ -45,6 +46,7 @@ h2 {
     width: 50px;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .cat-name {

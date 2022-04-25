@@ -47,3 +47,16 @@ input {
         flex-direction: column;
         justify-content: space-between;
     }
+
+    @media screen and (min-width: 768px) {
+        .authorization {
+            width: 50%;
+            align-self: center;
+        }
+        .signup {
+            width: 50%;
+        }
+        .signupLink {
+            text-align: center;
+        }
+    }
