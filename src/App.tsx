@@ -12,8 +12,7 @@ import { store } from "./components/store/index"
 import AllCategories from "./components/AllCategories/AllCategories";
 import { AddCategory } from './components/newCategory/newCategory/newCategory';
 import Switcher from "./components/Switcher/Switcher";
-
-
+import Icons from "./components/Icons/Icons";
 
 function App() {
 
@@ -45,6 +44,9 @@ function App() {
           <Link to='/addcategory'>
             Add Category
           </Link>
+          <Link to='/icons'>
+            Icons
+          </Link>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/report" element={<Report />} />
@@ -53,6 +55,7 @@ function App() {
             <Route path="/addcategory" element={<AddCategory />} />
             <Route path="/allCategories" element={<AllCategories />} />
             <Route path="/switch" element={<Switcher />} />
+            <Route path="/icons" element={<Icons />} />
           </Routes>
         </BrowserRouter>
       </Provider>
