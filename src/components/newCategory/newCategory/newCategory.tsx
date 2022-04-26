@@ -13,17 +13,17 @@ export const AddCategory = () => {
   const [title, setTitle] = useState('');
   const [icon, setIcon] = useState('');
   
-  const handleChange = (e: { target: { value: SetStateAction<string>; }; }) => {
-    setAmount(e.target.value);
-  }
+  // const handleChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+  //   setAmount(e.target.value);
+  // }
 
   const handleTitleChange = (e: { target: { value: SetStateAction<string>; }; }) => {
     setTitle(e.target.value);
   }
 
-  const handleIconChange = (e: { target: { value: SetStateAction<string>; }; }) => {
-    setIcon(e.target.value);
-  }
+  // const handleIconChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+  //   setIcon(e.target.value);
+  // }
 
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault()

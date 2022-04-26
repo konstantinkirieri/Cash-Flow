@@ -72,7 +72,7 @@ export const iconsCatalog: Icon[] = [
     }
 ]
 
-const Icons: React.FC = () => {
+export const Icons: React.FC = () => {
     const navigate = useNavigate();
     return (
         <>
@@ -98,5 +98,3 @@ const Icons: React.FC = () => {
         </div>
         </>
 )}
-
-export default Icons;
