@@ -57,6 +57,7 @@ export const AddCategory = () => {
       </div>
         <Divider className='divider' />
         <div className="category-item">
+            <span>Name</span>
             <input value={title} onChange={handleTitleChange} className="category-field" />
           </div>
         <Divider className='divider' />
