@@ -1,6 +1,5 @@
 import { createStore } from 'redux';
 import { itemsReducer } from './items/reducer';
-// import { setData } from './getData/reducer';
 
 declare global {
     interface Window {
