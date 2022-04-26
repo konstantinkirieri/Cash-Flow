@@ -12,6 +12,7 @@ import { store } from "./components/store/index"
 import AllCategories from "./components/AllCategories/AllCategories";
 import Switcher from "./components/Switcher/Switcher";
 import { AddCategory }from './components/newCategory/newCategory';
+import { IconList }from './components/newCategory/iconList';
 
 function App() {
 
@@ -42,13 +43,14 @@ function App() {
           </Link>
           <Link to='/addcategory'>
             Add Category
-          </Link>         
+          </Link>      
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/report" element={<Report />} />
             <Route path="/history" element={<History />} />
             <Route path="/category" element={<Category />} />
             <Route path="/addcategory" element={<AddCategory />} />
+            <Route path="/iconList" element={<IconList />} />
             <Route path="/allCategories" element={<AllCategories />} />
             <Route path="/switch" element={<Switcher />} />
           </Routes>

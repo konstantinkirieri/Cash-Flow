@@ -86,6 +86,13 @@
             transition:.25s all ease;
         }
     }
+
+    &-img {
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 
@@ -102,19 +109,50 @@
     }
 }
   
-#demo-simple-select-standard-label {
+#demo-simple-select-readonly-label {
     padding: 0;
     margin-top: 10px;
     margin-left: -6px;
 }
-  
-.icon-text {
-    color: white;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
+
+.icon {
+
+    &-text {
+        color: white;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    &-parent {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-list {
+        height: 35px;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    &-item {
+        align-items: center;
+        margin: 5px;
+        width: 50px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-component {
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 .input-placeholder {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import MenuItem from '@mui/material/MenuItem';
+// import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
@@ -57,7 +57,7 @@ export const AddCategory = () => {
   return(
     <>
       <header className="category-header">
-        <img alt="back" src="images/category-back.png" width='24' height='24' onClick={() => { navigate("/allCategories")}} />
+        <img className="category-img" alt="back" src="images/category-back.png" width='24' height='24' onClick={() => { navigate("/allCategories")}} />
         <h3 className="category-title">
           New Category
         </h3>
@@ -76,26 +76,17 @@ export const AddCategory = () => {
           className="form-control"
           variant="outlined"
           sx={{ m: 1, minWidth: 120, margin: 0 }}>
-          <InputLabel id="demo-simple-select-standard-label"><span className="icon-text">Icon</span></InputLabel>
+          <InputLabel id="demo-simple-select-readonly-label"><span className="icon-text">Icon</span></InputLabel>
           <Select
-            labelId="demo-simple-select-standard-label"
-            id="demo-simple-select-standard"
+            labelId="demo-simple-select-readonly-label"
+            id="demo-simple-select-readonly"
             value={icon}
             onChange={handleIconChange}
-            IconComponent={props => <img {...props} alt="House" src="images/category-select.png" />}
+            IconComponent={props => <img {...props} alt="House" className="icon-component" src="images/default.png" onClick={() => { navigate("/iconList")}} />}
             label="Icon"
+            onClick={() => { navigate("/iconList")}}
+            inputProps={{ readOnly: true }}
           >
-            {/* <MenuItem value="">
-              <em>None</em>
-            </MenuItem> */}
-            <MenuItem value={'House'}><img alt="House" src="images/Icons/house.png"/></MenuItem>
-            <MenuItem value={'Food'}><img alt="Food" src="images/Icons/food.png"/></MenuItem>
-            <MenuItem value={'Sport'}><img alt="Sport" src="images/Icons/sport.png"/></MenuItem>
-            <MenuItem value={'Health'}><img alt="Health" src="images/Icons/health.png"/></MenuItem>
-            <MenuItem value={'Car'}><img alt="Car" src="images/Icons/car.png"/></MenuItem>
-            <MenuItem value={'Cloths'}><img alt="Cloths" src="images/Icons/cloth.png"/></MenuItem>
-            <MenuItem value={'Lunch'}><img alt="Lunch" src="images/Icons/lunch.png"/></MenuItem>
-            <MenuItem value={'Relax'}><img alt="Relax" src="images/Icons/relax.png"/></MenuItem>
           </Select>
         </FormControl>
       </main>
