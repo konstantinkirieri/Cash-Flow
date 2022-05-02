@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./router.scss";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { AddCategory } from '../newCategory/newCategory/newCategory';
+import  AddCategory from '../NewCategory/NewCategory';
 import { auth } from "../../services/firebase";
 import { signIn, signOut } from "../../components/store/auth/actions";
 import { PrivateRoute } from "../../HOCS/PrivateRoute";
@@ -14,7 +14,7 @@ import { SignUp } from "../Home/SignUp";
 import { Home } from "../Home/Home";
 import { AllCategories } from "../AllCategories/AllCategories";
 import { Report } from "../Report/Report";
-import { Icons } from "../Icons/Icons";
+import { Icons } from "../NewCategory/Icons";
 import React from "react";
 
 export const Router = () => {

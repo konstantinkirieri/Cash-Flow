@@ -52,7 +52,7 @@ export const iconsCatalog: Icon[] = [
     },
     {
         id: 11,
-        img: "../images/Icons/IconsCatalog/10.png",
+        img: "../images/Icons/IconsCatalog/11.png",
     },
     {
         id: 12,
@@ -88,7 +88,10 @@ export const Icons: React.FC = () => {
         <div className="cat-block">
         {iconsCatalog.map((item) => (
             
-            <div className="cat-item" key={item.id}>
+            <div className="cat-item" key={item.id}
+            onClick={() => {
+                navigate("/addcategory")
+            }}>
                 <div className="cat-icon">
                     <img src={item.img} alt=""/>
                 </div>
