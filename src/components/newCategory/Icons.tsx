@@ -1,7 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import IconButton from '@mui/material/IconButton';
 import "../Category/category.scss";
 
 export interface Icon {
@@ -72,26 +69,22 @@ export const iconsCatalog: Icon[] = [
     }
 ]
 
-export const Icons: React.FC = () => {
-    const navigate = useNavigate();
+interface PropsType {
+    callBack: (img: string) => void
+}
+
+export const Icons: React.FC<PropsType> = (props) => {
+    console.log(props);
     return (
         <>
-        <div className='category-menu'>
-            <IconButton>  
-                <ArrowBackIosIcon className='arrowBack' onClick={() => {
-                    navigate("/addcategory")
-                        }}></ArrowBackIosIcon>
-            </IconButton>    
-            <h2>Icons</h2>
-            <div className="blank"></div>
+        <div className='icons-cat'>
+            <h2>Pick an icon</h2>
         </div>
         <div className="cat-block">
         {iconsCatalog.map((item) => (
             
             <div className="cat-item" key={item.id}
-            onClick={() => {
-                navigate("/addcategory")
-            }}>
+            onClick={() => props.callBack(item.img)}>
                 <div className="cat-icon">
                     <img src={item.img} alt=""/>
                 </div>

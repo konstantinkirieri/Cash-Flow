@@ -14,7 +14,6 @@ import { SignUp } from "../Home/SignUp";
 import { Home } from "../Home/Home";
 import { AllCategories } from "../AllCategories/AllCategories";
 import { Report } from "../Report/Report";
-import { Icons } from "../NewCategory/Icons";
 import React from "react";
 
 export const Router = () => {
@@ -82,14 +81,6 @@ export const Router = () => {
           element={
             <PrivateRoute>
               <AddCategory />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="icons"
-          element={
-            <PrivateRoute>
-              <Icons />
             </PrivateRoute>
           }
         />
