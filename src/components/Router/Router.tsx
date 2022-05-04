@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./router.scss";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import  AddCategory from '../NewCategory/NewCategory';
+import AddCategory from "../newCategory/NewCategory";
 import { auth } from "../../services/firebase";
 import { signIn, signOut } from "../../components/store/auth/actions";
 import { PrivateRoute } from "../../HOCS/PrivateRoute";
