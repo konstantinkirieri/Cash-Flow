@@ -24,29 +24,43 @@ h1, H1 {
     color: $color-0;
     width: -webkit-fill-available;
     margin-top: 20px;
+    cursor: pointer;
 }
 .authorization {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-bottom: 5px;
     //height: 140px;
 }
 input {
     @include buttonSet();
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid $color-9;
+    //border-bottom: 1px solid $color-9;
     border-radius: 0;
     color: $color-3;
+    //padding-left: 10px;
 }
-    input:focus, input:hover, input:active {
-        border: none;
-    }
-    .auth_elem {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+input:focus, input:hover, input:active {
+    border: none;
+}
+
+.authDevider {
+    background-color: $color-9;
+    margin-bottom: 35px !important;
+}
+//input:-internal-autofill-selected {
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+    border: none;
+  }
+    // .auth_elem {
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: space-between;
+    // }
 
     @media screen and (min-width: 768px) {
         .authorization {
@@ -55,8 +69,22 @@ input {
         }
         .signup {
             width: 50%;
+            align-self: center;
         }
         .signupLink {
             text-align: center;
         }
+    }
+
+    .signupArrow {
+        display: flex !important;
+        justify-content: left !important;
+        width: 40px;
+    }
+    .authError {
+        color: red;
+        text-align: center;
+    }
+    .signupHeader {
+        display: flex;
     }

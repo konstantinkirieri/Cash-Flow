@@ -139,7 +139,7 @@ export const History = () => {
         
         <HistoryCalendar /> 
         <Divider className='divider' />
-        <List>
+        <List className='historyList'>
           {itemsList.map((item) => (
             
               <div key={item.id}>

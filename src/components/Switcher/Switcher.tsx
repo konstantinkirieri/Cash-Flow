@@ -48,7 +48,7 @@ export const Switcher: React.FC = () => {
                 <ul>
                     <li className="dropdownItem" onClick={() => {
                             navigate("/addcategory")}}>Add category</li>
-                    <li className="dropdownItem"onClick={() => {
+                    <li className="dropdownItem" onClick={() => {
                             navigate("/history")}}>History</li>
                     <li className="dropdownItem signout"onClick={
                              handleLogOutClick}>Sign Out</li>

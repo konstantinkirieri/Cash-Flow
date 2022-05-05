@@ -25,7 +25,7 @@ export const HistoryItem = ({ item }: any) => {
             <IconButton onClick={handleDeleteClick}><DeleteForeverIcon className='deleteBtn'></DeleteForeverIcon>
             </IconButton>
           </ListItem>
-          <Divider className='divider'/>
+          <Divider className='dividerItem'/>
         </>
       );
     };

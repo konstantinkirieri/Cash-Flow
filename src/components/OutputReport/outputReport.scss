@@ -44,3 +44,11 @@
     text-align: center;
     margin: 20px;
 }
+
+@media screen and (min-width: 768px) {
+    #income,
+    #expences {
+        width: 50%;
+        margin: 25px auto;
+    }
+}

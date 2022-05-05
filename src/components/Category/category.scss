@@ -31,7 +31,7 @@ h2 {
 }
 
 .cat-block {
-    margin: 20px;
+    margin: 15px;
     display: flex;
     flex-wrap: wrap;
     // flex-direction: row;
@@ -88,3 +88,10 @@ h2 {
 //  background-size: cover;
 //  padding: 5vh;
 // }
+@media screen and (min-width: 768px) {
+    .cat-block {
+        width: 50%;
+        margin: auto;
+        justify-content: center;
+    }
+}

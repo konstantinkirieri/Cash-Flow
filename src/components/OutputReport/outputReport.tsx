@@ -2,7 +2,7 @@ import "./outputReport.scss"
 import { Chart, ArcElement, DoughnutController } from 'chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Doughnut } from 'react-chartjs-2'
-import React from "react"
+import React from "react";
 Chart.register(ArcElement)
 Chart.register(DoughnutController)
 Chart.register(ChartDataLabels)

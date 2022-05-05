@@ -11,17 +11,16 @@ export const AllCategories: React.FC = () => {
     return (
     <div className="category-page">
         <div className='category-menu'>
-            <IconButton>  
-                <ArrowBackIosIcon className='arrowBack' onClick={() => {
+            <IconButton onClick={() => {
                     navigate("/switcher")
-                     }}></ArrowBackIosIcon>
+                     }}>  
+                <ArrowBackIosIcon className='arrowBack'></ArrowBackIosIcon>
             </IconButton>    
             <h2>Categories</h2>
-            <IconButton>
-                <img className="add-icon" src="../images/Icons/add_cat.png" alt=""
-                    onClick={() => {
+            <IconButton onClick={() => {
                     navigate("/addcategory")
                      }}>
+                <img className="add-icon" src="../images/Icons/add_cat.png" alt="">
                 </img>
             </IconButton>
         </div>

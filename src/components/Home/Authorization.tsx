@@ -1,6 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import "./home.scss";
+import { Divider } from "@mui/material";
 
 export function Authorization({ onSubmit, error, loading }: any): any {
     const [email, setEmail] = useState("");
@@ -20,23 +21,22 @@ export function Authorization({ onSubmit, error, loading }: any): any {
     setEmail("");
     setPass("");
   };
+
     return (
         <>
         <form className="authorization" onSubmit={handleSubmit}>
-        <div className="auth_elem">
             <span>e-mail</span>
             <input type='text' value={email}
           onChange={handleChangeEmail}/>
-        </div>
-        <div className="auth_elem">
+          <Divider className="authDevider" />
             <span>password</span>
             <input type="password"
           value={pass}
           onChange={handleChangePass}/>
-        </div>
-        <input className="btnLog" type="submit" value="Sign In" disabled={loading} />
+          <Divider className="authDevider" />
+        <button className="btnLog" type="submit" disabled={loading}>Sign In</button>
     </form>
-    {error && <h4>{error}</h4>}
+    {error && <h4 className="authError">{error}</h4>}
     </>
     )
 }

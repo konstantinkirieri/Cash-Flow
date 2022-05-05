@@ -7,51 +7,36 @@ export function Calendar() {
   let currentDay: number | string = new Date().getDate();
   let currentMonth: number | string = new Date().toLocaleString("eng", { month: "long" });
   let currentYear: number = new Date().getFullYear();
-  
+
   let [outputMessage, setDate] = useState<string | number>(currentMonth);
-  const handleClickYear = () => {
+  const handleClickYear: any = () => {
     setDate(currentYear);
   };
-  const handleClickDay = () => {
+  const handleClickDay: any = () => {
     setDate(currentDay);
   };
-  const handleClickMonth = () => {
+  const handleClickMonth: any = () => {
     setDate(currentMonth);
   };
 
   if (outputMessage === currentDay) {
+    outputMessage = "Today"
+  }
+    
     return (
       <div className="calendarBox">
         <div className="dates">
-          <button className="datesBtn left" onClick={handleClickDay}>
+          <button className={outputMessage === 'Today' ? 'datesBtnFocus left' : 'datesBtn left'} onClick={handleClickDay}>
             Day
           </button>
-          <button className="datesBtn" onClick={handleClickMonth}>
+          <button className={outputMessage === currentMonth ? 'datesBtnFocus' : 'datesBtn'} onClick={handleClickMonth}>
             Month
           </button>
-          <button className="datesBtn right" onClick={handleClickYear}>
+          <button className={outputMessage === currentYear ? 'datesBtnFocus right' : 'datesBtn right'} onClick={handleClickYear}>
             Year
           </button>
         </div>
-        <div className="outputDate">Today</div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="calendarBox">
-        <div className="dates">
-          <button className="datesBtn left" onClick={handleClickDay}>
-            Day
-          </button>
-          <button className="datesBtn" onClick={handleClickMonth}>
-            Month
-          </button>
-          <button className="datesBtn right" onClick={handleClickYear}>
-            Year
-          </button>
-        </div>
-        <div className="outputDate">{outputMessage}</div>
-      </div>
+        <h2 className="outputDate">{outputMessage}</h2>
+       </div>
     );
   }
-}

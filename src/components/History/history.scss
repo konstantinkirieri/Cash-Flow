@@ -37,3 +37,15 @@
 .arrowBack {
     color: #84ABC7;
 }
+
+@media screen and (min-width: 768px) {
+    .divider {
+        width: 50%;
+        margin: auto !important;
+    }
+    .historyList {
+        width: 50%;
+        margin: auto !important;
+    }
+
+}
