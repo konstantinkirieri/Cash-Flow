@@ -5,8 +5,8 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
 import "../Category/category.scss";
 
-
 export const AllCategories: React.FC = () => {
+
     const navigate = useNavigate();
     return (
     <div className="category-page">
@@ -20,14 +20,12 @@ export const AllCategories: React.FC = () => {
             <IconButton>
                 <img className="add-icon" src="../images/Icons/add_cat.png" alt=""
                     onClick={() => {
-                    navigate("/addcategory")
-                     }}>
+                      navigate("/addcategory")
+                    }}>
                 </img>
             </IconButton>
         </div>
-
-        <Categories cats={categoriesList} />
-
+        <Categories cats={categoriesList}  />
     </div>
 )}
 

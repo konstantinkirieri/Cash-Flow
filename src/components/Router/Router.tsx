@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./router.scss";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import  AddCategory from '../NewCategory/NewCategory';
+import { AddCategory } from '../newCategory/NewCategory';
 import { auth } from "../../services/firebase";
 import { signIn, signOut } from "../../components/store/auth/actions";
 import { PrivateRoute } from "../../HOCS/PrivateRoute";
@@ -15,6 +15,7 @@ import { Home } from "../Home/Home";
 import { AllCategories } from "../AllCategories/AllCategories";
 import { Report } from "../Report/Report";
 import React from "react";
+import { useCategoryStore } from "../store/categories/toCategory";
 
 export const Router = () => {
 
@@ -32,6 +33,14 @@ export const Router = () => {
     return () => unsubscribe();
   }, [dispatch]);
 
+
+  const [
+    categories,
+    createCategory
+  ] = useCategoryStore(state => [
+    state.categories,
+    state.createCategory,
+  ]);
 
   return (
 <BrowserRouter>
@@ -80,7 +89,11 @@ export const Router = () => {
           path="addcategory"
           element={
             <PrivateRoute>
-              <AddCategory />
+              <AddCategory onAdd={(title: string, icon: string) => {
+                if(title && icon) {
+                  createCategory(title, icon)
+                }
+              }} />
             </PrivateRoute>
           }
         />

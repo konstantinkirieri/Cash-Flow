@@ -1,8 +1,9 @@
 import React from "react";
 import { Category } from "../../model";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import "./category.scss";
-
+import { useCategoryStore } from "../store/categories/toCategory";
+import { ItemCategory } from "../Category-items/index";
 
 export const categoriesList: Category[] = [
     {
@@ -70,32 +71,47 @@ export const categoriesList: Category[] = [
     },
 ]
 
-export const Categories: React.FC<{cats: Category[]}> = ({cats}) => {
+export const Categories: React.FC<{cats: Category[]}> = ({cats}: any) => {
     
+    const [
+        categories,
+    ] = useCategoryStore(state => [
+        state.categories,
+        state.createCategory,
+    ]);
+
     const navigate = useNavigate();
 
     return (
         <div className="cat-block">
-                {cats.map((item) => (
-                    
-                    <div className="cat-item" key={item.id}>
-                        <div className="cat-icon">
-                            <img src={item.img} alt=""/>
-                        </div>
-                        <p className="cat-name">{item.name}</p>
-                    </div> 
-                ))
-                }
-                <div className="cat-item">
+            {cats.map((item: any) => (
+                <div className="cat-item" key={item.id}>
                     <div className="cat-icon">
-                        <img className="cat-icon" src="../images/Icons/all_cat.png" alt=""
+                        <img src={item.img} alt=""/>
+                    </div>
+                    <p className="cat-name">{item.name}</p>
+                </div> 
+            ))}
+            {!categories.length && (
+                console.log('There are no categories.')
+            )}
+            {categories.map((category) => (
+                <ItemCategory
+                  id={category.id}
+                  name={category.name}
+                  img={category.img}
+                />
+            ))}
+            <div className="cat-item">
+                <div className="cat-icon">
+                    <img className="cat-icon" src="../images/Icons/all_cat.png" alt=""
                         onClick={() => {
                             navigate("/allCategories")
-                             }}/>
-                    </div>
-                    <p className="cat-name">All Categories</p>
+                        }}/>
                 </div>
+                <p className="cat-name">All Categories</p>
             </div>
+        </div>
     )
 }
 
