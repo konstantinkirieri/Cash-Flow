@@ -4,7 +4,7 @@
 #Income,
 #Expences {
     @include buttonSet();
-    background-color: $color-1;
+    background-color: $color-2;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,9 +13,6 @@
 }
 
 #Expences {
-    background-color: $color-2;
-}
-
 #doughnutReport {
     @include chart-rad();
     position: relative;
@@ -32,11 +29,11 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 117px;
-    text-align: center;
     justify-content: center;
-    width: 117px;
+    align-items: center;
+    text-align: center;
+    height: 50%;
+    width: 50%;
     border-radius: 50%;
 }
 
@@ -51,4 +48,9 @@
         width: 50%;
         margin: 25px auto;
     }
+
+    #doughnutReport {
+        width: 50%;
+    }
+
 }
