@@ -4,7 +4,7 @@
 #Income,
 #Expences {
     @include buttonSet();
-    background-color: $color-2;
+    background-color: $color-1;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,6 +13,8 @@
 }
 
 #Expences {
+    background-color: $color-2;
+}
 #doughnutReport {
     @include chart-rad();
     position: relative;
