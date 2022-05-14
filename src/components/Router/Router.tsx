@@ -47,7 +47,7 @@ export const Router = () => {
             index
             element={
               <PrivateRoute>
-                <Switcher />
+                <Switcher  />
               </PrivateRoute>
             }
           />

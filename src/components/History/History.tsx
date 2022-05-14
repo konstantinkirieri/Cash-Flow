@@ -114,10 +114,10 @@ export const History = () => {
             color="inherit"
             aria-label="open drawer"
             //sx={{ mr: 2 }}
-          >  
-            <ArrowBackIosIcon className='arrowBack' onClick={() => {
-                    navigate("/report")
-                     }}></ArrowBackIosIcon>
+            onClick={() => {
+              navigate("/report")
+               }}>  
+            <ArrowBackIosIcon className='arrowBack'></ArrowBackIosIcon>
           </IconButton>    
           <details className="dropdownSummary">
                 <summary className="dropdownSummary">

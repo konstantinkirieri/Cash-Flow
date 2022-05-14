@@ -1,8 +1,8 @@
 @import '../../app.scss';
 @import '../../mixin.scss';
 
-#income,
-#expences {
+#Income,
+#Expences {
     @include buttonSet();
     background-color: $color-1;
     display: flex;
@@ -12,7 +12,7 @@
     padding: 5px;
 }
 
-#expences {
+#Expences {
     background-color: $color-2;
 }
 
@@ -46,8 +46,8 @@
 }
 
 @media screen and (min-width: 768px) {
-    #income,
-    #expences {
+    #Income,
+    #Expences {
         width: 50%;
         margin: 25px auto;
     }

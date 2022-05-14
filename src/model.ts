@@ -7,6 +7,6 @@ export interface Category {
     name: string;
     // action: () => void
     // handleAdd: (e: React.FormEvent) => void;
-    // onClick: () => void;
+    //onClick: () => void;
     // functionChildren: (name: string) => React.ReactNode;
 }

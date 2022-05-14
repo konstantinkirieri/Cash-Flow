@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./KeyBoard.scss";
 
-function KeyBoard() {
+export const KeyBoard = (value: any) => {
     const [inputValue, setInputValue] = useState("");
 
     const clickBtn = (e: any) => {
@@ -16,12 +16,13 @@ function KeyBoard() {
     };
 
     return (
+        <>
         <form className="kbd-form">
             <input
                 className="input-amount"
                 type="text"
                 placeholder="Enter amount"
-                value={inputValue}
+                value={inputValue} onChange={clickBtn}
             />
             <div className="keyboard-wrap">
                 <button className="keybrd-btn" value="1" onClick={clickBtn}>
@@ -62,7 +63,7 @@ function KeyBoard() {
                 </div>
             </div>
         </form>
+        
+      </>
     );
 }
-
-export default KeyBoard;

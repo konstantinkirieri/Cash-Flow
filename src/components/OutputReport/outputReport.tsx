@@ -22,7 +22,7 @@ function sumAmountArr(arrayHandler: any, amountOutput: number) {
 } 
 /**
  * 
- * @param params Where: "income || expences" Data: {id: , categoryId: , amount: , date: }
+ * @param params Where: "Income || Expences" Data: {id: , categoryId: , amount: , date: }
  * @returns Блок с обработанными данными
  */
 export function OutputReport(params: any) {

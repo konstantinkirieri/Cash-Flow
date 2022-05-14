@@ -28,10 +28,9 @@ export const Report = () => {
     return (
         <div className="report">
             <div className="reportMenu">
-            <IconButton>
-                <HistoryIcon className="reportMenuBtn" onClick={() => {
-                    navigate("/history")
-                     }}/>
+            <IconButton onClick={() => {
+                    navigate("/history")}}>
+                <HistoryIcon className="reportMenuBtn" />
             </IconButton>
             <details className="dropdownSummary">
                 <summary className="dropdownSummary">
@@ -51,8 +50,8 @@ export const Report = () => {
             </div>
             <h2 className="reportHeader">Report</h2>
             <Calendar />
-            <OutputReport where="income" param={income} />
-            <OutputReport where="expences" param={expences} />
+            <OutputReport where="Income" param={income} />
+            <OutputReport where="Expences" param={expences} />
             <DoughnutReport expences={expences} income={income}/>
         </div>
     )
