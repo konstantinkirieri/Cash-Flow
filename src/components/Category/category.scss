@@ -88,10 +88,14 @@ h2 {
 //  background-size: cover;
 //  padding: 5vh;
 // }
+@media screen and (min-width: 425px) {
+    .cat-block {
+        justify-content: center;
+    }
+}
 @media screen and (min-width: 768px) {
     .cat-block {
         width: 50%;
         margin: auto;
-        justify-content: center;
     }
 }

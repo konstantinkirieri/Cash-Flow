@@ -52,9 +52,12 @@ export const KeyBoard = (value: any) => {
                 <button className="keybrd-btn" value="9" onClick={clickBtn}>
                     9
                 </button>
-                <div className="keybrd-btn">
+                {/* <div className="keybrd-btn">
                     <img className="img-btn" src="../images/Icons/ok.png" alt="ok" />
-                </div>
+                </div> */}
+                 <button className="keybrd-btn" value="." onClick={clickBtn}>
+                    .
+                </button>
                 <button className="keybrd-btn" value="0" onClick={clickBtn}>
                     0
                 </button>

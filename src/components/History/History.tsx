@@ -63,37 +63,37 @@ interface IList {
   amount: number;
   date: number | string;
 }
-const categoryList: CList[] = [
-    {
-        id: 1,
-        link: '#'
-    },
-    {
-        id: 2,
-        link: '#'
-    },
-    {
-        id: 3,
-        link: '#'
-    },
-    {
-        id: 4,
-        link: '#'
-    },
-    {
-        id: 5,
-        link: '#'
-    },
-    {
-        id: 6,
-        link: '#'
-    }
-]
+// const categoryList: CList[] = [
+//     {
+//         id: 1,
+//         link: '#'
+//     },
+//     {
+//         id: 2,
+//         link: '#'
+//     },
+//     {
+//         id: 3,
+//         link: '#'
+//     },
+//     {
+//         id: 4,
+//         link: '#'
+//     },
+//     {
+//         id: 5,
+//         link: '#'
+//     },
+//     {
+//         id: 6,
+//         link: '#'
+//     }
+// ]
 
-interface CList {
-  id: number;
-  link: string;
-}
+// interface CList {
+//   id: number;
+//   link: string;
+// }
 
 export const History = () => {
   const navigate = useNavigate();
