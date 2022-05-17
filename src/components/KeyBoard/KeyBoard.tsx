@@ -9,6 +9,10 @@ export const KeyBoard = (value: any) => {
         let value = e.target.value;
         setInputValue(inputValue + value);
     };
+    const deleteAllData = (e: any) => {
+        e.preventDefault();
+        setInputValue("");
+    }
 
     const deleteValue = (e: any) => {
         e.preventDefault();
@@ -55,8 +59,8 @@ export const KeyBoard = (value: any) => {
                 {/* <div className="keybrd-btn">
                     <img className="img-btn" src="../images/Icons/ok.png" alt="ok" />
                 </div> */}
-                 <button className="keybrd-btn" value="." onClick={clickBtn}>
-                    .
+                 <button className="keybrd-btn" value="C" onClick={deleteAllData}>
+                    C
                 </button>
                 <button className="keybrd-btn" value="0" onClick={clickBtn}>
                     0
