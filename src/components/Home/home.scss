@@ -1,0 +1,62 @@
+@import '../../mixin.scss';
+
+
+h1, H1 {
+    color: $color-7;
+}
+#homeComponent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    //height: 90vh;
+}
+.greeting {
+    @include font-style_greeting();
+    color: $color-3;
+    margin-top: 85px;
+    margin-bottom: 60px
+}
+.btnLog {
+    @include font-style_second();
+    @include buttonSet();
+    //margin-bottom: 70px;
+    background-color: $color-8;
+    color: $color-0;
+    width: -webkit-fill-available;
+    margin-top: 20px;
+}
+.authorization {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    //height: 140px;
+}
+input {
+    @include buttonSet();
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $color-9;
+    border-radius: 0;
+    color: $color-3;
+}
+    input:focus, input:hover, input:active {
+        border: none;
+    }
+    .auth_elem {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    @media screen and (min-width: 768px) {
+        .authorization {
+            width: 50%;
+            align-self: center;
+        }
+        .signup {
+            width: 50%;
+        }
+        .signupLink {
+            text-align: center;
+        }
+    }
