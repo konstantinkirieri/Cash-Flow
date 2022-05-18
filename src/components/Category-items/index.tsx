@@ -1,13 +1,9 @@
 import "../Category/category.scss";
+import { Category } from "../../model";
 
-interface CategoryProps {
-    id: number,
-    name: string,
-    img: string
-}
-
-export const ItemCategory: React.FC<CategoryProps> = ({
+export const ItemCategory: React.FC<Category> = ({
     id,
+    typeId,
     name,
     img
 }) => {

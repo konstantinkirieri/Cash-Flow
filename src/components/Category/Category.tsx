@@ -2,8 +2,6 @@ import React from "react";
 import { Category } from "../../model";
 import { useNavigate } from "react-router-dom";
 import "./category.scss";
-import { useCategoryStore } from "../store/categories/toCategory";
-import { ItemCategory } from "../Category-items/index";
 
 export const categoriesList: Category[] = [
     {
@@ -72,13 +70,6 @@ export const categoriesList: Category[] = [
 ]
 
 export const Categories: React.FC<{cats: Category[]}> = ({cats}: any) => {
-    
-    const [
-        categories,
-    ] = useCategoryStore(state => [
-        state.categories,
-        state.createCategory,
-    ]);
 
     const navigate = useNavigate();
 
@@ -91,16 +82,6 @@ export const Categories: React.FC<{cats: Category[]}> = ({cats}: any) => {
                     </div>
                     <p className="cat-name">{item.name}</p>
                 </div> 
-            ))}
-            {!categories.length && (
-                console.log('There are no categories.')
-            )}
-            {categories.map((category) => (
-                <ItemCategory
-                  id={category.id}
-                  name={category.name}
-                  img={category.img}
-                />
             ))}
             <div className="cat-item">
                 <div className="cat-icon">
