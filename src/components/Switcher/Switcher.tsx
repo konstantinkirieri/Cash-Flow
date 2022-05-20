@@ -3,10 +3,10 @@ import Categories from "../Category/Category";
 import { KeyBoard } from "../KeyBoard/KeyBoard";
 import "./switch.scss";
 import "../KeyBoard/KeyBoard.scss";
-import { categoriesList } from "../Category/Category";
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import { logOut } from "../../services/firebase";
+import { categoriesList } from "../Category/Category";
 
 export const Switcher: React.FC = () => {
  
@@ -36,20 +36,7 @@ export const Switcher: React.FC = () => {
   //   setInputValue(e.target.value);
   // };
 
-  // const writeToDatabase = () => {
-  //   const newId = uuidv4();
-  //   const date = new Date();
-  //   // set(ref(db, `/${newId}`), {
-  //   //   inputValue,
-  //   //   newId,
-  //   //   date,
-  //   addItemWithFb({id: newId, date: date });
-  //   console.log("added to firebase");
-  //   setInputValue("");
-  // };
 
- 
-  
     // const writeToDatabase = () => {
     //     const newId = uuidv4();
     //     //const date = new Date();
@@ -118,7 +105,7 @@ export const Switcher: React.FC = () => {
       </div>
       
         <KeyBoard />
-        <Categories cats={categoriesList.filter(item => item.typeId === typeIcon)} />
+        <Categories cats={categoriesList.filter((CategoriesList: { typeId: number; }) => CategoriesList.typeId === typeIcon)} />
     </div>
   );
 };

@@ -26,5 +26,5 @@ export const logIn = async (email:string, pass: any) =>
   await signInWithEmailAndPassword(auth, email, pass);
 export const logOut = async () => await signOut(auth);
 export const db = getDatabase(app);
-//export const userRef = ref(db, 'user');
+export const categoryRef = ref(db, 'CategoriesList');
 //export const getItemRefById = (id: string | number) => ref(db, `/${id}`);
