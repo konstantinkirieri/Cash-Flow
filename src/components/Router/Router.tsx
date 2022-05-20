@@ -15,6 +15,7 @@ import { Home } from "../Home/Home";
 import { AllCategories } from "../AllCategories/AllCategories";
 import { Report } from "../Report/Report";
 import React from "react";
+//import { writeToDatabase } from "../Switcher/Switcher";
 
 export const Router = () => {
 
@@ -64,7 +65,7 @@ export const Router = () => {
           path="category"
           element={
             <PrivateRoute>
-              <Category cats={categoriesList}/>
+              <Category cats={categoriesList} onClick={writeToDatabase}/>
             </PrivateRoute>
           }
         />

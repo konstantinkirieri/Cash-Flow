@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import Categories from "../Category/Category";
 import { KeyBoard } from "../KeyBoard/KeyBoard";
 import "./switch.scss";
@@ -7,6 +8,28 @@ import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import { logOut } from "../../services/firebase";
 import { categoriesList } from "../Category/Category";
+import { set, ref } from "firebase/database";
+import { db } from "../../services/firebase";
+import { v4 as uuidv4 } from "uuid";
+
+// чтобы экспортировать в Router и AllCategories "writeToDatabase" его нужно поставить сюда на верхний уровень, 
+// но на верхнем уровне нельзя использовать useState
+
+// const [inputValue, setInputValue] = useState<string | number>("");
+
+//   const handleKeyboardChange = (e: any) => {
+//     setInputValue(e.target.value);
+//   };
+
+
+//  export const writeToDatabase = () => {
+//         const newId = uuidv4();
+//         //const date = new Date();
+//         //addItemWithFb({name: inputValue, id: newId, date: date});
+//         set(ref(db, `/UsersData/${newId}`), {inputValue, newId})
+//         console.log("added to firebase");
+//         setInputValue("");
+//       };
 
 export const Switcher: React.FC = () => {
  
@@ -30,22 +53,21 @@ export const Switcher: React.FC = () => {
     navigate("/");
   };
 
-  // const [inputValue, setInputValue] = useState<string | number>("");
+  const [inputValue, setInputValue] = useState<string | number>("");
 
-  // const handleKeyboardChange = (e: any) => {
-  //   setInputValue(e.target.value);
-  // };
+  const handleKeyboardChange = (e: any) => {
+    setInputValue(e.target.value);
+  };
 
 
-    // const writeToDatabase = () => {
-    //     const newId = uuidv4();
-    //     //const date = new Date();
-    //     //addItemWithFb({name: inputValue, id: newId, date: date});
-    //     set(ref(db, `/${newId}`), {inputValue, newId})
-    //     console.log("added to firebase");
-    //     setInputValue("");
-    //   };
-
+  const writeToDatabase = () => {
+        const newId = uuidv4();
+        //const date = new Date();
+        //addItemWithFb({name: inputValue, id: newId, date: date});
+        set(ref(db, `/UsersData/${newId}`), {inputValue, newId})
+        console.log("added to firebase");
+        setInputValue("");
+      };
 
   return (
     <div className="mainPage">
@@ -104,8 +126,8 @@ export const Switcher: React.FC = () => {
         </button>
       </div>
       
-        <KeyBoard />
-        <Categories cats={categoriesList.filter((CategoriesList: { typeId: number; }) => CategoriesList.typeId === typeIcon)} />
+        <KeyBoard value={inputValue} onChange={handleKeyboardChange} />
+        <Categories cats={categoriesList.filter((CategoriesList: { typeId: number; }) => CategoriesList.typeId === typeIcon)} onClick={writeToDatabase} />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import "./category.scss";
 import { onValue } from "firebase/database";
 import { categoryRef } from "../../services/firebase";
-
+import { useEffect } from "react";
 
 export const categoriesList: Category[] = [];
     // {
@@ -62,11 +62,16 @@ export const categoriesList: Category[] = [];
     //     name: "Other income"
     // },
 //]
- const Categories: React.FC<{cats: Category[]}> = ({cats}) => {
+ const Categories: React.FC<{cats: Category[], onClick: () => void}> = ({cats}) => {
     const navigate = useNavigate();
 
             let CategoriesList: any = [];
+  
+            //если здесь onValue обернуть так в useEffect, то категории из realtime database не отображаются в приложении, но 
+            // в консоль выводятся
             
+            useEffect(() => {
+
             onValue(categoryRef, (snapshot) => {
            
                 let CopyCatArray = snapshot.val();
@@ -75,6 +80,8 @@ export const categoriesList: Category[] = [];
                   console.log(CategoriesList);
               })    
           });
+        }
+            )
 
     return (
         <div className="cat-block">

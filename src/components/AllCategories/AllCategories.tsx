@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
 import "../Category/category.scss";
+//import { writeToDatabase } from "../Switcher/Switcher";
 
 export const AllCategories: React.FC = () => {
     const navigate = useNavigate();
@@ -24,6 +25,6 @@ export const AllCategories: React.FC = () => {
                 </img>
             </IconButton>
         </div>
-        <Categories cats={categoriesList} />
+        <Categories cats={categoriesList} onClick={writeToDatabase}/>
     </div>
 )}
