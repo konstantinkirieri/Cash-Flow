@@ -31,7 +31,7 @@ import { v4 as uuidv4 } from "uuid";
 //         setInputValue("");
 //       };
 
-export const Switcher: React.FC = () => {
+export const Switcher: React.FC = ({value, onChange, onClick}: any) => {
  
   const [typeIcon, setTypeIcon] = useState < 1 | 2 >(2);
 
@@ -53,20 +53,20 @@ export const Switcher: React.FC = () => {
     navigate("/");
   };
 
-  const [inputValue, setInputValue] = useState<string | number>("");
+  //const [inputValue, setInputValue] = useState<string | number>("");
 
-  const handleKeyboardChange = (e: any) => {
-    setInputValue(e.target.value);
-  };
+  //const handleKeyboardChange = (e: any) => {
+    //onChange(e.target.value);
+  //};
 
 
   const writeToDatabase = () => {
         const newId = uuidv4();
         //const date = new Date();
         //addItemWithFb({name: inputValue, id: newId, date: date});
-        set(ref(db, `/UsersData/${newId}`), {inputValue, newId})
+        set(ref(db, `/UsersData/${newId}`), {value, newId})
         console.log("added to firebase");
-        setInputValue("");
+        onChange("");
       };
 
   return (
@@ -126,8 +126,8 @@ export const Switcher: React.FC = () => {
         </button>
       </div>
       
-        <KeyBoard value={inputValue} onChange={handleKeyboardChange} />
-        <Categories cats={categoriesList.filter((CategoriesList: { typeId: number; }) => CategoriesList.typeId === typeIcon)} onClick={writeToDatabase} />
+        <KeyBoard value={value} onChange={onChange} />
+        <Categories cats={categoriesList.filter((CategoriesList: { typeId: number; }) => CategoriesList.typeId === typeIcon)} />
     </div>
   );
 };

@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import "./KeyBoard.scss";
 
-export const KeyBoard = (value: any) => {
-    const [inputValue, setInputValue] = useState("");
+export const KeyBoard = ({value, onChange}: any) => {
+    //const [inputValue, setInputValue] = useState("");
 
     const clickBtn = (e: any) => {
         e.preventDefault();
-        let value = e.target.value;
-        setInputValue(inputValue + value);
+        let pressedValue = e.target.value;
+        onChange(value + pressedValue);
     };
     const deleteAllData = (e: any) => {
         e.preventDefault();
-        setInputValue("");
+        onChange("");
     }
 
     const deleteValue = (e: any) => {
         e.preventDefault();
-        setInputValue(inputValue.slice(0, -1));
+        onChange(value(0, -1));
     };
 
     return (
@@ -26,7 +26,7 @@ export const KeyBoard = (value: any) => {
                 className="input-amount"
                 type="text"
                 placeholder="Enter amount"
-                value={inputValue} onChange={clickBtn}
+                value={value} onChange={clickBtn}
             />
             <div className="keyboard-wrap">
                 <button className="keybrd-btn" value="1" onClick={clickBtn}>

@@ -65,7 +65,7 @@ export const Router = () => {
           path="category"
           element={
             <PrivateRoute>
-              <Category cats={categoriesList} onClick={writeToDatabase}/>
+              <Category cats={categoriesList}/>
             </PrivateRoute>
           }
         />

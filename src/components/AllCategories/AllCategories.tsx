@@ -25,6 +25,6 @@ export const AllCategories: React.FC = () => {
                 </img>
             </IconButton>
         </div>
-        <Categories cats={categoriesList} onClick={writeToDatabase}/>
+        <Categories cats={categoriesList} />
     </div>
 )}

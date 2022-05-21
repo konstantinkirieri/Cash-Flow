@@ -5,6 +5,9 @@ import "./category.scss";
 import { onValue } from "firebase/database";
 import { categoryRef } from "../../services/firebase";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { initCategoriesTracking } from "../store/categories/actions";
+import { selectCategories } from "../store/categories/selectors";
 
 export const categoriesList: Category[] = [];
     // {
@@ -62,26 +65,49 @@ export const categoriesList: Category[] = [];
     //     name: "Other income"
     // },
 //]
- const Categories: React.FC<{cats: Category[], onClick: () => void}> = ({cats}) => {
+ const Categories: React.FC<{cats: Category[]}> = ({cats}) => {
     const navigate = useNavigate();
 
-            let CategoriesList: any = [];
-  
+    let CategoriesList: any = [];
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(initCategoriesTracking());
+        }, [dispatch]);
+
+    // const chatsList = useSelector(selectChats);
+    // const dispatch = useDispatch();
+    // const [value, setValue] = useState("");
+
+    // useEffect(() => {
+    //     dispatch(initChatsTracking());
+    // }, [dispatch]);
+
+    // const handleChange = (e) => {
+    //     setValue(e.target.value);
+    // };
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     const newId = uuidv4();
+    //     dispatch(addChatWithFb({ name: value, id: newId }));
+    //     setValue("");
+    // };
             //если здесь onValue обернуть так в useEffect, то категории из realtime database не отображаются в приложении, но 
             // в консоль выводятся
-            
-            useEffect(() => {
 
-            onValue(categoryRef, (snapshot) => {
+        //     useEffect(() => {
+
+        //     onValue(categoryRef, (snapshot) => {
            
-                let CopyCatArray = snapshot.val();
-                Object.keys(CopyCatArray).forEach((id) => {
-                  CategoriesList.push(CopyCatArray[id]);
-                  console.log(CategoriesList);
-              })    
-          });
-        }
-            )
+        //         let CopyCatArray = snapshot.val();
+        //         Object.keys(CopyCatArray).forEach((id) => {
+        //           CategoriesList.push(CopyCatArray[id]);
+        //           console.log(CategoriesList);
+        //       })    
+        //   });
+        // }
+        //     )
 
     return (
         <div className="cat-block">
@@ -97,6 +123,16 @@ export const categoriesList: Category[] = [];
                             )
                 })
                }
+               {/* {CategoriesList.map((category: any) => {
+                   return (
+          <div className="cat-item" key={category.id}>
+            <div className="cat-icon">
+                            <img src={category.img} alt="" />
+                        </div>
+                        <p className="cat-name">{category.name}</p>
+          </div>
+                   )}
+       ) } */}
                 <div className="cat-item">
                     <div className="cat-icon">
                         <img className="cat-icon" src="../images/Icons/all_cat.png" alt=""
