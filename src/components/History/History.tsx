@@ -7,55 +7,58 @@ import "./history.scss";
 import { useNavigate } from 'react-router-dom';
 import { HistoryItem } from '../HistoryItem/HistoryItem';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { logOut } from "../../services/firebase";
 import "../Switcher/switch.scss";
+import { onValue } from 'firebase/database';
+import { useState } from "react";
+import { categoryRef } from '../../services/firebase';
 // import { caregoriesList } from '../Category/Category'
 
 export const itemsList: IList[] = [
-  {
-    id: 1,
-    categoryId: 1,
-    amount: 1000,
-    date: '15.03.2022'
-  },
-  {
-    id: 2,
-    categoryId: 2,
-    amount: 500,
-    date: '15.03.2022'
-  },
-  {
-    id: 3,
-    categoryId: 4,
-    amount: 5000,
-    date: '05.03.2022'
-  },
-  {
-    id: 4,
-    categoryId: 3,
-    amount: 3600,
-    date: '05.03.2022'
-  },
-  {
-    id: 5,
-    categoryId: 2,
-    amount: 1200,
-    date: '15.03.2022'
-  },
-  {
-    id: 6,
-    categoryId: 5,
-    amount: 1190,
-    date: '07.03.2022'
-  },
-  {
-    id: 7,
-    categoryId: 6,
-    amount: 1100,
-    date: '07.03.2022'
-  }
-]
+//   {
+//     id: 1,
+//     categoryId: 1,
+//     amount: 1000,
+//     date: '15.03.2022'
+//   },
+//   {
+//     id: 2,
+//     categoryId: 2,
+//     amount: 500,
+//     date: '15.03.2022'
+//   },
+//   {
+//     id: 3,
+//     categoryId: 4,
+//     amount: 5000,
+//     date: '05.03.2022'
+//   },
+//   {
+//     id: 4,
+//     categoryId: 3,
+//     amount: 3600,
+//     date: '05.03.2022'
+//   },
+//   {
+//     id: 5,
+//     categoryId: 2,
+//     amount: 1200,
+//     date: '15.03.2022'
+//   },
+//   {
+//     id: 6,
+//     categoryId: 5,
+//     amount: 1190,
+//     date: '07.03.2022'
+//   },
+//   {
+//     id: 7,
+//     categoryId: 6,
+//     amount: 1100,
+//     date: '07.03.2022'
+//   }
+ ]
 
 interface IList {
   id: number;
@@ -96,6 +99,9 @@ interface IList {
 // }
 
 export const History = () => {
+
+  // const [todo, setTodo] = useState("");
+  // const [todos, setTodos] = useState([]);
   const navigate = useNavigate();
   const handleLogOutClick = async () => {
     try {
@@ -105,6 +111,19 @@ export const History = () => {
     }
     navigate("/")
   };
+
+  //Здесь черновой вариант, все todo, todos, setTodos нужно заменять
+  // useEffect(() => {
+  //   onValue(categoryRef, (snapshot) => {
+  //     setTodos([]);
+  //     const data = snapshot.val();
+  //     if (data !== null) {
+  //       Object.values(data).map((todo) => {
+  //         setTodos((oldArray => [...oldArray, todo])
+  //       })
+  //     }
+  //   })
+  // }, [])
     return (
       <div className='historyPage'>
         <div className='historyMenu'>
@@ -140,14 +159,14 @@ export const History = () => {
         <HistoryCalendar /> 
         <Divider className='divider' />
         <List className='historyList'>
-          {itemsList.map((item) => (
+          {/* {todos.map((todo) => (
             
-              <div key={item.id}>
-                <HistoryItem item={item} />
-              </div>
+              // <div key={item.id}>
+                <HistoryItem item={todo} />
+              // </div>
               
           ))
-          }
+          } */}
         </List>
       </div>
     )

@@ -62,7 +62,10 @@ export const categoriesList: Category[] = [];
     //     name: "Other income"
     // },
 //]
- const Categories: React.FC<{cats: Category[]}> = ({cats}) => {
+interface PropsType {
+    callBack: (img: string) => void
+}
+ const Categories: React.FC<PropsType> = (props) => {
     const navigate = useNavigate();
 
             let CategoriesList: any = [];
@@ -81,7 +84,7 @@ export const categoriesList: Category[] = [];
 
             {Object.keys(CategoriesList).map((id) => {
                             return ( 
-                    <div className="cat-item" key={CategoriesList[id].id}>
+                    <div className="cat-item" key={CategoriesList[id].id} onClick={() => props.callBack(CategoriesList[id].img)}>
                         <div className="cat-icon">
                             <img src={CategoriesList[id].img} alt="" />
                         </div>
@@ -90,7 +93,7 @@ export const categoriesList: Category[] = [];
                             )
                 })
                }
-                <div className="cat-item">
+                {/* <div className="cat-item">
                     <div className="cat-icon">
                         <img className="cat-icon" src="../images/Icons/all_cat.png" alt=""
                         onClick={() => {
@@ -98,7 +101,7 @@ export const categoriesList: Category[] = [];
                              }}/>
                     </div>
                     <p className="cat-name">All Categories</p>
-                </div>
+                </div> */}
             </div>
     );
 };

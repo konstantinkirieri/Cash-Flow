@@ -1,5 +1,5 @@
 import { History } from "../History/History";
-import Category, { categoriesList } from "../Category/Category";
+//import Category, { categoriesList } from "../Category/Category";
 import { Switcher } from "../Switcher/Switcher";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./router.scss";
@@ -60,14 +60,14 @@ export const Router = () => {
             </PrivateRoute>
           }
         />
-        <Route
+        {/* <Route
           path="category"
           element={
             <PrivateRoute>
               <Category cats={categoriesList}/>
             </PrivateRoute>
           }
-        />
+        /> */}
         <Route
           path="allCategories"
           element={

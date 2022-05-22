@@ -24,6 +24,6 @@ export const AllCategories: React.FC = () => {
                 </img>
             </IconButton>
         </div>
-        <Categories cats={categoriesList} />
+        {/* <Categories cats={categoriesList} /> */}
     </div>
 )}

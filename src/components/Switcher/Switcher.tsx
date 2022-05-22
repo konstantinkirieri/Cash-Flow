@@ -1,16 +1,22 @@
 import React, { useState } from "react";
-import Categories from "../Category/Category";
+//import Categories from "../Category/Category";
 import { KeyBoard } from "../KeyBoard/KeyBoard";
 import "./switch.scss";
 import "../KeyBoard/KeyBoard.scss";
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import { logOut } from "../../services/firebase";
-import { categoriesList } from "../Category/Category";
+//import { categoriesList } from "../Category/Category";
+import { categoryRef } from "../../services/firebase";
+import {query, orderByChild} from "firebase/database";
+import { db } from "../../services/firebase";
+import { useEffect } from "react";
+import { ref } from "firebase/database";
+import { createPrivateKey } from "crypto";
 
-export const Switcher: React.FC = () => {
+export const Switcher = () => {
  
-  const [typeIcon, setTypeIcon] = useState < 1 | 2 >(2);
+ const [typeIcon, setTypeIcon] = useState < 1 | 2 >(2) ;
 
   const handleClickExpenses: any = () => {
     setTypeIcon(2);
@@ -19,6 +25,43 @@ export const Switcher: React.FC = () => {
   const handleClickIncome: any = () => {
     setTypeIcon(1);
   };
+
+
+// 2 наброска, как фильтровать по Expences, потом что-то подобное нужно делать по Income и вешать это на кнопки Income и Expences
+// как я понимаю
+
+// export const fetchCatByExpences = () => {
+//   return () => {
+//     const keyRef = ref(db, '/CategoriesList/' + privateKey);
+//     keyRef
+//       .orderByChild('type')
+//       .equalTo("Expences")
+//       .on('value', (snapshot: any) => {
+//         const catList: any[] = [];
+//         snapshot.forEach((child: any) => catList.push(child.val()));
+
+//         console.log(catList);
+        
+//   });
+// };
+// }
+//--------------------------------------------
+// const handleClickExpenses = () => {
+// let CategoriesList: any = [];
+//      CategoriesList
+//       .orderByChild('type')
+//       .equalTo("Expences")
+//             .onValue(categoryRef, (snapshot: any) => {
+           
+//                 let CopyCatArray = snapshot.val();
+//                 Object.keys(CopyCatArray).forEach((id) => {
+//                   CategoriesList.push(CopyCatArray[id]);
+//                   console.log(CategoriesList);
+//               })    
+//           });
+//         }
+//--------------------------------
+
 
   const navigate = useNavigate();
   const handleLogOutClick = async () => {
@@ -30,22 +73,7 @@ export const Switcher: React.FC = () => {
     navigate("/");
   };
 
-  // const [inputValue, setInputValue] = useState<string | number>("");
-
-  // const handleKeyboardChange = (e: any) => {
-  //   setInputValue(e.target.value);
-  // };
-
-
-    // const writeToDatabase = () => {
-    //     const newId = uuidv4();
-    //     //const date = new Date();
-    //     //addItemWithFb({name: inputValue, id: newId, date: date});
-    //     set(ref(db, `/${newId}`), {inputValue, newId})
-    //     console.log("added to firebase");
-    //     setInputValue("");
-    //   };
-
+  
 
   return (
     <div className="mainPage">
@@ -105,7 +133,7 @@ export const Switcher: React.FC = () => {
       </div>
       
         <KeyBoard />
-        <Categories cats={categoriesList.filter((CategoriesList: { typeId: number; }) => CategoriesList.typeId === typeIcon)} />
+        {/* <Categories cats={categoriesList.filter((CategoriesList: { typeId: number; }) => CategoriesList.typeId === typeIcon)} /> */}
     </div>
   );
 };

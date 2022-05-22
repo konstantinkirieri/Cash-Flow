@@ -20,7 +20,8 @@ export const Home = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }
+
   
   return (
       <div id="homeComponent">

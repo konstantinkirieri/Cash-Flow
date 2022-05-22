@@ -12,12 +12,13 @@ import './newCategory.scss'
 
 const AddCategory = () => {
 
-  const [name, setName] = useState('');
+  //const [name, setName] = useState('');
   const [img, setImg] = useState('images/Icons/default-icon.png');
+  const [type, setType] = useState("income");
   const [view, setView] = useState(false);
   
-  const handleNameChange = (e: { target: { value: SetStateAction<string>; }; }) => {
-    setName(e.target.value);
+  const handleNameChange = () => {
+    setType('expences');
   }
 
   const handleImgChange = (icon: string) => {
@@ -37,10 +38,10 @@ const AddCategory = () => {
     set(ref(db, `CategoriesList/${id}`), {
       id,
       img,
-      name,
+      type,
     })
     console.log("added to firebase");
-    setName("");
+    setType("Income");
     setImg('images/Icons/default-icon.png');
   };
     // console.log(newCategory);
@@ -64,8 +65,8 @@ const AddCategory = () => {
     </div>  
     <Divider className='divider' />
     <div className="category-item">
-        <span>Name</span>
-        <input value={name} onChange={handleNameChange} className="category-field" />
+        <span>Type</span>
+        <button value={type === 'expences' ? 'expences': 'income'} onClick={handleNameChange} className="category-field">{type}</button>
 
         {/* <input value={amount} onChange={handleChange} className="category-field" /> */}
       </div>

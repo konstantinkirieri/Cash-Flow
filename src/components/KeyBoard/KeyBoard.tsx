@@ -1,8 +1,24 @@
 import React, { useState } from "react";
 import "./KeyBoard.scss";
+import { onValue } from "firebase/database";
+import { categoryRef } from "../../services/firebase";
+import { v4 as uuidv4 } from "uuid";
+import { set, ref } from "firebase/database";
+import { db } from "../../services/firebase";
+import IconButton from '@mui/material/IconButton';
+import Categories from "../Category/Category";
+//import { Icons } from './Icons';
 
-export const KeyBoard = (value: any) => {
+export const KeyBoard = () => {
     const [inputValue, setInputValue] = useState("");
+    //const date= useState(new Date());
+    const [img, setImg] = useState('images/Icons/default-icon.png');
+    const [view, setView] = useState(false);
+
+    const handleImgChange = (icon: string) => {
+        setImg(icon)
+        setView(false)
+      }
 
     const clickBtn = (e: any) => {
         e.preventDefault();
@@ -19,15 +35,52 @@ export const KeyBoard = (value: any) => {
         setInputValue(inputValue.slice(0, -1));
     };
 
+    // let CategoriesList: any = [];
+            
+    //         onValue(categoryRef, (snapshot) => {
+           
+    //             let CopyCatArray = snapshot.val();
+    //             Object.keys(CopyCatArray).forEach((id) => {
+    //               CategoriesList.push(CopyCatArray[id]);
+    //               //console.log(CategoriesList);
+    //           })    
+    //       });
+
+    const writeToDatabase = () => {
+        const dataId = uuidv4();
+        //setDate("new Date()");
+        //const catId = `CategoriesList[$id]`;
+        //const img = CategoriesList[id].img;
+         //const catId = categoryRef.key;
+        //addItemWithFb({name: inputValue, id: newId, date: date});
+        set(ref(db, `UserData/${dataId}`), {dataId, inputValue, img});
+        console.log("added to firebase");
+        setInputValue("");
+        setImg("images/Icons/default-icon.png")
+      };
+
+
     return (
         <>
         <form className="kbd-form">
+            <div className="keyboardField">
             <input
                 className="input-amount"
                 type="text"
                 placeholder="Enter amount"
                 value={inputValue} onChange={clickBtn}
             />
+            <img className="category-tick" src={img} alt="icon"
+            onClick={() => {
+              setView(!view)
+          }}>
+        </img>
+    
+            <IconButton onClick={writeToDatabase}>
+          <img className="category-tick" src="images/category-ok.png" alt="ok">
+          </img>
+      </IconButton>
+      </div>
             <div className="keyboard-wrap">
                 <button className="keybrd-btn" value="1" onClick={clickBtn}>
                     1
@@ -70,7 +123,22 @@ export const KeyBoard = (value: any) => {
                 </div>
             </div>
         </form>
-        
+        <div className="cat-block">
+        {view && <Categories callBack={handleImgChange}/>}
+
+        {/* {
+        Object.keys(CategoriesList).map((id) => {
+                            return ( 
+                    <div className="cat-item" key={CategoriesList[id].id}>
+                        <div className="cat-icon">
+                            <img src={CategoriesList[id].img} alt="" />
+                        </div>
+                        <p className="cat-name">{CategoriesList[id].name}</p>
+                    </div> 
+                            )
+                })
+               } */}
+               </div>
       </>
     );
 }
