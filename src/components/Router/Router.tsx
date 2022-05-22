@@ -1,5 +1,5 @@
 import { History } from "../History/History";
-//import Category, { categoriesList } from "../Category/Category";
+import Category from "../Category/Category";
 import { Switcher } from "../Switcher/Switcher";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./router.scss";
@@ -12,7 +12,7 @@ import { PrivateRoute } from "../../HOCS/PrivateRoute";
 import { PublicOutlet } from "../../HOCS/PublicRoute";
 import { SignUp } from "../Home/SignUp";
 import { Home } from "../Home/Home";
-import { AllCategories } from "../AllCategories/AllCategories";
+//import { AllCategories } from "../AllCategories/AllCategories";
 import { Report } from "../Report/Report";
 import React from "react";
 
@@ -64,18 +64,18 @@ export const Router = () => {
           path="category"
           element={
             <PrivateRoute>
-              <Category cats={categoriesList}/>
+              <Category props.callBack(CategoriesList[id].img)/>
             </PrivateRoute>
           }
         /> */}
-        <Route
+        {/* <Route
           path="allCategories"
           element={
             <PrivateRoute>
               <AllCategories />
             </PrivateRoute>
           }
-        />
+        /> */}
         <Route
           path="addcategory"
           element={

@@ -46,4 +46,17 @@
 .keyboardField {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+.keyboardImg {
+    height: 33px;
+}
+
+@media screen and (min-width: 768px) {
+    .input-amount {
+        width: 15vw;
+    }
 }

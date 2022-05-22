@@ -12,7 +12,7 @@ import Categories from "../Category/Category";
 export const KeyBoard = () => {
     const [inputValue, setInputValue] = useState("");
     //const date= useState(new Date());
-    const [img, setImg] = useState('images/Icons/default-icon.png');
+    const [img, setImg] = useState('images/Icons/house.png');
     const [view, setView] = useState(false);
 
     const handleImgChange = (icon: string) => {
@@ -56,7 +56,7 @@ export const KeyBoard = () => {
         set(ref(db, `UserData/${dataId}`), {dataId, inputValue, img});
         console.log("added to firebase");
         setInputValue("");
-        setImg("images/Icons/default-icon.png")
+        setImg("images/Icons/house.png")
       };
 
 
@@ -70,7 +70,7 @@ export const KeyBoard = () => {
                 placeholder="Enter amount"
                 value={inputValue} onChange={clickBtn}
             />
-            <img className="category-tick" src={img} alt="icon"
+            <img className="keyboardImg" src={img} alt="icon"
             onClick={() => {
               setView(!view)
           }}>
@@ -123,7 +123,7 @@ export const KeyBoard = () => {
                 </div>
             </div>
         </form>
-        <div className="cat-block">
+        
         {view && <Categories callBack={handleImgChange}/>}
 
         {/* {
@@ -138,7 +138,6 @@ export const KeyBoard = () => {
                             )
                 })
                } */}
-               </div>
       </>
     );
 }

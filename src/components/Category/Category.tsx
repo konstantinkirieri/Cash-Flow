@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import "./category.scss";
 import { onValue } from "firebase/database";
 import { categoryRef } from "../../services/firebase";
-
+import IconButton from '@mui/material/IconButton';
 
 export const categoriesList: Category[] = [];
     // {
@@ -102,6 +102,14 @@ interface PropsType {
                     </div>
                     <p className="cat-name">All Categories</p>
                 </div> */}
+                <div className="cat-item">
+                <IconButton onClick={() => {
+                    navigate("/addcategory")
+                     }}>
+                <img className="add-icon" src="../images/Icons/add_cat.png" alt="">
+                </img>
+            </IconButton>
+            </div>
             </div>
     );
 };
