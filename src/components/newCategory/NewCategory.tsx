@@ -12,13 +12,17 @@ import './newCategory.scss'
 
 const AddCategory = () => {
 
-  //const [name, setName] = useState('');
+  const [name, setName] = useState('');
   const [img, setImg] = useState('images/Icons/default-icon.png');
-  const [type, setType] = useState("income");
+  const [typeId, setType] = useState("Income");
   const [view, setView] = useState(false);
-  
-  const handleNameChange = () => {
-    setType('expences');
+
+  const handleNameChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+    setName(e.target.value);
+  }
+
+  const handleTypeChange = () => {
+    setType('Expences');
   }
 
   const handleImgChange = (icon: string) => {
@@ -37,10 +41,12 @@ const AddCategory = () => {
     const id = uuidv4();
     set(ref(db, `CategoriesList/${id}`), {
       id,
+      name,
       img,
-      type,
+      typeId,
     })
     console.log("added to firebase");
+    setName("");
     setType("Income");
     setImg('images/Icons/default-icon.png');
   };
@@ -65,8 +71,13 @@ const AddCategory = () => {
     </div>  
     <Divider className='divider' />
     <div className="category-item">
+        <span>Name</span>
+        <input value={name} onChange={handleNameChange} className="category-field" />
+      </div>
+    <Divider className='divider' />
+    <div className="category-item">
         <span>Type</span>
-        <button value={type === 'expences' ? 'expences': 'income'} onClick={handleNameChange} className="category-field">{type}</button>
+        <button value={typeId === 'Expences' ? 'Expences': 'Income'} onClick={handleTypeChange} className="category-field">{typeId}</button>
 
         {/* <input value={amount} onChange={handleChange} className="category-field" /> */}
       </div>
