@@ -8,7 +8,7 @@ import {
   import { getDatabase, ref } from "firebase/database";
 
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyBn4YE1SB0sS5DDONAmSSKa4ZUw9uHBSz8",
   authDomain: "cash-flow-gb.firebaseapp.com",
   databaseURL: "https://cash-flow-gb-default-rtdb.firebaseio.com",
@@ -27,4 +27,5 @@ export const logIn = async (email:string, pass: any) =>
 export const logOut = async () => await signOut(auth);
 export const db = getDatabase(app);
 export const categoryRef = ref(db, 'CategoriesList');
-//export const getItemRefById = (id: string | number) => ref(db, `/${id}`);
+export const userDataRef = ref(db, 'UserData');
+export const getItemRefById = (dataId: any) => ref(db, `UserData/${dataId}`);

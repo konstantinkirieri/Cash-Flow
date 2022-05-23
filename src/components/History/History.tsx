@@ -12,10 +12,12 @@ import { logOut } from "../../services/firebase";
 import "../Switcher/switch.scss";
 import { onValue } from 'firebase/database';
 import { useState } from "react";
-import { categoryRef } from '../../services/firebase';
-// import { caregoriesList } from '../Category/Category'
+import { userDataRef } from '../../services/firebase';
+import { useDispatch, useSelector } from "react-redux";
+import { selectItems } from "../store/items/selectors";
+import { initItemsTracking } from "../store/items/actions";
 
-export const itemsList: IList[] = [
+//export const itemsList: IList[] = [
 //   {
 //     id: 1,
 //     categoryId: 1,
@@ -58,14 +60,14 @@ export const itemsList: IList[] = [
 //     amount: 1100,
 //     date: '07.03.2022'
 //   }
- ]
+//  ]
 
-interface IList {
-  id: number;
-  categoryId: number;
-  amount: number;
-  date: number | string;
-}
+// interface IList {
+//   dataId: number;
+//   date: number | string;
+//   img: string;
+//   inputValue: number;
+// }
 // const categoryList: CList[] = [
 //     {
 //         id: 1,
@@ -98,10 +100,21 @@ interface IList {
 //   link: string;
 // }
 
+// //Здесь черновой вариант, все todo, todos, setTodos нужно заменять
+  // useEffect(() => {
+  //   onValue(userDataRef, (snapshot) => {
+  //     setItems([]);
+  //     const data = snapshot.val();
+  //     if (data !== null) {
+  //       Object.values(data).map((item) => {
+  //        return setItems((itemsList => [...itemsList, item])
+  //       )})
+  //     }
+  //   })
+  // }, [])
+
 export const History = () => {
 
-  // const [todo, setTodo] = useState("");
-  // const [todos, setTodos] = useState([]);
   const navigate = useNavigate();
   const handleLogOutClick = async () => {
     try {
@@ -112,18 +125,15 @@ export const History = () => {
     navigate("/")
   };
 
-  //Здесь черновой вариант, все todo, todos, setTodos нужно заменять
-  // useEffect(() => {
-  //   onValue(categoryRef, (snapshot) => {
-  //     setTodos([]);
-  //     const data = snapshot.val();
-  //     if (data !== null) {
-  //       Object.values(data).map((todo) => {
-  //         setTodos((oldArray => [...oldArray, todo])
-  //       })
-  //     }
-  //   })
-  // }, [])
+  const itemsList: any[] = []; // либо const itemsList = useSelector(selectChats); но так ошибку по map выдает
+   const dispatch = useDispatch();
+
+   useEffect(() => {
+  dispatch(initItemsTracking());
+   }, [dispatch]);
+
+
+
     return (
       <div className='historyPage'>
         <div className='historyMenu'>
@@ -159,15 +169,16 @@ export const History = () => {
         <HistoryCalendar /> 
         <Divider className='divider' />
         <List className='historyList'>
-          {/* {todos.map((todo) => (
-            
-              // <div key={item.id}>
-                <HistoryItem item={todo} />
-              // </div>
+          {itemsList.map((item: any) => {
+            return (
+               <div key={item.dataId}>
+                <HistoryItem item={item} />
+               </div>
               
-          ))
-          } */}
+          )})
+          }
         </List>
+       
       </div>
     )
 }

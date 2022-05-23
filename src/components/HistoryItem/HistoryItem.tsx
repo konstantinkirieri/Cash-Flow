@@ -8,19 +8,20 @@ import { deleteItem } from '../store/items/actions';
 import "./historyItem.scss";
 //import EditIcon from '@mui/icons-material/Edit';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 export const HistoryItem = ({ item }: any) => {
-    //const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const handleDeleteClick = () => {
-      deleteItem(item.id);
+      dispatch(deleteItem(item.dataId));
     };
 
     return (
               <>
           <ListItem className="listItem">
-            <ListItemText className='listItem' primary={item.categoryId}/>
-            <ListItemText className='listItem' primary={item.amount}/>
             <ListItemText className='listItem' primary={item.date}/>
+            <ListItemText className='listItem' primary={item.img}/>
+            <ListItemText className='listItem' primary={item.inputValue}/>
             <details className="dropdownSummary">
           <summary className="dropdownSummary">
             ...
@@ -30,9 +31,7 @@ export const HistoryItem = ({ item }: any) => {
            <button  className="dropdownBtn" onClick={handleDeleteClick}>Delete</button>
           </div>
         </details>
-            {/* <IconButton><EditIcon className='editBtn'/></IconButton>
-            <IconButton onClick={handleDeleteClick}><DeleteForeverIcon className='deleteBtn'></DeleteForeverIcon>
-            </IconButton> */}
+    
           </ListItem>
           <Divider className='dividerItem'/>
         </>

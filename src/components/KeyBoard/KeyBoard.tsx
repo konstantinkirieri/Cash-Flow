@@ -120,7 +120,7 @@ export const KeyBoard = () => {
         </form>
         
         {view && <Categories callBack={handleImgChange}/>}
-        
+
       </>
     );
 }

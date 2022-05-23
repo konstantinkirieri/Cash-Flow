@@ -4,7 +4,7 @@ import './report.scss';
 import MenuIcon from '@mui/icons-material/Menu';
 import HistoryIcon from '@mui/icons-material/History';
 import { OutputReport, DoughnutReport } from "../OutputReport/outputReport"
-import { itemsList } from "../../components/History/History"
+//import { itemsList } from "../../components/History/History"
 import React from "react";
 import { EnteredDataHandler } from "../EnteredData/EnteredDataHandler";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ import { logOut } from "../../services/firebase";
 import "../Switcher/switch.scss";
 
 const income = [{amount: 16500}]
-const expences = itemsList
+//const expences = itemsList
 
 export const Report = () => {
   const navigate = useNavigate();
@@ -51,8 +51,8 @@ export const Report = () => {
             <h2 className="reportHeader">Report</h2>
             <Calendar />
             <OutputReport where="Income" param={income} />
-            <OutputReport where="Expences" param={expences} />
-            <DoughnutReport expences={expences} income={income}/>
+            {/* <OutputReport where="Expences" param={expences} /> */}
+            {/* <DoughnutReport expences={expences} income={income}/> */}
         </div>
     )
 }
