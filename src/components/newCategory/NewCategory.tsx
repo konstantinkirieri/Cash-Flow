@@ -22,7 +22,7 @@ const AddCategory = () => {
   }
 
   const handleTypeChange = () => {
-    setType('Expences');
+    setType("Expences");
   }
 
   const handleImgChange = (icon: string) => {
@@ -33,11 +33,6 @@ const AddCategory = () => {
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault()
 
-    // const newCategory = {
-    //   id: Date.now(),
-    //   title,
-    //   icon
-    // }
     const id = uuidv4();
     set(ref(db, `CategoriesList/${id}`), {
       id,
@@ -50,8 +45,6 @@ const AddCategory = () => {
     setType("Income");
     setImg('images/Icons/default-icon.png');
   };
-    // console.log(newCategory);
-  //}
 
   const navigate = useNavigate();
 
@@ -78,8 +71,6 @@ const AddCategory = () => {
     <div className="category-item">
         <span>Type</span>
         <button value={typeId === 'Expences' ? 'Expences': 'Income'} onClick={handleTypeChange} className="category-field">{typeId}</button>
-
-        {/* <input value={amount} onChange={handleChange} className="category-field" /> */}
       </div>
     <Divider className='divider' />
     <div className="category-item">
@@ -91,10 +82,10 @@ const AddCategory = () => {
         </img>
     </div>
     <Divider className='divider' />
+
     {view && <Icons callBack={handleImgChange}/>}
 
     </>
-      
     )
 }
 

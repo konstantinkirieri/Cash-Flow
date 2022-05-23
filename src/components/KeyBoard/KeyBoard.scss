@@ -55,8 +55,14 @@
     height: 33px;
 }
 
+.keyboardCalendar {
+    background-color: transparent;
+    height: 28px;
+    color: aliceblue;
+}
+
 @media screen and (min-width: 768px) {
     .input-amount {
-        width: 15vw;
+        width: 10vw;
     }
 }

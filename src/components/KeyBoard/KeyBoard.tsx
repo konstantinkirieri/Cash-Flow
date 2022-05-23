@@ -7,11 +7,11 @@ import { set, ref } from "firebase/database";
 import { db } from "../../services/firebase";
 import IconButton from '@mui/material/IconButton';
 import Categories from "../Category/Category";
-//import { Icons } from './Icons';
+
+
 
 export const KeyBoard = () => {
     const [inputValue, setInputValue] = useState("");
-    //const date= useState(new Date());
     const [img, setImg] = useState('images/Icons/house.png');
     const [view, setView] = useState(false);
 
@@ -35,6 +35,7 @@ export const KeyBoard = () => {
         setInputValue(inputValue.slice(0, -1));
     };
 
+
     // let CategoriesList: any = [];
             
     //         onValue(categoryRef, (snapshot) => {
@@ -48,17 +49,12 @@ export const KeyBoard = () => {
 
     const writeToDatabase = () => {
         const dataId = uuidv4();
-        //setDate("new Date()");
-        //const catId = `CategoriesList[$id]`;
-        //const img = CategoriesList[id].img;
-         //const catId = categoryRef.key;
-        //addItemWithFb({name: inputValue, id: newId, date: date});
-        set(ref(db, `UserData/${dataId}`), {dataId, inputValue, img});
+        const date = (new Date()).toLocaleDateString();
+        set(ref(db, `UserData/${dataId}`), {dataId, inputValue, img, date});
         console.log("added to firebase");
         setInputValue("");
-        setImg("images/Icons/house.png")
+        setImg("images/Icons/house.png");
       };
-
 
     return (
         <>
@@ -71,11 +67,10 @@ export const KeyBoard = () => {
                 value={inputValue} onChange={clickBtn}
             />
             <img className="keyboardImg" src={img} alt="icon"
-            onClick={() => {
-              setView(!view)
-          }}>
-        </img>
-    
+                onClick={() => {
+                setView(!view)
+                }}>
+            </img>
             <IconButton onClick={writeToDatabase}>
           <img className="category-tick" src="images/category-ok.png" alt="ok">
           </img>
@@ -125,19 +120,7 @@ export const KeyBoard = () => {
         </form>
         
         {view && <Categories callBack={handleImgChange}/>}
-
-        {/* {
-        Object.keys(CategoriesList).map((id) => {
-                            return ( 
-                    <div className="cat-item" key={CategoriesList[id].id}>
-                        <div className="cat-icon">
-                            <img src={CategoriesList[id].img} alt="" />
-                        </div>
-                        <p className="cat-name">{CategoriesList[id].name}</p>
-                    </div> 
-                            )
-                })
-               } */}
+        
       </>
     );
 }
