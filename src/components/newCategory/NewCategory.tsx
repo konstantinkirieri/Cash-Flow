@@ -30,8 +30,8 @@ const AddCategory = () => {
     setView(false)
   }
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault()
+  const handleSubmit = (dispatch: { preventDefault: () => void; }) => {
+    dispatch.preventDefault()
 
     const id = uuidv4();
     set(ref(db, `CategoriesList/${id}`), {

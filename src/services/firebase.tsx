@@ -29,3 +29,4 @@ export const db = getDatabase(app);
 export const categoryRef = ref(db, 'CategoriesList');
 export const userDataRef = ref(db, 'UserData');
 export const getItemRefById = (dataId: any) => ref(db, `UserData/${dataId}`);
+export const getCategoryRefById = (id:any) => ref(db, `CategoriesList/${id}`);

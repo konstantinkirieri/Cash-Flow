@@ -4,8 +4,9 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
 import Divider from '@mui/material/Divider';
 import "./history.scss";
+import "../HistoryItem/historyItem.scss";
 import { useNavigate } from 'react-router-dom';
-import { HistoryItem } from '../HistoryItem/HistoryItem';
+//import { HistoryItem } from '../HistoryItem/HistoryItem';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
 import React, { useEffect } from 'react';
 import { logOut } from "../../services/firebase";
@@ -16,6 +17,8 @@ import { userDataRef } from '../../services/firebase';
 import { useDispatch, useSelector } from "react-redux";
 import { selectItems } from "../store/items/selectors";
 import { initItemsTracking } from "../store/items/actions";
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 
 //export const itemsList: IList[] = [
 //   {
@@ -125,13 +128,22 @@ export const History = () => {
     navigate("/")
   };
 
-  const itemsList: any[] = []; // либо const itemsList = useSelector(selectChats); но так ошибку по map выдает
-   const dispatch = useDispatch();
+  // const itemsList: any[] = []; // либо const itemsList = useSelector(selectChats); но так ошибку по map выдает
+  //  const dispatch = useDispatch();
 
-   useEffect(() => {
-  dispatch(initItemsTracking());
-   }, [dispatch]);
-
+  //  useEffect(() => {
+  // dispatch(initItemsTracking());
+  //  }, [dispatch]);
+   const itemsList: any = [];
+            
+  onValue(userDataRef, (snapshot) => {
+ 
+      let CopyUserArray = snapshot.val();
+      Object.keys(CopyUserArray).forEach((id) => {
+        itemsList.push(CopyUserArray[id]);
+        console.log(itemsList);
+    })    
+});
 
 
     return (
@@ -169,12 +181,26 @@ export const History = () => {
         <HistoryCalendar /> 
         <Divider className='divider' />
         <List className='historyList'>
-          {itemsList.map((item: any) => {
+          {Object.keys(itemsList).map((id) => {
             return (
-               <div key={item.dataId}>
-                <HistoryItem item={item} />
+               <ListItem key={itemsList[id].dataId}>
+                 <div className="listItem">
+            <img className='historyImg' src={itemsList[id].img} alt=''></img>
+            <div className='listItem'>{itemsList[id].date}</div>
+            <div className='listItem'>{itemsList[id].inputValue}</div>
+            <details className="dropdownSummary">
+          <summary className="dropdownSummary">
+            ...
+          </summary>
+          <div className="dropdownHistory">
+           <button className="dropdownBtn">Edit</button><br></br>
+           <button  className="dropdownBtn">Delete</button>
+          </div>
+        </details>
+          <Divider className='dividerItem'/>
+                {/* <HistoryItem item={itemsList} /> */}
                </div>
-              
+          </ListItem>
           )})
           }
         </List>

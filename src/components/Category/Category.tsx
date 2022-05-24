@@ -4,9 +4,12 @@ import { useNavigate } from "react-router-dom"
 import "./category.scss";
 import { onValue } from "firebase/database";
 import { categoryRef } from "../../services/firebase";
+import { useEffect } from 'react';
+import { useDispatch } from "react-redux";
 import IconButton from '@mui/material/IconButton';
+//import { initCategoriesTracking, setCategories } from "../store/categories/actions";
 
-export const categoriesList: Category[] = [];
+//export const categoriesList: Category[] = [];
     // {
     //     id: 1,
     //     typeId: 2,
@@ -63,36 +66,59 @@ export const categoriesList: Category[] = [];
     // },
 //]
 interface PropsType {
-    callBack: (img: string) => void
+    callBack: (img: any) => void
 }
  const Categories: React.FC<PropsType> = (props) => {
     const navigate = useNavigate();
 
-            let CategoriesList: any = [];
+    let categoriesList: any = [];
             
             onValue(categoryRef, (snapshot) => {
            
                 let CopyCatArray = snapshot.val();
                 Object.keys(CopyCatArray).forEach((id) => {
-                  CategoriesList.push(CopyCatArray[id]);
-                  console.log(CategoriesList);
+                  categoriesList.push(CopyCatArray[id]);
+                  console.log(categoriesList);
               })    
           });
+            
+        //     const dispatch = useDispatch();
+
+        //     useEffect(() => {
+                
+        //     onValue(categoryRef, (snapshot) => {
+        //         const CategoriesList: any = [];
+        //         let CopyCatArray = snapshot.val();
+        //         Object.keys(CopyCatArray).forEach(() => {
+        //           CategoriesList.push(CopyCatArray);
+        //           console.log(CategoriesList);
+        //       });   
+        //   })
+        //     )
+        // },  [dispatch]);
+//----------------------------------------
+        // const CategoriesList: any[string] = []; // либо const itemsList = useSelector(selectChats); но так ошибку по map выдает
+        // const dispatch = useDispatch();
+
+        // useEffect(() => {
+        //     dispatch(initCategoriesTracking());
+            
+        // }, [dispatch]);
 
     return (
         <div className="cat-block">
 
-            {Object.keys(CategoriesList).map((id) => {
+{Object.keys(categoriesList).map((id) => {
                             return ( 
-                    <div className="cat-item" key={CategoriesList[id].id} onClick={() => props.callBack(CategoriesList[id].img)}>
+                    <div className="cat-item" key={categoriesList[id].id} onClick={() => props.callBack(categoriesList[id].img)}>
                         <div className="cat-icon">
-                            <img src={CategoriesList[id].img} alt="" />
+                            <img src={categoriesList[id].img} alt="" />
                         </div>
-                        <p className="cat-name">{CategoriesList[id].name}</p>
+                        <p className="cat-name">{categoriesList[id].name}</p>
                     </div> 
                             )
                 })
-               }
+            }
                 {/* <div className="cat-item">
                     <div className="cat-icon">
                         <img className="cat-icon" src="../images/Icons/all_cat.png" alt=""

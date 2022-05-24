@@ -10,18 +10,18 @@ import "./historyItem.scss";
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-export const HistoryItem = ({ item }: any) => {
+export const HistoryItem = ({itemsList}: any) => {
     const dispatch = useDispatch();
     const handleDeleteClick = () => {
-      dispatch(deleteItem(item.dataId));
+      dispatch(deleteItem(itemsList.dataId));
     };
 
     return (
               <>
           <ListItem className="listItem">
-            <ListItemText className='listItem' primary={item.date}/>
-            <ListItemText className='listItem' primary={item.img}/>
-            <ListItemText className='listItem' primary={item.inputValue}/>
+            <ListItemText className='listItem' primary={itemsList.date}/>
+            <ListItemText className='listItem' primary={itemsList.img}/>
+            <ListItemText className='listItem' primary={itemsList.inputValue}/>
             <details className="dropdownSummary">
           <summary className="dropdownSummary">
             ...

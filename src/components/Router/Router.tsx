@@ -12,7 +12,7 @@ import { PrivateRoute } from "../../HOCS/PrivateRoute";
 import { PublicOutlet } from "../../HOCS/PublicRoute";
 import { SignUp } from "../Home/SignUp";
 import { Home } from "../Home/Home";
-//import { AllCategories } from "../AllCategories/AllCategories";
+import { AllCategories } from "../AllCategories/AllCategories";
 import { Report } from "../Report/Report";
 import React from "react";
 
@@ -64,11 +64,11 @@ export const Router = () => {
           path="category"
           element={
             <PrivateRoute>
-              <Category props.callBack(CategoriesList[id].img)/>
+              <Category />
             </PrivateRoute>
           }
-        /> */}
-        {/* <Route
+        />  */}
+         {/* <Route
           path="allCategories"
           element={
             <PrivateRoute>
