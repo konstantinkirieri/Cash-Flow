@@ -1,21 +1,18 @@
-import { IconButton } from "@mui/material";
+import { IconButton } from "@mui/material"
 import { Calendar } from "../Calendar/Calendar"
-import './report.scss';
-import MenuIcon from '@mui/icons-material/Menu';
-import HistoryIcon from '@mui/icons-material/History';
+import './report.scss'
+import MenuIcon from '@mui/icons-material/Menu'
+import HistoryIcon from '@mui/icons-material/History'
 import { DoughnutReport, OutputReport } from "../OutputReport/outputReport"
-//import { itemsList } from "../../components/History/History"
-// import React from "react";
-import { EnteredDataHandler } from "../EnteredData/EnteredDataHandler";
-import { useNavigate } from "react-router-dom";
-import { logOut } from "../../services/firebase";
-import "../Switcher/switch.scss";
-import { store } from "../store";
+import { EnteredDataHandler } from "../EnteredData/EnteredDataHandler"
+import { useNavigate } from "react-router-dom"
+import { logOut } from "../../services/firebase"
+import "../Switcher/switch.scss"
+import { store } from "../store"
 
 export const Report = () => {
   const income = [{ inputValue: 16500 }]
   const expences: any = store.getState().items.itemsList
-  console.log(expences);
   const navigate = useNavigate();
   const handleLogOutClick = async () => {
     try {
@@ -74,4 +71,4 @@ const enteredData: NewData = {
   enteredData: 15400,
 }
 EnteredDataHandler(enteredData)
-export default Report;
+export default Report

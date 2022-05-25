@@ -1,9 +1,8 @@
 import "./outputReport.scss"
 import { Chart, ArcElement, DoughnutController } from 'chart.js'
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import ChartDataLabels from 'chartjs-plugin-datalabels'
 import { Doughnut } from 'react-chartjs-2'
-import React from "react";
-import { store } from "../store";
+import { store } from "../store"
 Chart.register(ArcElement)
 Chart.register(DoughnutController)
 Chart.register(ChartDataLabels)
@@ -11,7 +10,7 @@ Chart.register(ChartDataLabels)
  * 
  * @param arrayHandler Массив с данными из файла JSON
  * @param amountOutput Элемент для возврата
- * @returns Сумма элементов amount массива
+ * @returns Сумма элементов inputValue массива
  */
 function sumAmountArr(arrayHandler: any, amountOutput: number) {
     if (arrayHandler !== undefined) {
@@ -23,10 +22,10 @@ function sumAmountArr(arrayHandler: any, amountOutput: number) {
 }
 /**
  * 
- * @param params Where: "Income || Expences" Data: {id: , categoryId: , amount: , date: }
+ * @param params Where: "Income || Expences" Data: {id: , categoryId: , inputValue: , date: }
  * @returns Блок с обработанными данными
  */
-export function OutputReport(params: any) {
+export function OutputReport(params: any): JSX.Element {
     const arrayHandler = params.param
     let amountOutput = 0
     amountOutput = sumAmountArr(arrayHandler, amountOutput)

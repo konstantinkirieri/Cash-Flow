@@ -28,4 +28,11 @@ export function gatDataFB(): void {
         })
         store.dispatch(getItemsSuccess(itemsList))
     })
+    // onValue(categoryRef, (snapshot) => {
+    //     let categoriesList: any = [];
+    //     let CopyCatArray = snapshot.val();
+    //     Object.keys(CopyCatArray).forEach((id) => {
+    //         categoriesList.push(CopyCatArray[id]);
+    //     })
+    // });
 }
