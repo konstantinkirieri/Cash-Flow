@@ -8,17 +8,20 @@ import "../HistoryItem/historyItem.scss";
 import { useNavigate } from 'react-router-dom';
 //import { HistoryItem } from '../HistoryItem/HistoryItem';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import { logOut } from "../../services/firebase";
 import "../Switcher/switch.scss";
-import { onValue } from 'firebase/database';
-import { useState } from "react";
-import { userDataRef } from '../../services/firebase';
-import { useDispatch, useSelector } from "react-redux";
-import { selectItems } from "../store/items/selectors";
-import { initItemsTracking } from "../store/items/actions";
+// import { onValue } from 'firebase/database';
+// import { useState } from "react";
+// import { userDataRef } from '../../services/firebase';
+// import { useDispatch, useSelector } from "react-redux";
+// import { selectItems } from "../store/items/selectors";
+// import { initItemsTracking } from "../store/items/actions";
 import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
+// import ListItemText from '@mui/material/ListItemText';
+// import { getItemsSuccess } from '../store/history/actions';
+import { store } from '../store';
+import { gatDataFB } from '../GetFetch/GetFetch';
 
 //export const itemsList: IList[] = [
 //   {
@@ -104,20 +107,21 @@ import ListItemText from '@mui/material/ListItemText';
 // }
 
 // //Здесь черновой вариант, все todo, todos, setTodos нужно заменять
-  // useEffect(() => {
-  //   onValue(userDataRef, (snapshot) => {
-  //     setItems([]);
-  //     const data = snapshot.val();
-  //     if (data !== null) {
-  //       Object.values(data).map((item) => {
-  //        return setItems((itemsList => [...itemsList, item])
-  //       )})
-  //     }
-  //   })
-  // }, [])
+// useEffect(() => {
+//   onValue(userDataRef, (snapshot) => {
+//     setItems([]);
+//     const data = snapshot.val();
+//     if (data !== null) {
+//       Object.values(data).map((item) => {
+//        return setItems((itemsList => [...itemsList, item])
+//       )})
+//     }
+//   })
+// }, [])
 
 export const History = () => {
 
+  const itemsList: any = store.getState().items.itemsList
   const navigate = useNavigate();
   const handleLogOutClick = async () => {
     try {
@@ -129,83 +133,73 @@ export const History = () => {
   };
 
   // const itemsList: any[] = []; // либо const itemsList = useSelector(selectChats); но так ошибку по map выдает
-  //  const dispatch = useDispatch();
-
-  //  useEffect(() => {
-  // dispatch(initItemsTracking());
-  //  }, [dispatch]);
-   const itemsList: any = [];
-            
-  onValue(userDataRef, (snapshot) => {
- 
-      let CopyUserArray = snapshot.val();
-      Object.keys(CopyUserArray).forEach((id) => {
-        itemsList.push(CopyUserArray[id]);
-        console.log(itemsList);
-    })    
-});
 
 
-    return (
-      <div className='historyPage'>
-        <div className='historyMenu'>
+  gatDataFB()
+
+  return (
+    <div className='historyPage'>
+      <div className='historyMenu'>
         <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            //sx={{ mr: 2 }}
-            onClick={() => {
-              navigate("/report")
-               }}>  
-            <ArrowBackIosIcon className='arrowBack'></ArrowBackIosIcon>
-          </IconButton>    
-          <details className="dropdownSummary">
-                <summary className="dropdownSummary">
-                <MenuIcon className='menu' />
-            </summary>
-            <div className="dropdownMenu">
-                <ul>
-                    <li className="dropdownItem" onClick={() => {
-                            navigate("/switcher")}}>Main</li>
-                    <li className="dropdownItem"onClick={() => {
-                            navigate("/addcategory")}}>Add category</li>
-                    <li className="dropdownItem signout"onClick={
-                             handleLogOutClick}>Sign Out</li>
-                </ul>
-            </div>
-            </details>
-        </div>
-        <h2 className='historyHeader'>History</h2>
-        
-        <HistoryCalendar /> 
-        <Divider className='divider' />
-        <List className='historyList'>
-          {Object.keys(itemsList).map((id) => {
-            return (
-               <ListItem key={itemsList[id].dataId}>
-                 <div className="listItem">
-            <img className='historyImg' src={itemsList[id].img} alt=''></img>
-            <div className='listItem'>{itemsList[id].date}</div>
-            <div className='listItem'>{itemsList[id].inputValue}</div>
-            <details className="dropdownSummary">
+          size="large"
+          edge="start"
+          color="inherit"
+          aria-label="open drawer"
+          //sx={{ mr: 2 }}
+          onClick={() => {
+            navigate("/report")
+          }}>
+          <ArrowBackIosIcon className='arrowBack'></ArrowBackIosIcon>
+        </IconButton>
+        <details className="dropdownSummary">
           <summary className="dropdownSummary">
-            ...
+            <MenuIcon className='menu' />
           </summary>
-          <div className="dropdownHistory">
-           <button className="dropdownBtn">Edit</button><br></br>
-           <button  className="dropdownBtn">Delete</button>
+          <div className="dropdownMenu">
+            <ul>
+              <li className="dropdownItem" onClick={() => {
+                navigate("/switcher")
+              }}>Main</li>
+              <li className="dropdownItem" onClick={() => {
+                navigate("/addcategory")
+              }}>Add category</li>
+              <li className="dropdownItem signout" onClick={
+                handleLogOutClick}>Sign Out</li>
+            </ul>
           </div>
         </details>
-          <Divider className='dividerItem'/>
-                {/* <HistoryItem item={itemsList} /> */}
-               </div>
-          </ListItem>
-          )})
-          }
-        </List>
-       
       </div>
-    )
+      <h2 className='historyHeader'>History</h2>
+
+      <HistoryCalendar />
+      <Divider className='divider' />
+      <List className='historyList'>
+        {Object.keys(itemsList).map((id) => {
+          return (
+            <ListItem key={itemsList[id].dataId}>
+              <div className="listItem">
+                <img className='historyImg' src={itemsList[id].img} alt=''></img>
+                <div className='listItem'>{itemsList[id].date}</div>
+                <div className='listItem'>{itemsList[id].inputValue}</div>
+                <details className="dropdownSummary">
+                  <summary className="dropdownSummary">
+                    ...
+                  </summary>
+                  <div className="dropdownHistory">
+                    <button className="dropdownBtn">Edit</button><br></br>
+                    <button className="dropdownBtn">Delete</button>
+                  </div>
+                </details>
+                <Divider className='dividerItem' />
+                {/* <HistoryItem item={itemsList} /> */}
+              </div>
+            </ListItem>
+          )
+        })
+        }
+      </List>
+
+    </div>
+  )
 }
 

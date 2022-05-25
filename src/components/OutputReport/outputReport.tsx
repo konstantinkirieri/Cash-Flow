@@ -3,6 +3,7 @@ import { Chart, ArcElement, DoughnutController } from 'chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Doughnut } from 'react-chartjs-2'
 import React from "react";
+import { store } from "../store";
 Chart.register(ArcElement)
 Chart.register(DoughnutController)
 Chart.register(ChartDataLabels)
@@ -40,7 +41,7 @@ export function OutputReport(params: any) {
  */
 export function DoughnutReport(params: any) {
     const income = params.income[0].amount
-    const expences = params.expences
+    const expences: any = store.getState().items.itemsList
     const labels = ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri']
     const data = {
         labels: labels,

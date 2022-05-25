@@ -5,13 +5,13 @@ import {
   REQUEST_ITEMS_SUCCESS,
 } from "./actions";
 
-  const initialState = {
+const initialState = {
   itemsList: [],
   request: {
     status: REQUEST_STATUS.IDLE,
     error: "",
   },
-  };
+};
 
 
 export const itemsReducer = (state = initialState, { type, payload }: any) => {
