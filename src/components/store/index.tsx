@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist";
 import { itemsReducer } from "./history/reducer";
 import { homeReducer } from "./auth/reducer";
+import { categoriesReducer } from "./categories/reducer";
 
 
 declare global {
@@ -17,13 +18,14 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const config = {
   key: "CashFlow",
   storage,
-  blacklist: ["home", "items"],
+  blacklist: ["home", "items", "categories"],
 };
 const persistedReducer = persistReducer(
   config,
   combineReducers({
     home: homeReducer,
-    items: itemsReducer
+    items: itemsReducer,
+    categories: categoriesReducer
   })
 );
 

@@ -43,13 +43,5 @@ export const deleteItem = (dataId: number) => ({
       dispatch(setItems(newItems));
     });
   };
-  //     const data = itemsSnap.val();
-  //     if (data !== null) {
-  //       Object.values(data).map((item: any) => {
-  //         dispatch(setItems(newItems))
-  //       })
-  //     }
-  //   }
-  //     );
-  // }
+
   

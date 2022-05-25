@@ -1,20 +1,3 @@
-// import { ADD_CATEGORY, DELETE_CATEGORY, SET_CATEGORIES } from "./actions";
-
-// const initialCategories: any = [];
-
-// export const itemsReducer = (state = initialCategories, { type, payload }: any) => {
-//   switch (type) {
-//     case ADD_CATEGORY:
-//       return [...state, payload];
-//     case DELETE_CATEGORY:
-//       return state.filter(({ id }: any) => id !== payload.categoryId);
-//     case SET_CATEGORIES:
-//       return payload;
-//     default:
-//       return state;
-//   }
-// };
-
 import { REQUEST_STATUS } from "../../GetFetch/GetFetch";
 import {
   REQUEST_CATEGORIES_FAILURE,
@@ -44,7 +27,7 @@ export const categoriesReducer = (state = initialState, { type, payload }: any) 
     case REQUEST_CATEGORIES_SUCCESS:
       return {
         ...state,
-        itemsList: payload,
+        categoriesList: payload,
         request: {
           error: "",
           status: REQUEST_STATUS.SUCCESS,

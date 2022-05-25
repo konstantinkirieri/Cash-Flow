@@ -1,13 +1,9 @@
 import React from "react";
-import { Category } from "../../model";
+//import { Category } from "../../model";
 import { useNavigate } from "react-router-dom"
 import "./category.scss";
-import { onValue } from "firebase/database";
-import { categoryRef } from "../../services/firebase";
-import { useEffect } from 'react';
-import { useDispatch } from "react-redux";
 import IconButton from '@mui/material/IconButton';
-//import { initCategoriesTracking, setCategories } from "../store/categories/actions";
+import { store } from '../store';
 
 //export const categoriesList: Category[] = [];
     // {
@@ -68,43 +64,12 @@ import IconButton from '@mui/material/IconButton';
 interface PropsType {
     callBack: (img: any) => void
 }
- const Categories: React.FC<PropsType> = (props) => {
+
+const Categories: React.FC<PropsType> = (props) => {
     const navigate = useNavigate();
 
-    let categoriesList: any = [];
-            
-            onValue(categoryRef, (snapshot) => {
-           
-                let CopyCatArray = snapshot.val();
-                Object.keys(CopyCatArray).forEach((id) => {
-                  categoriesList.push(CopyCatArray[id]);
-                  console.log(categoriesList);
-              })    
-          });
-            
-        //     const dispatch = useDispatch();
-
-        //     useEffect(() => {
-                
-        //     onValue(categoryRef, (snapshot) => {
-        //         const CategoriesList: any = [];
-        //         let CopyCatArray = snapshot.val();
-        //         Object.keys(CopyCatArray).forEach(() => {
-        //           CategoriesList.push(CopyCatArray);
-        //           console.log(CategoriesList);
-        //       });   
-        //   })
-        //     )
-        // },  [dispatch]);
-//----------------------------------------
-        // const CategoriesList: any[string] = []; // либо const itemsList = useSelector(selectChats); но так ошибку по map выдает
-        // const dispatch = useDispatch();
-
-        // useEffect(() => {
-        //     dispatch(initCategoriesTracking());
-            
-        // }, [dispatch]);
-
+    const categoriesList: any = store.getState().categories.categoriesList
+  
     return (
         <div className="cat-block">
 

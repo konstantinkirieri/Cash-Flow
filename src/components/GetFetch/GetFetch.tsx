@@ -1,7 +1,9 @@
 import { onValue } from "firebase/database";
 import { userDataRef } from "../../services/firebase";
+import { categoryRef } from "../../services/firebase";
 import { store } from "../store";
 import { getItemsSuccess } from "../store/history/actions";
+import { getCategoriesSuccess } from "../store/categories/actions";
 
 export const API = "https://raw.githubusercontent.com/marieStamp/FinalProject/master/expenses.json"
 
@@ -28,11 +30,12 @@ export function gatDataFB(): void {
         })
         store.dispatch(getItemsSuccess(itemsList))
     })
-    // onValue(categoryRef, (snapshot) => {
-    //     let categoriesList: any = [];
-    //     let CopyCatArray = snapshot.val();
-    //     Object.keys(CopyCatArray).forEach((id) => {
-    //         categoriesList.push(CopyCatArray[id]);
-    //     })
-    // });
+    onValue(categoryRef, (snapshot) => {
+        let categoriesList: any = [];
+        let CopyCatArray = snapshot.val();
+        Object.keys(CopyCatArray).forEach((id) => {
+            categoriesList.push(CopyCatArray[id]);
+        })
+        store.dispatch(getCategoriesSuccess(categoriesList))
+    });
 }

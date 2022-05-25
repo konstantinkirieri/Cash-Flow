@@ -8,120 +8,17 @@ import "../HistoryItem/historyItem.scss";
 import { useNavigate } from 'react-router-dom';
 //import { HistoryItem } from '../HistoryItem/HistoryItem';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
-// import React, { useEffect } from 'react';
 import { logOut } from "../../services/firebase";
 import "../Switcher/switch.scss";
-// import { onValue } from 'firebase/database';
-// import { useState } from "react";
-// import { userDataRef } from '../../services/firebase';
-// import { useDispatch, useSelector } from "react-redux";
-// import { selectItems } from "../store/items/selectors";
-// import { initItemsTracking } from "../store/items/actions";
 import ListItem from '@mui/material/ListItem';
-// import ListItemText from '@mui/material/ListItemText';
-// import { getItemsSuccess } from '../store/history/actions';
 import { store } from '../store';
-
-//export const itemsList: IList[] = [
-//   {
-//     id: 1,
-//     categoryId: 1,
-//     amount: 1000,
-//     date: '15.03.2022'
-//   },
-//   {
-//     id: 2,
-//     categoryId: 2,
-//     amount: 500,
-//     date: '15.03.2022'
-//   },
-//   {
-//     id: 3,
-//     categoryId: 4,
-//     amount: 5000,
-//     date: '05.03.2022'
-//   },
-//   {
-//     id: 4,
-//     categoryId: 3,
-//     amount: 3600,
-//     date: '05.03.2022'
-//   },
-//   {
-//     id: 5,
-//     categoryId: 2,
-//     amount: 1200,
-//     date: '15.03.2022'
-//   },
-//   {
-//     id: 6,
-//     categoryId: 5,
-//     amount: 1190,
-//     date: '07.03.2022'
-//   },
-//   {
-//     id: 7,
-//     categoryId: 6,
-//     amount: 1100,
-//     date: '07.03.2022'
-//   }
-//  ]
-
-// interface IList {
-//   dataId: number;
-//   date: number | string;
-//   img: string;
-//   inputValue: number;
-// }
-// const categoryList: CList[] = [
-//     {
-//         id: 1,
-//         link: '#'
-//     },
-//     {
-//         id: 2,
-//         link: '#'
-//     },
-//     {
-//         id: 3,
-//         link: '#'
-//     },
-//     {
-//         id: 4,
-//         link: '#'
-//     },
-//     {
-//         id: 5,
-//         link: '#'
-//     },
-//     {
-//         id: 6,
-//         link: '#'
-//     }
-// ]
-
-// interface CList {
-//   id: number;
-//   link: string;
-// }
-
-// //Здесь черновой вариант, все todo, todos, setTodos нужно заменять
-// useEffect(() => {
-//   onValue(userDataRef, (snapshot) => {
-//     setItems([]);
-//     const data = snapshot.val();
-//     if (data !== null) {
-//       Object.values(data).map((item) => {
-//        return setItems((itemsList => [...itemsList, item])
-//       )})
-//     }
-//   })
-// }, [])
 
 export const History = () => {
 
-  const itemsList: any = store.getState().items.itemsList
+  const itemsList: any = store.getState().items.itemsList;
+
   const navigate = useNavigate();
+
   const handleLogOutClick = async () => {
     try {
       await logOut();
@@ -131,8 +28,6 @@ export const History = () => {
     navigate("/")
   };
 
-  // const itemsList: any[] = []; // либо const itemsList = useSelector(selectChats); но так ошибку по map выдает
-
   return (
     <div className='historyPage'>
       <div className='historyMenu'>
@@ -141,7 +36,6 @@ export const History = () => {
           edge="start"
           color="inherit"
           aria-label="open drawer"
-          //sx={{ mr: 2 }}
           onClick={() => {
             navigate("/report")
           }}>
@@ -175,8 +69,8 @@ export const History = () => {
             <ListItem key={itemsList[id].dataId}>
               <div className="listItem">
                 <img className='historyImg' src={itemsList[id].img} alt=''></img>
-                <div className='listItem'>{itemsList[id].date}</div>
-                <div className='listItem'>{itemsList[id].inputValue}</div>
+                <div className='list'>{itemsList[id].date}</div>
+                <div className='list'>{itemsList[id].inputValue}</div>
                 <details className="dropdownSummary">
                   <summary className="dropdownSummary">
                     ...

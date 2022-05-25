@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import "./KeyBoard.scss";
-import { onValue } from "firebase/database";
-import { categoryRef } from "../../services/firebase";
 import { v4 as uuidv4 } from "uuid";
 import { set, ref } from "firebase/database";
 import { db } from "../../services/firebase";
 import IconButton from '@mui/material/IconButton';
-import Categories from "../Category/Category";
-
-
+import  Categories  from "../Category/Category";
 
 export const KeyBoard = () => {
     const [inputValue, setInputValue] = useState("");
@@ -34,18 +30,6 @@ export const KeyBoard = () => {
         e.preventDefault();
         setInputValue(inputValue.slice(0, -1));
     };
-
-
-    // let CategoriesList: any = [];
-            
-    //         onValue(categoryRef, (snapshot) => {
-           
-    //             let CopyCatArray = snapshot.val();
-    //             Object.keys(CopyCatArray).forEach((id) => {
-    //               CategoriesList.push(CopyCatArray[id]);
-    //               //console.log(CategoriesList);
-    //           })    
-    //       });
 
     const writeToDatabase = () => {
         const dataId = uuidv4();
@@ -104,10 +88,7 @@ export const KeyBoard = () => {
                 <button className="keybrd-btn" value="9" onClick={clickBtn}>
                     9
                 </button>
-                {/* <div className="keybrd-btn">
-                    <img className="img-btn" src="../images/Icons/ok.png" alt="ok" />
-                </div> */}
-                 <button className="keybrd-btn" value="C" onClick={deleteAllData}>
+                <button className="keybrd-btn" value="C" onClick={deleteAllData}>
                     C
                 </button>
                 <button className="keybrd-btn" value="0" onClick={clickBtn}>

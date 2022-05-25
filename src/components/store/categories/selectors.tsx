@@ -1,5 +1,3 @@
-//export const selectCategories = (state: any) => state.categories;
-
 import { REQUEST_STATUS } from "../../GetFetch/GetFetch";
 
 export const selectCategoriesList = (state: any) => state.categories.categoriesList;
