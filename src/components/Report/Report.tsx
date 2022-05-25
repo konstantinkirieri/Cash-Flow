@@ -3,18 +3,19 @@ import { Calendar } from "../Calendar/Calendar"
 import './report.scss';
 import MenuIcon from '@mui/icons-material/Menu';
 import HistoryIcon from '@mui/icons-material/History';
-import { OutputReport, DoughnutReport } from "../OutputReport/outputReport"
+import { DoughnutReport, OutputReport } from "../OutputReport/outputReport"
 //import { itemsList } from "../../components/History/History"
 // import React from "react";
 import { EnteredDataHandler } from "../EnteredData/EnteredDataHandler";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../../services/firebase";
 import "../Switcher/switch.scss";
-
-const income = [{ amount: 16500 }]
-//const expences = itemsList
+import { store } from "../store";
 
 export const Report = () => {
+  const income = [{ inputValue: 16500 }]
+  const expences: any = store.getState().items.itemsList
+  console.log(expences);
   const navigate = useNavigate();
   const handleLogOutClick = async () => {
     try {
@@ -54,8 +55,8 @@ export const Report = () => {
       <h2 className="reportHeader">Report</h2>
       <Calendar />
       <OutputReport where="Income" param={income} />
-      {/* <OutputReport where="Expences" param={expences} /> */}
-      {/* <DoughnutReport expences={expences} income={income}/> */}
+      <OutputReport where="Expences" param={expences} />
+      <DoughnutReport expences={expences} income={income} />
     </div>
   )
 }

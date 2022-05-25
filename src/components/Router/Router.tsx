@@ -15,15 +15,17 @@ import { Home } from "../Home/Home";
 import { AllCategories } from "../AllCategories/AllCategories";
 import { Report } from "../Report/Report";
 import React from "react";
+import { gatDataFB } from "../GetFetch/GetFetch";
 
 export const Router = () => {
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user: any) => {
       if (user) {
         dispatch(signIn());
+        gatDataFB();
       } else {
         dispatch(signOut());
       }
@@ -34,7 +36,7 @@ export const Router = () => {
 
 
   return (
-<BrowserRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<PublicOutlet />}>
           <Route path="/" element={<Home />} />
@@ -47,11 +49,11 @@ export const Router = () => {
             index
             element={
               <PrivateRoute>
-                <Switcher  />
+                <Switcher />
               </PrivateRoute>
             }
           />
-          </Route>
+        </Route>
         <Route
           path="history"
           element={
@@ -68,7 +70,7 @@ export const Router = () => {
             </PrivateRoute>
           }
         />  */}
-         {/* <Route
+        {/* <Route
           path="allCategories"
           element={
             <PrivateRoute>
@@ -95,5 +97,5 @@ export const Router = () => {
         <Route path="*" element={<main>404 Not Found</main>} />
       </Routes>
     </BrowserRouter>
-    )
-  }
+  )
+}

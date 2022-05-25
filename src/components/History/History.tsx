@@ -21,7 +21,6 @@ import ListItem from '@mui/material/ListItem';
 // import ListItemText from '@mui/material/ListItemText';
 // import { getItemsSuccess } from '../store/history/actions';
 import { store } from '../store';
-import { gatDataFB } from '../GetFetch/GetFetch';
 
 //export const itemsList: IList[] = [
 //   {
@@ -133,9 +132,6 @@ export const History = () => {
   };
 
   // const itemsList: any[] = []; // либо const itemsList = useSelector(selectChats); но так ошибку по map выдает
-
-
-  gatDataFB()
 
   return (
     <div className='historyPage'>

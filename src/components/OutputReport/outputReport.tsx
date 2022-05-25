@@ -16,7 +16,7 @@ Chart.register(ChartDataLabels)
 function sumAmountArr(arrayHandler: any, amountOutput: number) {
     if (arrayHandler !== undefined) {
         arrayHandler.forEach(function amountHandler(elem: any) {
-            return amountOutput = amountOutput + elem.amount
+            return amountOutput = amountOutput + +elem.inputValue
         })
     }
     return amountOutput
@@ -40,7 +40,7 @@ export function OutputReport(params: any) {
  * @returns Диаграмма "Пончик"
  */
 export function DoughnutReport(params: any) {
-    const income = params.income[0].amount
+    const income = params.income[0].inputValue
     const expences: any = store.getState().items.itemsList
     const labels = ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri']
     const data = {
@@ -71,9 +71,9 @@ export function DoughnutReport(params: any) {
     amountOutput = sumAmountArr(expences, amountOutput)
     const diffAmounts = income - amountOutput
     const datasetHandler = data.datasets
-    expences.forEach((element: { id: string, amount: number }) => {
+    expences.forEach((element: { id: string, inputValue: number }) => {
         // data.labels.push((element.id).toString())
-        const persentPie = (element.amount / amountOutput) * 100
+        const persentPie = (element.inputValue / amountOutput) * 100
         datasetHandler[0].data.push(parseInt(`${persentPie}`, 10))
     });
     if (data.labels.length >= 1) {
