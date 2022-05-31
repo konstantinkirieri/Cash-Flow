@@ -1,5 +1,5 @@
 import List from '@mui/material/List';
-import MenuIcon from '@mui/icons-material/Menu';
+// import MenuIcon from '@mui/icons-material/Menu';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
 import Divider from '@mui/material/Divider';
@@ -8,10 +8,11 @@ import "../HistoryItem/historyItem.scss";
 import { useNavigate } from 'react-router-dom';
 //import { HistoryItem } from '../HistoryItem/HistoryItem';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
-import { logOut } from "../../services/firebase";
+// import { logOut } from "../../services/firebase";
 import "../Access/access.scss";
 import ListItem from '@mui/material/ListItem';
 import { store } from '../store';
+import { Menu } from '../Menu/dropMenu';
 
 export const History = () => {
 
@@ -19,18 +20,31 @@ export const History = () => {
 
   const navigate = useNavigate();
 
-  const handleLogOutClick = async () => {
-    try {
-      await logOut();
-    } catch (err) {
-      console.log(err);
-    }
-    navigate("/")
-  };
+  // const handleLogOutClick = async () => {
+  //   try {
+  //     await logOut();
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  //   navigate("/")
+  // };
 
   return (
     <div className='historyPage'>
       <div className='historyMenu'>
+        <IconButton
+        size="large"
+        edge="start"
+        color="inherit"
+        aria-label="open drawer"
+        onClick={() => {
+          navigate("/report")
+        }}>
+          <ArrowBackIosIcon className='arrowBack'></ArrowBackIosIcon>
+        </IconButton>
+        <Menu />
+      </div>
+      {/* <div className='historyMenu'>
         <IconButton
           size="large"
           edge="start"
@@ -58,7 +72,7 @@ export const History = () => {
             </ul>
           </div>
         </details>
-      </div>
+      </div> */}
       <h2 className='historyHeader'>History</h2>
 
       <HistoryCalendar />
