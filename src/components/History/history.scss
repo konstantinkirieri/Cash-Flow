@@ -42,7 +42,7 @@
     width: 30px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1440px) {
     .divider {
         width: 50%;
         margin: auto !important;
@@ -54,5 +54,17 @@
     .historyImg {
         width: 40px;
     }
-
+}
+@media screen and (min-width: 1440px) {
+    .divider {
+        width: 30%;
+        margin: auto !important;
+    }
+    .historyList {
+        width: 30%;
+        margin: auto !important;
+    }
+    .historyImg {
+        width: 40px;
+    }
 }

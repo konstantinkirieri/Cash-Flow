@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 25px 0;
+    margin: 25px auto;
     padding: 5px;
 }
 #Expences {
@@ -41,14 +41,19 @@
     margin: 20px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1440px) {
     #Income,
-    #Expences {
-        width: 50%;
-        margin: 25px auto;
-    }
+    #Expences,
     #doughnutReport {
         width: 50%;
     }
-
+}
+@media screen and (min-width: 1440px) {
+    #Income,
+    #Expences {
+        width: 30%;
+    }
+    #doughnutReport {
+        width: 30%;
+    }
 }
