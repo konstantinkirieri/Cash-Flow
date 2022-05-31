@@ -16,15 +16,15 @@ import { createPrivateKey } from "crypto";
 
 export const Switcher = () => {
  
- const [typeIcon, setTypeIcon] = useState < 1 | 2 >(2) ;
+//  const [typeIcon, setTypeIcon] = useState < 1 | 2 >(2) ;
 
-  const handleClickExpenses: any = () => {
-    setTypeIcon(2);
-  };
+//   const handleClickExpenses: any = () => {
+//     setTypeIcon(2);
+//   };
 
-  const handleClickIncome: any = () => {
-    setTypeIcon(1);
-  };
+//   const handleClickIncome: any = () => {
+//     setTypeIcon(1);
+//   };
 
 
 // 2 наброска, как фильтровать по Expences, потом что-то подобное нужно делать по Income и вешать это на кнопки Income и Expences
@@ -117,7 +117,7 @@ export const Switcher = () => {
           </div>
         </details>
       </div>
-      <div className="switcher">
+      {/* <div className="switcher">
         <button
           className={"exp-btn" + (typeIcon === 2 ? " btn_focus" : "")}
           onClick={handleClickExpenses}
@@ -130,7 +130,7 @@ export const Switcher = () => {
         >
           Income
         </button>
-      </div>
+      </div> */}
       
         <KeyBoard />
         {/* <Categories cats={categoriesList.filter((CategoriesList: { typeId: number; }) => CategoriesList.typeId === typeIcon)} /> */}

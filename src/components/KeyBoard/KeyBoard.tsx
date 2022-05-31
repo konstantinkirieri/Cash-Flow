@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./KeyBoard.scss";
+import "../Switcher/switch.scss";
 import { v4 as uuidv4 } from "uuid";
 import { set, ref } from "firebase/database";
 import { db } from "../../services/firebase";
@@ -7,9 +8,18 @@ import IconButton from '@mui/material/IconButton';
 import  Categories  from "../Category/Category";
 
 export const KeyBoard = () => {
+    const [typeId, setTypeId] = useState<"Expences" | "Income">("Expences");
     const [inputValue, setInputValue] = useState("");
     const [img, setImg] = useState('images/Icons/house.png');
     const [view, setView] = useState(false);
+
+    const handleClickExpenses: any = () => {
+        setTypeId("Expences");
+    };
+    
+    const handleClickIncome: any = () => {
+        setTypeId("Income");
+    }
 
     const handleImgChange = (icon: string) => {
         setImg(icon)
@@ -34,14 +44,29 @@ export const KeyBoard = () => {
     const writeToDatabase = () => {
         const dataId = uuidv4();
         const date = (new Date()).toLocaleDateString();
-        set(ref(db, `UserData/${dataId}`), {dataId, inputValue, img, date});
+        set(ref(db, `UserData/${dataId}`), {dataId, inputValue, img, date, typeId});
         console.log("added to firebase");
         setInputValue("");
         setImg("images/Icons/house.png");
+        setTypeId("Expences");
       };
 
     return (
         <>
+        <div className="switcher">
+        <button
+          className={"exp-btn" + (typeId === "Expences" ? " btn_focus" : "")}
+          onClick={handleClickExpenses}
+        >
+          Expenses
+        </button>
+        <button
+          className={"inc-btn" + (typeId === "Income" ? " btn_focus" : "")}
+          onClick={handleClickIncome}
+        >
+          Income
+        </button>
+      </div>
         <form className="kbd-form">
             <div className="keyboardField">
             <input
