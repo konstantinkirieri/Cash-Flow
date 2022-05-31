@@ -1,0 +1,25 @@
+@import '../../mixin.scss';
+
+// .report {
+//     background-image: $bgimg-report_style;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     padding: 5vh;
+//}
+
+.reportHeader {
+    color: #CEABA0;
+    font-family: Roboto;
+    text-align: center;
+    margin-bottom: 15px;
+    @include font-style_header_component();
+}
+.reportMenu {
+    display: flex;
+    justify-content: space-between;
+}
+.reportMenuBtn {
+    color: $color-2;
+}
+
+

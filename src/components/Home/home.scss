@@ -1,0 +1,97 @@
+@import '../../mixin.scss';
+
+
+h1, H1 {
+    color: $color-7;
+}
+#homeComponent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.greeting {
+    @include font-style_greeting();
+    color: $color-3;
+    margin-top: 85px;
+    margin-bottom: 60px
+}
+.btnLog {
+    @include font-style_second();
+    @include buttonSet();
+    background-color: $color-8;
+    color: $color-0;
+    width: -webkit-fill-available;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.authorization {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+input {
+    @include buttonSet();
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    color: $color-3;
+}
+input:focus, input:hover, input:active {
+    border: none;
+}
+
+.authDevider {
+    background-color: $color-9;
+    margin-bottom: 35px !important;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+    border: none;
+}
+    // .auth_elem {
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: space-between;
+    // }
+    
+.signupArrow {
+    display: flex !important;
+    justify-content: left !important;
+    width: 40px;
+}
+.authError {
+    color: red;
+    text-align: center;
+}
+.signupHeader {
+    display: flex;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+    .authorization {
+        width: 50%;
+        align-self: center;
+    }
+    .signup {
+        width: 50%;
+        align-self: center;
+    }
+    .signupLink {
+        text-align: center;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .authorization {
+        width: 30%;
+        align-self: center;
+    }
+    .signup {
+        width: 30%;
+        align-self: center;
+    }
+    .signupLink {
+        text-align: center;
+    }
+}

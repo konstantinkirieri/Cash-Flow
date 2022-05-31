@@ -1,0 +1,95 @@
+@import '../../mixin.scss';
+
+.kbd-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input-amount {
+    color: $color-0;
+    text-align: center;
+    width: 30vw;
+    font-size: 18px;
+    margin-bottom: 8px;
+    border: none;
+}
+.input-amount::placeholder {
+    color: $color-3;
+}
+.keybrd-btn {
+    background-color: $color-2;
+    color: $color-0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    font-size: 24px;
+    margin: auto 0;
+}
+.keyboard-wrap {
+    width: 300px;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 47px;
+    row-gap: 20px;
+}
+.keyboardField {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    margin-bottom: 20px;
+}
+.keyboardImg {
+    height: 33px;
+}
+.keyboardCalendar {
+    background-color: transparent;
+    height: 28px;
+    color: aliceblue;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+    .input-amount {
+        width: 10vw;
+    }
+    .keyboardField,
+    .keyboard-wrap {
+        width: 50%;
+    }
+    .keyboardField {
+        justify-content: space-around;
+    }
+    .keyboard-wrap {
+        column-gap: 7vw;
+        row-gap: 7vh;
+    }
+    .keybrd-btn {
+        width: 7vw;
+        height: 7vw;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .input-amount {
+        width: 10vw;
+    }
+    .keyboardField,
+    .keyboard-wrap {
+        width: 30%;
+    }
+    .keyboardField {
+        justify-content: space-around;
+    }
+    .keyboard-wrap {
+        column-gap: 5vw;
+        row-gap: 5vh;
+    }
+    .keybrd-btn {
+        width: 5vw;
+        height: 5vw;
+    }
+}

@@ -1,0 +1,70 @@
+// .historyPage {
+    // background-image: url(../../../public/img/backCommon.png);
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // padding: 5vh;
+// }
+@import '../../mixin.scss';
+
+.divider {
+    background-color: $color-0;
+}
+.historyHeader {
+    color: $color-3;
+    font-family: Roboto;
+    font-style: normal;
+    text-align: center;
+    @include font-style_header_component();
+}
+.historyDate {
+    color: $color-0;
+    font-family: Roboto;
+    font-style: normal;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+}
+.menu {
+    color: $color-3;
+}
+.historyMenu {
+    display: flex;
+    justify-content: space-between;
+    // padding: 0 5vh 0 5vh;
+    align-items: center;
+}
+.arrowBack {
+    color: $color-3;
+}
+.historyImg {
+    margin-right: 20px;
+    width: 30px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+    .divider {
+        width: 50%;
+        margin: auto !important;
+    }
+    .historyList {
+        width: 50%;
+        margin: auto !important;
+    }
+    .historyImg {
+        width: 40px;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .divider {
+        width: 30%;
+        margin: auto !important;
+    }
+    .historyList {
+        width: 30%;
+        margin: auto !important;
+    }
+    .historyImg {
+        width: 40px;
+    }
+}
