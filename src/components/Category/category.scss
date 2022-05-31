@@ -93,9 +93,15 @@ h2 {
         justify-content: center;
     }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1440px) {
     .cat-block {
         width: 50%;
+        margin: auto;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .cat-block {
+        width: 30%;
         margin: auto;
     }
 }
