@@ -14,7 +14,7 @@ import { SignUp } from "../Home/SignUp";
 import { Home } from "../Home/Home";
  import { AllCategories } from "../AllCategories/AllCategories";
 import { Report } from "../Report/Report";
-import { gatDataFB } from "../GetFetch/GetFetch";
+import { getDataFB } from "../GetFetch/GetFetch";
 
 export const Router = () => {
 
@@ -24,7 +24,7 @@ export const Router = () => {
     const unsubscribe = auth.onAuthStateChanged((user: any) => {
       if (user) {
         dispatch(signIn());
-        gatDataFB();
+        getDataFB();
       } else {
         dispatch(signOut());
       }

@@ -8,14 +8,28 @@ import "../HistoryItem/historyItem.scss";
 import { useNavigate } from 'react-router-dom';
 //import { HistoryItem } from '../HistoryItem/HistoryItem';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
-import { logOut } from "../../services/firebase";
+import { logOut, userDataRef } from "../../services/firebase";
 import "../Switcher/switch.scss";
 import ListItem from '@mui/material/ListItem';
 import { store } from '../store';
+import { remove } from 'firebase/database';
+import { db } from "../../services/firebase";
+import { ref } from "firebase/database";
+import { useDispatch } from "react-redux";
+import { deleteItem } from '../store/items/actions';
+
 
 export const History = () => {
 
   const itemsList: any = store.getState().items.itemsList;
+
+  //const dispatch = useDispatch();
+  // const handleDeleteClick = () => {
+  //   dispatch(deleteItem(itemsList.dataId));
+  // };
+  const handleDeleteClick = (itemsList: any) => {
+        remove(ref(db, `UserData/${itemsList.dataId}`))
+  }
 
   const navigate = useNavigate();
 
@@ -77,7 +91,7 @@ export const History = () => {
                   </summary>
                   <div className="dropdownHistory">
                     <button className="dropdownBtn">Edit</button><br></br>
-                    <button className="dropdownBtn">Delete</button>
+                    <button className="dropdownBtn" onClick={() => handleDeleteClick(itemsList)}>Delete</button>
                   </div>
                 </details>
                 <Divider className='dividerItem' />

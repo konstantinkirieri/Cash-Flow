@@ -21,7 +21,7 @@ export const REQUEST_STATUS = {
 /**
  * Функция берет данные из Firebase и передает в Store
  */
-export function gatDataFB(): void {
+export function getDataFB(): void {
     onValue(userDataRef, (snapshot) => {
         const itemsList: any = []
         let CopyUserArray = snapshot.val();
