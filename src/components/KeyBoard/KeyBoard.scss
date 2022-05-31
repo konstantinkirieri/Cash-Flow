@@ -65,4 +65,19 @@
     .input-amount {
         width: 10vw;
     }
+
+    .keyboardField,
+    .keyboard-wrap {
+        width: 50%;
+    }
+
+    .keyboard-wrap {
+        column-gap: 5vw;
+        row-gap: 5vh;
+    }
+
+    .keybrd-btn {
+        width: 10vw;
+        height: 10vw;
+    }
 }

@@ -2,11 +2,11 @@
 
 .switcher {
     background-color: $color-2;
+    color: $color-0;
     display: flex;
     justify-content: space-around;
     width: 250px;
     height: 40px;
-    color: $color-0;
     border-radius: 5px;
     margin: 30px auto;
 }
@@ -70,7 +70,7 @@ summary::-webkit-details-marker {
     color: $color-8;
 }
 .dropdownMenu {
-    background-color: #617E8C;
+    background-color: $color-10;
     padding: 7px;
     border-radius: 6px;
     position: absolute;

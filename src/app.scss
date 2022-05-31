@@ -12,21 +12,21 @@ body {
     font-family: $f-family;
 }
 a {
-    text-decoration: none;
     color: $color-0;
+    text-decoration: none;
 }
 .App-header {
     color: $color-1;
     font-family: 'Sahitya';
     font-style: normal;
-    @include font-style_header();
+    @include font-style_header_app();
 }
 .App {
+    color: $color-0;
     background-image: $bgimg-main_style;
     // background-repeat: no-repeat;
     background-size: cover;
     padding: 4vh;
-    color: $color-0;
     //height: 90vh;
     // @if($bgimg-report_active) {
     //     background-image: $bgimg-report_style;

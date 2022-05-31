@@ -8,13 +8,11 @@
 //}
 
 .reportHeader {
-    font-family: Roboto;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 28px;
     color: #CEABA0;
+    font-family: Roboto;
     text-align: center;
     margin-bottom: 15px;
+    @include font-style_header_component();
 }
 
 .reportMenu {
@@ -22,7 +20,7 @@
     justify-content: space-between;
 }
 .reportMenuBtn {
-    color: #54A5BF;
+    color: $color-2;
 }
 
 
