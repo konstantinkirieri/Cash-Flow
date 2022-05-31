@@ -16,7 +16,7 @@ import { API } from "../GetFetch/GetFetch";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../../services/firebase";
-import "../Switcher/switch.scss";
+import "../Access/switch.scss";
 // import {
 //   selectItemsError,
 //   selectItemsList,

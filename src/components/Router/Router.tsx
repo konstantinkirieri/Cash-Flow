@@ -1,6 +1,6 @@
 import { History } from "../History/History";
 //import  Category  from "../Category/Category";
-import { Switcher } from "../Switcher/Switcher";
+import { Access } from "../Access/Access";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./router.scss";
 import { useEffect } from "react";
@@ -43,12 +43,12 @@ export const Router = () => {
         <Route path="/signup" element={<PublicOutlet />}>
           <Route path="" element={<SignUp />} />
         </Route>
-        <Route path="switcher">
+        <Route path="access">
           <Route
             index
             element={
               <PrivateRoute>
-                <Switcher />
+                <Access />
               </PrivateRoute>
             }
           />

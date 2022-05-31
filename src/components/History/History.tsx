@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 //import { HistoryItem } from '../HistoryItem/HistoryItem';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
 import { logOut } from "../../services/firebase";
-import "../Switcher/switch.scss";
+import "../Access/access.scss";
 import ListItem from '@mui/material/ListItem';
 import { store } from '../store';
 
@@ -48,7 +48,7 @@ export const History = () => {
           <div className="dropdownMenu">
             <ul>
               <li className="dropdownItem" onClick={() => {
-                navigate("/switcher")
+                navigate("/access")
               }}>Main</li>
               <li className="dropdownItem" onClick={() => {
                 navigate("/addcategory")

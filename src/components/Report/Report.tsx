@@ -7,7 +7,7 @@ import { DoughnutReport, OutputReport } from "../OutputReport/outputReport"
 import { EnteredDataHandler } from "../EnteredData/EnteredDataHandler"
 import { useNavigate } from "react-router-dom"
 import { logOut } from "../../services/firebase"
-import "../Switcher/switch.scss"
+import "../Access/access.scss"
 import { store } from "../store"
 
 export const Report = () => {
@@ -38,7 +38,7 @@ export const Report = () => {
           <div className="dropdownMenu">
             <ul>
               <li className="dropdownItem" onClick={() => {
-                navigate("/switcher")
+                navigate("/access")
               }}>Main</li>
               <li className="dropdownItem" onClick={() => {
                 navigate("/addcategory")
