@@ -37,9 +37,9 @@
 .arrowBack {
     color: $color-3;
 }
-
 .historyImg {
     margin-right: 20px;
+    width: 30px;
 }
 
 @media screen and (min-width: 768px) {
@@ -50,6 +50,9 @@
     .historyList {
         width: 50%;
         margin: auto !important;
+    }
+    .historyImg {
+        width: 40px;
     }
 
 }

@@ -10,7 +10,6 @@
     border-radius: 5px;
     margin: 30px auto;
 }
-
 .exp-btn, .inc-btn {
     background-color: $color-2;
     color: $color-0;
@@ -20,19 +19,15 @@
     margin: 3px;
     border: none;
 }
-
 .exp-btn {
     border-radius: 5px 0 0 5px;
 }
-
 .inc-btn {
     border-radius: 0 5px 5px 0;
 }
-
 .btn_focus {
     background-color: $color-5;
 }
-
 .active-btn {
     background-color: $color-5;
     color: $color-0;
