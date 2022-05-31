@@ -4,7 +4,7 @@ import './report.scss'
 // import MenuIcon from '@mui/icons-material/Menu'
 import HistoryIcon from '@mui/icons-material/History'
 import { DoughnutReport, OutputReport } from "../OutputReport/outputReport"
-import { EnteredDataHandler } from "../EnteredData/EnteredDataHandler"
+// import { EnteredDataHandler } from "../EnteredData/EnteredDataHandler"
 import { useNavigate } from "react-router-dom"
 // import { logOut } from "../../services/firebase"
 import "../Access/access.scss"
@@ -43,17 +43,4 @@ export const Report = () => {
   )
 }
 
-export interface NewData {
-  idTrans: number,
-  categoryId: number,
-  dateTrans: Date,
-  enteredData: number,
-}
-const enteredData: NewData = {
-  idTrans: 1,
-  categoryId: 1,
-  dateTrans: new Date(),
-  enteredData: 15400,
-}
-EnteredDataHandler(enteredData)
 export default Report
