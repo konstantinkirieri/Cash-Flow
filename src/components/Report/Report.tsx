@@ -12,24 +12,28 @@ import { store } from "../store"
 import { Menu } from "../Menu/dropMenu"
 
 export const Report = () => {
-  const income = [{ inputValue: 16500 }]
-  const expences: any = store.getState().items.itemsList
-  const navigate = useNavigate();
-  // const handleLogOutClick = async () => {
-  //   try {
-  //     await logOut();
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  //   navigate("/")
-  // };
+
+  const navigate = useNavigate()
+  const expences: any = []
+  const income: any = []
+  const getDatas: any = store.getState().items.itemsList
+  /**
+   * Фильтрация стора iteamList на расход/доход
+   */
+  getDatas.forEach((elem: { typeId: string }) => {
+    if (elem.typeId !== "Income") {
+      expences.push(elem)
+    } else {
+      income.push(elem)
+    }
+  })
 
   return (
     <div className="report">
       <div className="reportMenu">
         <IconButton onClick={() => {
           navigate("/history")
-          }}>
+        }}>
           <HistoryIcon className="reportMenuBtn" />
         </IconButton>
         <Menu />

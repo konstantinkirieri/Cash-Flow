@@ -2,7 +2,6 @@ import "./outputReport.scss"
 import { Chart, ArcElement, DoughnutController } from 'chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import { Doughnut } from 'react-chartjs-2'
-import { store } from "../store"
 Chart.register(ArcElement)
 Chart.register(DoughnutController)
 Chart.register(ChartDataLabels)
@@ -40,7 +39,8 @@ export function OutputReport(params: any): JSX.Element {
  */
 export function DoughnutReport(params: any) {
     const income = params.income[0].inputValue
-    const expences: any = store.getState().items.itemsList
+    // const expences: any = store.getState().items.itemsList
+    const expences = params.expences
     const labels = ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri']
     const data = {
         labels: labels,
@@ -70,10 +70,14 @@ export function DoughnutReport(params: any) {
     amountOutput = sumAmountArr(expences, amountOutput)
     const diffAmounts = income - amountOutput
     const datasetHandler = data.datasets
-    expences.forEach((element: { id: string, inputValue: number }) => {
-        // data.labels.push((element.id).toString())
-        const persentPie = (element.inputValue / amountOutput) * 100
-        datasetHandler[0].data.push(parseInt(`${persentPie}`, 10))
+    expences.forEach((element: { id: string, inputValue: number, typeId: string }) => {
+        if (element.typeId !== "Income") {
+            // data.labels.push((element.id).toString())
+            const persentPie = (element.inputValue / amountOutput) * 100
+            datasetHandler[0].data.push(parseInt(`${persentPie}`, 10))
+        } else {
+            console.log(element.inputValue)
+        }
     });
     if (data.labels.length >= 1) {
         data.labels.shift()
