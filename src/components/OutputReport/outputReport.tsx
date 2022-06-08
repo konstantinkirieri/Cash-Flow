@@ -6,12 +6,12 @@ Chart.register(ArcElement)
 Chart.register(DoughnutController)
 Chart.register(ChartDataLabels)
 /**
- * 
+ * Функция считаест сумму элементов массива
  * @param arrayHandler Массив с данными из файла JSON
  * @param amountOutput Элемент для возврата
  * @returns Сумма элементов inputValue массива
  */
-function sumAmountArr(arrayHandler: any, amountOutput: number) {
+function sumAmountArr(arrayHandler: any, amountOutput: number): number {
     if (arrayHandler !== undefined) {
         arrayHandler.forEach(function amountHandler(elem: any) {
             return amountOutput = amountOutput + +elem.inputValue
@@ -39,7 +39,6 @@ export function OutputReport(params: any): JSX.Element {
  */
 export function DoughnutReport(params: any) {
     const income = params.income[0].inputValue
-    // const expences: any = store.getState().items.itemsList
     const expences = params.expences
     const labels = ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri']
     const data = {

@@ -1,12 +1,9 @@
 import { IconButton } from "@mui/material"
 import { Calendar } from "../Calendar/Calendar"
 import './report.scss'
-// import MenuIcon from '@mui/icons-material/Menu'
 import HistoryIcon from '@mui/icons-material/History'
 import { DoughnutReport, OutputReport } from "../OutputReport/outputReport"
-// import { EnteredDataHandler } from "../EnteredData/EnteredDataHandler"
 import { useNavigate } from "react-router-dom"
-// import { logOut } from "../../services/firebase"
 import "../Access/access.scss"
 import { store } from "../store"
 import { Menu } from "../Menu/dropMenu"
@@ -17,10 +14,25 @@ export const Report = () => {
   const expences: any = []
   const income: any = []
   const getDatas: any = store.getState().items.itemsList
+  const getCategory: any = store.getState().categories.categoriesList
   /**
    * Фильтрация стора iteamList на расход/доход
    */
   getDatas.forEach((elem: { typeId: string }) => {
+    /**
+     * Костыль, пока не поправим в базе данных зависимости
+     * @param elem Элемент массива из Стора iteamsList
+     */
+    function categoryHandler(elem: any) {
+      for (let i = 0; i < getCategory.length; i++) {
+        if (elem.img === getCategory[i].img) {
+          elem.categoryId = getCategory[i].id
+        }
+      }
+    }
+    categoryHandler(elem)
+    //
+
     if (elem.typeId !== "Income") {
       expences.push(elem)
     } else {
