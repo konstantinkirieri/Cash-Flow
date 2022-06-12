@@ -1,0 +1,71 @@
+@import '../../mixin.scss';
+
+.dates {
+    display: flex;
+    justify-content: stretch;
+    height: 35px;
+}
+
+.datesBtn {
+    width: 33.33%;
+    background-color: $color-5;
+    border: 3px solid $color-1;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #ffffff;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    &.left {
+        border-radius: 3px 0 0 3px;
+    }
+    &.right {
+        border-radius: 0 3px 3px 0;
+    }
+}
+.datesBtnFocus {
+    background-color: $color-1;
+    width: 33.33%;
+    border: 3px solid $color-1;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #ffffff;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    &.left {
+        border-radius: 3px 0 0 3px;
+    }
+    &.right {
+        border-radius: 0 3px 3px 0;
+    }
+}
+
+.outputDate {
+    margin-top: 22px;
+    margin-bottom: 25px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: center;
+    color: $color-1;
+    ;
+}
+
+@media screen and (min-width: 768px) {
+    .calendarBox {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .dates {
+        width: 50%;
+    }
+    .outputDate {
+        width: 100%;
+        margin-bottom: 0px;
+    }
+}

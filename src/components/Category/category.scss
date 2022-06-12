@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+.category-page {
+    margin-top: 30px;
+}
+
+.icons-block {
+    margin: 30px;
+}
+
+.category-menu {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #84ABC7;
+}
+
+h2 {
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: center;
+    color: #84ABC7;
+}
+
+.arrowBack  {
+    color: #84ABC7;
+}
+
+.cat-block {
+    margin: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    // flex-direction: row;
+    // justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+}
+
+.cat-item {
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.cat-item:active {
+    border: 2px solid grey;
+    border-radius: 5px;
+    background-color: #84ABC7;
+}
+
+.cat-name {
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.cat-icon {
+    color: rgb(40, 54, 65);
+    // margin: 10px;
+    height: 35px;
+    align-items: center;
+
+}
+
+.blank {
+    width: 40px;
+}
+
+.icons-cat {
+    margin-top: 30px;
+}
+
+@media (max-width: 700px) {
+ }
+   
+// .category-page {
+//  background-image:  url(../../../public/img/backCommon.png);
+//  background-repeat: no-repeat;
+//  background-size: cover;
+//  padding: 5vh;
+// }
+@media screen and (min-width: 425px) {
+    .cat-block {
+        justify-content: center;
+    }
+}
+@media screen and (min-width: 768px) {
+    .cat-block {
+        width: 50%;
+        margin: auto;
+    }
+}

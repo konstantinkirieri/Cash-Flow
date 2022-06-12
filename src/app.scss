@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+@import 'mixin.scss';
+
+body {
+    background-image: $bgimg-main_style;
+    background-size: cover;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: $f-family;
+}
+a {
+    text-decoration: none;
+    color: $color-0;
+}
+.App-header {
+    color: $color-1;
+    font-family: 'Sahitya';
+    font-style: normal;
+    @include font-style_header();
+}
+.App {
+    background-image: $bgimg-main_style;
+    // background-repeat: no-repeat;
+    background-size: cover;
+    padding: 4vh;
+    color: $color-0;
+    //height: 90vh;
+    // @if($bgimg-report_active) {
+    //     background-image: $bgimg-report_style;
+    // }
+}

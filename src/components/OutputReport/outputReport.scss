@@ -1,0 +1,58 @@
+@import '../../app.scss';
+@import '../../mixin.scss';
+
+#Income,
+#Expences {
+    @include buttonSet();
+    background-color: $color-1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px 0;
+    padding: 5px;
+}
+
+#Expences {
+    background-color: $color-2;
+}
+#doughnutReport {
+    @include chart-rad();
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#doughbutHoleReport {
+    background-color: $color-0;
+    color: $color-6;
+    @include font-style_doughnut();
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 50%;
+    width: 50%;
+    border-radius: 50%;
+}
+
+.amountOutput {
+    text-align: center;
+    margin: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    #Income,
+    #Expences {
+        width: 50%;
+        margin: 25px auto;
+    }
+
+    #doughnutReport {
+        width: 50%;
+    }
+
+}

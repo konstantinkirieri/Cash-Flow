@@ -1,0 +1,55 @@
+// .historyPage {
+    // background-image: url(../../../public/img/backCommon.png);
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // padding: 5vh;
+// }
+.divider {
+    background-color: white;
+}
+.historyHeader {
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: center;
+    color: #84ABC7;
+}
+.historyDate {
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.menu {
+    color: #84ABC7;
+}
+.historyMenu {
+    display: flex;
+    justify-content: space-between;
+    // padding: 0 5vh 0 5vh;
+    align-items: center;
+}
+.arrowBack {
+    color: #84ABC7;
+}
+
+.historyImg {
+    margin-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .divider {
+        width: 50%;
+        margin: auto !important;
+    }
+    .historyList {
+        width: 50%;
+        margin: auto !important;
+    }
+
+}
