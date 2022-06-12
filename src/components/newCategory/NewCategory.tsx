@@ -14,15 +14,16 @@ const AddCategory = () => {
 
   const [name, setName] = useState('');
   const [img, setImg] = useState('images/Icons/default-icon.png');
-  const [typeId, setType] = useState("Income");
+  const [typeId, setTypeId] = useState('Expenses');
   const [view, setView] = useState(false);
 
   const handleNameChange = (e: { target: { value: SetStateAction<string>; }; }) => {
     setName(e.target.value);
   }
 
-  const handleTypeChange = () => {
-    setType("Expences");
+  const handleTypeChange = (typeId: string) => {
+    setTypeId(typeId)
+    console.log(typeId)
   }
 
   const handleImgChange = (icon: string) => {
@@ -42,7 +43,7 @@ const AddCategory = () => {
     })
     console.log("added to firebase");
     setName("");
-    setType("Income");
+    setTypeId('Expences');
     setImg('images/Icons/default-icon.png');
   };
 
@@ -70,7 +71,7 @@ const AddCategory = () => {
     <Divider className='divider' />
     <div className="category-item">
         <span>Type</span>
-        <button value={typeId === 'Expences' ? 'Expences': 'Income'} onClick={handleTypeChange} className="category-field">{typeId}</button>
+        <button value={typeId === 'Expenses' ? 'Income': 'Expenses'} onClick={() => handleTypeChange(typeId === 'Expenses' ? 'Income': 'Expenses')} className="category-field">{typeId}</button>
       </div>
     <Divider className='divider' />
     <div className="category-item">
