@@ -17,6 +17,7 @@ import { db } from "../../services/firebase";
 import { ref } from "firebase/database";
 import { useDispatch } from "react-redux";
 import { deleteItem } from '../store/items/actions';
+import React from 'react';
 
 
 export const History = () => {

@@ -15,6 +15,7 @@ import { Home } from "../Home/Home";
  import { AllCategories } from "../AllCategories/AllCategories";
 import { Report } from "../Report/Report";
 import { getDataFB } from "../GetFetch/GetFetch";
+import React from "react";
 
 export const Router = () => {
 
