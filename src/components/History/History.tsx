@@ -12,11 +12,12 @@ import { logOut, userDataRef } from "../../services/firebase";
 import "../Switcher/switch.scss";
 import ListItem from '@mui/material/ListItem';
 import { store } from '../store';
-import { remove } from 'firebase/database';
-import { db } from "../../services/firebase";
-import { ref } from "firebase/database";
-import { useDispatch } from "react-redux";
-import { deleteItem } from '../store/items/actions';
+// import { db } from "../../services/firebase";
+// import { ref } from "firebase/database";
+// import { useDispatch } from "react-redux";
+// import { deleteItem } from '../store/items/actions';
+// import { onValue } from "firebase/database";
+// import { getItemsSuccess } from "../store/history/actions";
 
 
 export const History = () => {
@@ -27,10 +28,22 @@ export const History = () => {
   // const handleDeleteClick = () => {
   //   dispatch(deleteItem(itemsList.dataId));
   // };
-  const handleDeleteClick = (itemsList: any) => {
-        remove(ref(db, `UserData/${itemsList.dataId}`))
-  }
+  // const handleDeleteClick = (itemsList: any) => {
+  //       remove(ref(db, `UserData/${itemsList.dataId}`))
+  // }
 
+   const handleDeleteClick = () => {
+//     onValue(userDataRef, (snapshot: any) => {
+//       const itemsList: any = []
+//       let CopyUserArray = snapshot.val();
+//       Object.keys(CopyUserArray).forEach((id) => {
+//   itemsList.splice(CopyUserArray[id]);
+//   //userDataRef.set(itemsList);
+//   })
+//   store.dispatch(getItemsSuccess(itemsList));
+// })
+ }
+  
   const navigate = useNavigate();
 
   const handleLogOutClick = async () => {
@@ -91,7 +104,7 @@ export const History = () => {
                   </summary>
                   <div className="dropdownHistory">
                     <button className="dropdownBtn">Edit</button><br></br>
-                    <button className="dropdownBtn" onClick={() => handleDeleteClick(itemsList)}>Delete</button>
+                    <button className="dropdownBtn" onClick={handleDeleteClick}>Delete</button>
                   </div>
                 </details>
                 <Divider className='dividerItem' />

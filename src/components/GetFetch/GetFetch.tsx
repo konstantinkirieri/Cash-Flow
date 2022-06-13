@@ -5,6 +5,7 @@ import { store } from "../store";
 import { getItemsSuccess } from "../store/history/actions";
 import { getCategoriesSuccess } from "../store/categories/actions";
 
+
 export const API = "https://raw.githubusercontent.com/marieStamp/FinalProject/master/expenses.json"
 
 export function GetFetch() {
@@ -26,9 +27,11 @@ export function getDataFB(): void {
         const itemsList: any = []
         let CopyUserArray = snapshot.val();
         Object.keys(CopyUserArray).forEach((id) => {
-            itemsList.push(CopyUserArray[id])
+            itemsList.push(CopyUserArray[id]);
+            //itemsList.splice(CopyUserArray[id]);
         })
-        store.dispatch(getItemsSuccess(itemsList))
+        store.dispatch(getItemsSuccess(itemsList));
+        //userDataRef.set(itemsList);
     })
     onValue(categoryRef, (snapshot) => {
         let categoriesList: any = [];
@@ -38,4 +41,17 @@ export function getDataFB(): void {
         })
         store.dispatch(getCategoriesSuccess(categoriesList))
     });
+    
 }
+
+// export const deletefromFb = () => {
+//     onValue(userDataRef, (snapshot) => {
+//         const itemsList: any = []
+//         let CopyUserArray = snapshot.val();
+//         Object.keys(CopyUserArray).forEach((id) => {
+//     itemsList.splice(CopyUserArray[id]);
+//     //userDataRef.set(itemsList);
+//     })
+//     store.dispatch(getItemsSuccess(itemsList));
+// })
+// }

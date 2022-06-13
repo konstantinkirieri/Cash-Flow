@@ -6,12 +6,17 @@ import { set, ref } from "firebase/database";
 import { db } from "../../services/firebase";
 import IconButton from '@mui/material/IconButton';
 import  Categories  from "../Category/Category";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export const KeyBoard = () => {
     const [typeId, setTypeId] = useState<"Expences" | "Income">("Expences");
     const [inputValue, setInputValue] = useState("");
     const [img, setImg] = useState('images/Icons/house.png');
     const [view, setView] = useState(false);
+    const [startDate, setStartDate] = useState<any>(new Date());
+
+    const date = startDate.toLocaleDateString();
 
     const handleClickExpenses: any = () => {
         setTypeId("Expences");
@@ -43,12 +48,13 @@ export const KeyBoard = () => {
 
     const writeToDatabase = () => {
         const dataId = uuidv4();
-        const date = (new Date()).toLocaleDateString();
+        //const date = (new Date()).toLocaleDateString();
         set(ref(db, `UserData/${dataId}`), {dataId, inputValue, img, date, typeId});
         console.log("added to firebase");
         setInputValue("");
         setImg("images/Icons/house.png");
         setTypeId("Expences");
+        setStartDate(new Date());
       };
 
     return (
@@ -75,6 +81,15 @@ export const KeyBoard = () => {
                 placeholder="Enter amount"
                 value={inputValue} onChange={clickBtn}
             />
+            <label className="keyboardLabel">
+                <DatePicker
+                    selected={startDate}
+                    onChange={(date: any) => setStartDate(date)}
+                    dateFormat="dd-MM-yyyy"
+                    withPortal
+                />
+            <img className="keyboardCalendar" src="images/calendar.svg" alt="calendar"></img>
+            </label>
             <img className="keyboardImg" src={img} alt="icon"
                 onClick={() => {
                 setView(!view)
