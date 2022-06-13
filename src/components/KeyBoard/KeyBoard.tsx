@@ -88,7 +88,7 @@ export const KeyBoard = () => {
                     dateFormat="dd-MM-yyyy"
                     withPortal
                 />
-            <img className="keyboardCalendar" src="images/calendar.svg" alt="calendar"></img>
+            <img className="keyboardCalendar" src="images/calendar-v2.png" alt="calendar"></img>
             </label>
             <img className="keyboardImg" src={img} alt="icon"
                 onClick={() => {
