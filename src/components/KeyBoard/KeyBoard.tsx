@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import "./KeyBoard.scss";
-import "../Switcher/switch.scss";
 import { v4 as uuidv4 } from "uuid";
 import { set, ref } from "firebase/database";
 import { db } from "../../services/firebase";
 import IconButton from '@mui/material/IconButton';
 import  Categories  from "../Category/Category";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import MenuIcon from "@mui/icons-material/Menu";
+import { logOut } from "../../services/firebase";
+import { useNavigate } from "react-router-dom";
 
 export const KeyBoard = () => {
     const [typeId, setTypeId] = useState<"Expences" | "Income">("Expences");
     const [inputValue, setInputValue] = useState("");
     const [img, setImg] = useState('images/Icons/house.png');
     const [view, setView] = useState(false);
+    const [startDate, setStartDate] = useState<any>(new Date());
+
+    const date = startDate.toLocaleDateString();
 
     const handleClickExpenses: any = () => {
         setTypeId("Expences");
@@ -43,16 +50,67 @@ export const KeyBoard = () => {
 
     const writeToDatabase = () => {
         const dataId = uuidv4();
-        const date = (new Date()).toLocaleDateString();
         set(ref(db, `UserData/${dataId}`), {dataId, inputValue, img, date, typeId});
         console.log("added to firebase");
         setInputValue("");
         setImg("images/Icons/house.png");
         setTypeId("Expences");
+        setStartDate(new Date());
+      };
+
+      const navigate = useNavigate();
+      const handleLogOutClick = async () => {
+        try {
+        await logOut();
+      } catch (err) {
+        console.log(err);
+      }
+      navigate("/");
       };
 
     return (
         <>
+        <div className="mainPage">
+        <div className="keyboardHead">
+          <div className="report-icon">
+            <img
+              className="report-icon"
+              src="../images/report1.png"
+              alt=""
+              onClick={() => {
+                navigate("/report");
+              }}
+            />
+          </div>
+          <details className="dropdownSummary">
+            <summary className="dropdownSummary">
+              <MenuIcon className="menu" />
+            </summary>
+            <div className="dropdownMenu">
+              <ul>
+                <li
+                  className="dropdownItem"
+                  onClick={() => {
+                    navigate("/addcategory");
+                  }}
+                >
+                  Add category
+                </li>
+                <li
+                  className="dropdownItem"
+                  onClick={() => {
+                    navigate("/history");
+                  }}
+                >
+                  History
+                </li>
+                <li className="dropdownItem signout" onClick={handleLogOutClick}>
+                  Sign Out
+                </li>
+              </ul>
+            </div>
+          </details>
+        </div>
         <div className="switcher">
         <button
           className={"exp-btn" + (typeId === "Expences" ? " btn_focus" : "")}
@@ -75,6 +133,15 @@ export const KeyBoard = () => {
                 placeholder="Enter amount"
                 value={inputValue} onChange={clickBtn}
             />
+            <label className="keyboardLabel">
+                <DatePicker
+                    selected={startDate}
+                    onChange={(date: any) => setStartDate(date)}
+                    dateFormat="dd-MM-yyyy"
+                    withPortal
+                />
+            <img className="keyboardCalendar" src="images/calendar-v2.png" alt="calendar"></img>
+            </label>
             <img className="keyboardImg" src={img} alt="icon"
                 onClick={() => {
                 setView(!view)
@@ -127,6 +194,8 @@ export const KeyBoard = () => {
         
         {view && <Categories callBack={handleImgChange}/>}
 
+      <div/>
+      </div>
       </>
     );
 }

@@ -1,6 +1,4 @@
 import { History } from "../History/History";
-//import  Category  from "../Category/Category";
-import { Switcher } from "../Switcher/Switcher";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./router.scss";
 import { useEffect } from "react";
@@ -12,9 +10,9 @@ import { PrivateRoute } from "../../HOCS/PrivateRoute";
 import { PublicOutlet } from "../../HOCS/PublicRoute";
 import { SignUp } from "../Home/SignUp";
 import { Home } from "../Home/Home";
- import { AllCategories } from "../AllCategories/AllCategories";
 import { Report } from "../Report/Report";
 import { getDataFB } from "../GetFetch/GetFetch";
+import { KeyBoard } from "../KeyBoard/KeyBoard";
 import React from "react";
 
 export const Router = () => {
@@ -49,7 +47,7 @@ export const Router = () => {
             index
             element={
               <PrivateRoute>
-                <Switcher />
+                <KeyBoard />
               </PrivateRoute>
             }
           />
@@ -62,22 +60,6 @@ export const Router = () => {
             </PrivateRoute>
           }
         />
-        {/* <Route
-          path="category"
-          element={
-            <PrivateRoute>
-              <Category value={categoriesList}/>
-            </PrivateRoute>
-          }
-        />  */}
-        {/* <Route
-          path="allCategories"
-          element={
-            <PrivateRoute>
-              <AllCategories />
-            </PrivateRoute>
-          }
-        /> */}
         <Route
           path="addcategory"
           element={

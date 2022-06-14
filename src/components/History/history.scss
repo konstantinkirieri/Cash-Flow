@@ -1,9 +1,48 @@
-// .historyPage {
-    // background-image: url(../../../public/img/backCommon.png);
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // padding: 5vh;
-// }
+@import '../../mixin.scss';
+
+.listItem {
+    color:#FFFFFF;
+    font-family: Roboto;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.deleteBtn {
+    color: #8B0000;
+}
+
+.editBtn {
+    color: #32CD32;
+}
+
+.dividerItem {
+    background-color: white;
+}
+.dropdownHistory {
+    background-color: $color-9;
+    padding: 4px;
+    border-radius: 6px;
+    position: absolute;
+    right: 20px;
+    width: 100px;
+    bottom: 1px;
+    text-align: center;
+}
+.dropdownBtn {
+    border: none;
+    background-color: $color-9;
+    color: #036886;
+    cursor: pointer;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    &:hover {
+        color: $color-7;
+    }
+}
 .divider {
     background-color: white;
 }
@@ -31,7 +70,6 @@
 .historyMenu {
     display: flex;
     justify-content: space-between;
-    // padding: 0 5vh 0 5vh;
     align-items: center;
 }
 .arrowBack {
@@ -40,6 +78,9 @@
 
 .historyImg {
     margin-right: 20px;
+}
+.react-datepicker__input-container {
+    display: block;
 }
 
 @media screen and (min-width: 768px) {

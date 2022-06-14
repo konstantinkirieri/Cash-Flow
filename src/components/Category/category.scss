@@ -34,8 +34,6 @@ h2 {
     margin: 15px;
     display: flex;
     flex-wrap: wrap;
-    // flex-direction: row;
-    // justify-content: space-around;
     align-items: center;
     justify-content: center;
 }
@@ -82,12 +80,6 @@ h2 {
 @media (max-width: 700px) {
  }
    
-// .category-page {
-//  background-image:  url(../../../public/img/backCommon.png);
-//  background-repeat: no-repeat;
-//  background-size: cover;
-//  padding: 5vh;
-// }
 @media screen and (min-width: 425px) {
     .cat-block {
         justify-content: center;

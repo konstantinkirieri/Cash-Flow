@@ -1,7 +1,4 @@
 import React from "react";
-// import AllCategories from "./components/AllCategories/AllCategories";
-// import { AddCategory } from './components/newCategory/newCategory/newCategory';
-// import Switcher from "./components/Switcher/Switcher";
 
 import { Provider } from "react-redux";
 import { store, persistor } from "./components/store/index";

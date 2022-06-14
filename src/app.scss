@@ -23,12 +23,7 @@ a {
 }
 .App {
     background-image: $bgimg-main_style;
-    // background-repeat: no-repeat;
     background-size: cover;
     padding: 4vh;
     color: $color-0;
-    //height: 90vh;
-    // @if($bgimg-report_active) {
-    //     background-image: $bgimg-report_style;
-    // }
 }

@@ -8,7 +8,7 @@ export function HistoryCalendar() {
     const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([new Date(), new Date()]);
     const [startDate, endDate] = dateRange;
     return (
-      <div className="historyCalendar">
+      <label className="historyCalendar">
       <DatePicker className="datepickerHistory"
         selectsRange={true}
         startDate={startDate}
@@ -19,7 +19,8 @@ export function HistoryCalendar() {
         dateFormat="dd/MM/yyyy"
         withPortal
       />
-      </div>
+      <img className="calendar" src="images/calendar-v2.png" alt="calendar"></img>
+      </label>
     )
 }
 

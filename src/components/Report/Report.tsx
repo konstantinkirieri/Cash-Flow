@@ -7,7 +7,7 @@ import { DoughnutReport, OutputReport } from "../OutputReport/outputReport"
 import { EnteredDataHandler } from "../EnteredData/EnteredDataHandler"
 import { useNavigate } from "react-router-dom"
 import { logOut } from "../../services/firebase"
-import "../Switcher/switch.scss"
+//import "../Switcher/switch.scss"
 import { store } from "../store"
 import React from "react"
 
