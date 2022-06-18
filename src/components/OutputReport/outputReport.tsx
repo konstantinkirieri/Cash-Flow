@@ -2,7 +2,6 @@ import "./outputReport.scss"
 import { Chart, ArcElement, DoughnutController } from 'chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import { Doughnut } from 'react-chartjs-2'
-import { store } from "../store"
 import React from "react"
 Chart.register(ArcElement)
 Chart.register(DoughnutController)
@@ -31,8 +30,8 @@ export function OutputReport(params: any): JSX.Element {
     let amountOutput = 0
     amountOutput = sumAmountArr(arrayHandler, amountOutput)
     return <div id={params.where}>
-        <div>{params.where}</div>
-        <div>{amountOutput}</div>
+        <p>{params.where}</p>
+        <p>{amountOutput}</p>
     </div>
 }
 /**
@@ -40,8 +39,8 @@ export function OutputReport(params: any): JSX.Element {
  * @returns Диаграмма "Пончик"
  */
 export function DoughnutReport(params: any) {
-    const income = params.income[0].inputValue
-    const expences: any = store.getState().items.itemsList
+    const income: any = params.income[0].inputValue
+    const expences: any = params.expences
     const labels = ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri']
     const data = {
         labels: labels,
@@ -71,11 +70,24 @@ export function DoughnutReport(params: any) {
     amountOutput = sumAmountArr(expences, amountOutput)
     const diffAmounts = income - amountOutput
     const datasetHandler = data.datasets
-    expences.forEach((element: { id: string, inputValue: number }) => {
-        // data.labels.push((element.id).toString())
-        const persentPie = (element.inputValue / amountOutput) * 100
+    /**
+     * Поиск и сложение суммы в группах категорий
+     */
+    for (let i = 0; i < expences.length; i++) {
+        const elemNext = i + 1
+        for (let j = elemNext; j < expences.length; j++) {
+            if (expences[i].categoryId === expences[j].categoryId) {
+                const persentPie = ((parseInt(expences[i].inputValue) + parseInt(expences[j].inputValue)) / amountOutput) * 100
+                datasetHandler[0].data.push(parseInt(`${persentPie}`, 10))
+                expences.splice(j, 1)
+            }
+        }
+        const persentPie = (expences[i].inputValue / amountOutput) * 100
         datasetHandler[0].data.push(parseInt(`${persentPie}`, 10))
-    });
+    }
+    /**
+     * Удаляет [0] - заглушку
+     */
     if (data.labels.length >= 1) {
         data.labels.shift()
         datasetHandler[0].data.shift()

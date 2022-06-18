@@ -1,7 +1,7 @@
 @import '../../mixin.scss';
 
 .listItem {
-    color:#FFFFFF;
+    color: $color-0;
     font-family: Roboto;
     display: flex;
     justify-content: space-between;
@@ -18,8 +18,9 @@
 }
 
 .dividerItem {
-    background-color: white;
+    background-color: $color-0;
 }
+
 .dropdownHistory {
     background-color: $color-9;
     padding: 4px;
@@ -30,6 +31,7 @@
     bottom: 1px;
     text-align: center;
 }
+
 .dropdownBtn {
     border: none;
     background-color: $color-9;
@@ -39,13 +41,16 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
+
     &:hover {
         color: $color-7;
     }
 }
+
 .divider {
-    background-color: white;
+    background-color: $color-0;
 }
+
 .historyHeader {
     font-family: Roboto;
     font-size: 24px;
@@ -55,6 +60,7 @@
     text-align: center;
     color: #84ABC7;
 }
+
 .historyDate {
     font-family: Roboto;
     font-size: 20px;
@@ -62,16 +68,19 @@
     font-weight: 400;
     line-height: 23px;
     text-align: center;
-    color: #FFFFFF;
+    color: $color-0;
 }
+
 .menu {
     color: #84ABC7;
 }
+
 .historyMenu {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .arrowBack {
     color: #84ABC7;
 }
@@ -79,18 +88,32 @@
 .historyImg {
     margin-right: 20px;
 }
+
 .react-datepicker__input-container {
     display: block;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1440px) {
     .divider {
         width: 50%;
         margin: auto !important;
     }
+
     .historyList {
         width: 50%;
         margin: auto !important;
     }
 
+}
+
+@media screen and (min-width: 1440px) {
+    .divider {
+        width: 30%;
+        margin: auto !important;
+    }
+
+    .historyList {
+        width: 30%;
+        margin: auto !important;
+    }
 }

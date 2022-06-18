@@ -1,12 +1,14 @@
+@import '../../mixin.scss';
+
 .category {
     &-header {
         margin: 30px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        color: #84ABC7;
+        color: $color-3;
     }
-    
+
 
     &-title {
         font-family: 'Roboto';
@@ -15,9 +17,9 @@
         font-size: 24px;
         line-height: 28px;
         text-align: center;
-        color: #84ABC7;
+        color: $color-3;
     }
-    
+
 
     &-item {
         display: flex;
@@ -25,14 +27,14 @@
         align-items: center;
         font-size: 18px;
         margin: 10px 5px;
-        color: #84ABC7;
+        color: $color-3;
     }
 
     &-field {
         background: none;
         outline: none;
         border: none;
-        color: #FFFFFF;
+        color: $color-0;
         font-family: 'Roboto';
         font-size: 18px;
         margin-left: 20px;
@@ -49,33 +51,31 @@
             cursor: pointer;
         }
     }
-    
+
     &-option {
         background: lightslategrey;
     }
 
     &-select {
-        appearance:none;
-        outline:0;
-        box-shadow:none;
-        border:0!important;
+        appearance: none;
+        outline: 0;
+        box-shadow: none;
+        border: 0 !important;
         background: none;
         flex: 1;
         padding: 0 .5em;
-        color:#fff;
+        color: $color-0;
         cursor: pointer;
         font-family: 'Roboto';
         font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 21px;
+        @include font-style_main();
         margin-bottom: -26px;
         margin-left: -2px;
     }
 }
 
 .divider {
-    background-color: white;
+    background-color: $color-0;
 }
 
 @media screen and (min-width: 768px) {

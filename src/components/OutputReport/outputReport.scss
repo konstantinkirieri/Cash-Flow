@@ -9,12 +9,19 @@
     align-items: center;
     justify-content: space-between;
     margin: 25px 0;
-    padding: 5px;
+}
+
+#Income,
+#Expences {
+    p {
+        padding: 5px;
+    }
 }
 
 #Expences {
     background-color: $color-2;
 }
+
 #doughnutReport {
     @include chart-rad();
     position: relative;
@@ -44,7 +51,8 @@
     margin: 20px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+
     #Income,
     #Expences {
         width: 50%;
@@ -54,5 +62,17 @@
     #doughnutReport {
         width: 50%;
     }
+}
 
+@media screen and (min-width: 1440px) {
+
+    #Income,
+    #Expences {
+        width: 30%;
+        margin: 25px auto;
+    }
+
+    #doughnutReport {
+        width: 30%;
+    }
 }

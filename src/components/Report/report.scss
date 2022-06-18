@@ -5,7 +5,7 @@
     font-size: 24px;
     font-weight: 400;
     line-height: 28px;
-    color: #CEABA0;
+    color: $color-1;
     text-align: center;
     margin-bottom: 15px;
 }
@@ -14,8 +14,11 @@
     display: flex;
     justify-content: space-between;
 }
+
 .reportMenuBtn {
-    color: #54A5BF;
+    color: $color-2;
 }
 
-
+.IconButton {
+    padding: 0;
+}
