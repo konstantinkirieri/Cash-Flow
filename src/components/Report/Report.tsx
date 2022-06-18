@@ -31,7 +31,9 @@ export const Report = () => {
       }
     }
     categoryHandler(elem)
-
+    /**
+     * Фильтруем по доходу и расходу
+     */
     if (elem.typeId !== "Income") {
       expences.push(elem)
     } else {
