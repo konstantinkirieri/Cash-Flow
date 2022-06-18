@@ -39,7 +39,7 @@ export function OutputReport(params: any): JSX.Element {
  * @returns Диаграмма "Пончик"
  */
 export function DoughnutReport(params: any) {
-    const income: any = params.income[0].inputValue
+    const income: any = params.income
     const expences: any = params.expences
     const labels = ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri']
     const data = {
@@ -66,9 +66,14 @@ export function DoughnutReport(params: any) {
             }
         }]
     }
+    /**
+     * Сумирование типов расход и доход
+     */
     let amountOutput = 0
+    let amountIncome = 0
     amountOutput = sumAmountArr(expences, amountOutput)
-    const diffAmounts = income - amountOutput
+    amountIncome = sumAmountArr(income, amountIncome)
+    const diffAmounts = amountIncome - amountOutput
     const datasetHandler = data.datasets
     /**
      * Поиск и сложение суммы в группах категорий
