@@ -1,20 +1,16 @@
-import List from '@mui/material/List';
-import MenuIcon from '@mui/icons-material/Menu';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
 import Divider from '@mui/material/Divider';
 import "./history.scss";
 import { useNavigate } from 'react-router-dom';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
-import { db, logOut } from "../../services/firebase";
-//import "../Switcher/switch.scss";
-import ListItem from '@mui/material/ListItem';
+import { db } from "../../services/firebase";
 import { store } from '../store';
 import React from 'react';
 import { ref, remove } from 'firebase/database';
 import { useDispatch } from 'react-redux';
 import { getDeleteItems } from '../store/history/actions';
-
+import { Menu } from "../Menu/Menu";
 
 export const History = () => {
   const dispatch = useDispatch()
@@ -32,15 +28,6 @@ export const History = () => {
 
   const navigate = useNavigate();
 
-  const handleLogOutClick = async () => {
-    try {
-      await logOut();
-    } catch (err) {
-      console.log(err);
-    }
-    navigate("/")
-  };
-
   return (
     <div className='historyPage'>
       <div className='historyMenu'>
@@ -54,34 +41,18 @@ export const History = () => {
           }}>
           <ArrowBackIosIcon className='arrowBack'></ArrowBackIosIcon>
         </IconButton>
-        <details className="dropdownSummary">
-          <summary className="dropdownSummary">
-            <MenuIcon className='menu' />
-          </summary>
-          <div className="dropdownMenu">
-            <ul>
-              <li className="dropdownItem" onClick={() => {
-                navigate("/switcher")
-              }}>Main</li>
-              <li className="dropdownItem" onClick={() => {
-                navigate("/addcategory")
-              }}>Add category</li>
-              <li className="dropdownItem signout" onClick={
-                handleLogOutClick}>Sign Out</li>
-            </ul>
-          </div>
-        </details>
+        <Menu />
       </div>
       <h2 className='historyHeader'>History</h2>
 
       <HistoryCalendar />
-      <Divider className='divider' />
-      <List className='historyList'>
+      <Divider className='dividerItem' />
+      <div className='historyList'>
         {Object.keys(itemsList).map((id) => {
 
           return (
-            <ListItem key={itemsList[id].dataId}>
-              <div className="listItem">
+            <div className="listItem" key={itemsList[id].dataId}>
+              {/* <div className="listItem"> */}
                 <img className='historyImg' src={itemsList[id].img} alt=''></img>
                 <div className='list'>{itemsList[id].date}</div>
                 <div className={itemsList[id].typeId === 'Income' ? 'listIncome' : 'list'}>{itemsList[id].inputValue}</div>
@@ -94,15 +65,12 @@ export const History = () => {
                     <button className="dropdownBtn" onClick={() => handleDeleteClick(itemsList[id])}>Delete</button>
                   </div>
                 </details>
-                <Divider className='dividerItem' />
-                {/* <HistoryItem item={itemsList} /> */}
-              </div>
-            </ListItem>
+            </div>
+            // <Divider className='dividerItem' />
           )
         })
         }
-      </List>
-
+      </div>
     </div >
   )
 }

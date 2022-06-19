@@ -53,7 +53,7 @@ const AddCategory = () => {
   <>
     <div className="category-header">
       <IconButton onClick={() => {
-            navigate("/switcher")
+            navigate("/main")
         }}>  
         <ArrowBackIosIcon className='arrowBack' />
       </IconButton>    

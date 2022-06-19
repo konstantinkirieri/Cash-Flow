@@ -42,7 +42,7 @@ export const Router = () => {
         <Route path="/signup" element={<PublicOutlet />}>
           <Route path="" element={<SignUp />} />
         </Route>
-        <Route path="switcher">
+        <Route path="main">
           <Route
             index
             element={
@@ -61,7 +61,7 @@ export const Router = () => {
           }
         />
         <Route
-          path="addcategory"
+          path="addCategory"
           element={
             <PrivateRoute>
               <AddCategory />

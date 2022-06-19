@@ -3,10 +3,11 @@
 .listItem {
     color: $color-0;
     font-family: Roboto;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr 1fr;
+    text-align: center;
     align-items: center;
+    padding: 5px 0 5px 0;
 }
 
 .listIncome {
@@ -38,7 +39,7 @@
     padding: 4px;
     border-radius: 6px;
     position: absolute;
-    right: 20px;
+    right: 30px;
     width: 100px;
     bottom: 1px;
     text-align: center;
@@ -57,10 +58,6 @@
     &:hover {
         color: $color-7;
     }
-}
-
-.divider {
-    background-color: $color-0;
 }
 
 .historyHeader {
@@ -99,6 +96,8 @@
 
 .historyImg {
     margin-right: 20px;
+    width: 40px;
+    height: 40px;
 }
 
 .react-datepicker__input-container {
@@ -106,7 +105,7 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1440px) {
-    .divider {
+    .dividerItem {
         width: 50%;
         margin: auto !important;
     }
@@ -119,7 +118,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-    .divider {
+    .dividerItem {
         width: 30%;
         margin: auto !important;
     }

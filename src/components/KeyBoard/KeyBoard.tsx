@@ -7,8 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import Categories from "../Category/Category";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import MenuIcon from "@mui/icons-material/Menu";
-import { logOut } from "../../services/firebase";
+import { Menu } from "../Menu/Menu";
 import { useNavigate } from "react-router-dom";
 
 export const KeyBoard = () => {
@@ -59,14 +58,6 @@ export const KeyBoard = () => {
   };
 
   const navigate = useNavigate();
-  const handleLogOutClick = async () => {
-    try {
-      await logOut();
-    } catch (err) {
-      console.log(err);
-    }
-    navigate("/");
-  };
 
   return (
     <>
@@ -82,34 +73,7 @@ export const KeyBoard = () => {
               }}
             />
           </div>
-          <details className="dropdownSummary">
-            <summary className="dropdownSummary">
-              <MenuIcon className="menu" />
-            </summary>
-            <div className="dropdownMenu">
-              <ul>
-                <li
-                  className="dropdownItem"
-                  onClick={() => {
-                    navigate("/addcategory");
-                  }}
-                >
-                  Add category
-                </li>
-                <li
-                  className="dropdownItem"
-                  onClick={() => {
-                    navigate("/history");
-                  }}
-                >
-                  History
-                </li>
-                <li className="dropdownItem signout" onClick={handleLogOutClick}>
-                  Sign Out
-                </li>
-              </ul>
-            </div>
-          </details>
+          <Menu />
         </div>
         <div className="switcher">
           <button
