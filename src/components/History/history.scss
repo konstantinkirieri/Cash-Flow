@@ -9,6 +9,18 @@
     align-items: center;
 }
 
+.listIncome {
+    color: #32CD32;
+}
+
+.listIncome::before {
+    content: "+";
+}
+
+.inputItem {
+    color: red;
+}
+
 .deleteBtn {
     color: #8B0000;
 }

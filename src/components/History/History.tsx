@@ -18,7 +18,7 @@ export const History = () => {
   const itemsList: any = store.getState().items.itemsList;
 
   const handleDeleteClick = (itemsList: any) => {
-       // remove(ref(db, `UserData/${itemsList.dataId}`))
+    // remove(ref(db, `UserData/${itemsList.dataId}`))
   }
 
   const navigate = useNavigate();
@@ -69,12 +69,15 @@ export const History = () => {
       <Divider className='divider' />
       <List className='historyList'>
         {Object.keys(itemsList).map((id) => {
+          if (itemsList[id].typeId === "Income") {
+            console.log(itemsList[id].typeId)
+          }
           return (
             <ListItem key={itemsList[id].dataId}>
               <div className="listItem">
                 <img className='historyImg' src={itemsList[id].img} alt=''></img>
                 <div className='list'>{itemsList[id].date}</div>
-                <div className='list'>{itemsList[id].inputValue}</div>
+                <div className={itemsList[id].typeId === 'Income' ? 'listIncome' : 'list'}>{itemsList[id].inputValue}</div>
                 <details className="dropdownSummary">
                   <summary className="dropdownSummary">
                     ...
@@ -93,7 +96,7 @@ export const History = () => {
         }
       </List>
 
-    </div>
+    </div >
   )
 }
 
