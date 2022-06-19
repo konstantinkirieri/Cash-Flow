@@ -19,13 +19,11 @@ const Categories: React.FC<PropsType> = (props) => {
      */
     const filteredCategories: any = []
     categoriesList.forEach((elem: any) => {
+        console.log(elem)
         if (elem.typeId === props.typeId) {
             filteredCategories.push(elem)
         }
     })
-    if (filteredCategories.length > 1) {
-        filteredCategories.shift()
-    }
 
     return (
         <div className="cat-block">
