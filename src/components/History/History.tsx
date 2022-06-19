@@ -12,14 +12,22 @@ import ListItem from '@mui/material/ListItem';
 import { store } from '../store';
 import React from 'react';
 import { ref, remove } from 'firebase/database';
+import { useDispatch } from 'react-redux';
+import { getDeleteItems } from '../store/history/actions';
 
 
 export const History = () => {
+  const dispatch = useDispatch()
 
   const itemsList: any = store.getState().items.itemsList;
   const handleDeleteClick = (elem: any) => {
+    const index = itemsList.findIndex((element: any, index: number) => {
+      if (element.dataId === elem.dataId) {
+        return true
+      }
+    })
     remove(ref(db, `UserData/${elem.dataId}`))
-    console.log(elem)
+    dispatch(getDeleteItems(index))
   }
 
   const navigate = useNavigate();

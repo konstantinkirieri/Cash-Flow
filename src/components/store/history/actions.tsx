@@ -3,6 +3,7 @@ import { API } from "../../GetFetch/GetFetch";
 export const REQUEST_ITEMS_LOADING = "ITEMS::REQUEST_LOADING";
 export const REQUEST_ITEMS_FAILURE = "ITEMS::REQUEST_FAILURE";
 export const REQUEST_ITEMS_SUCCESS = "ITEMS::REQUEST_SUCCESS";
+export const DELETE_ITEMS_SUCCESS = "DELETE::ITEMS::SUCCESS";
 
 export const getItemsLoading = () => ({
   type: REQUEST_ITEMS_LOADING,
@@ -15,6 +16,10 @@ export const getItemsFailure = (err: any) => ({
   type: REQUEST_ITEMS_FAILURE,
   payload: err,
 });
+export const getDeleteItems = (item: any) => ({
+  type: DELETE_ITEMS_SUCCESS,
+  payload: item,
+})
 
 export const getItems = () => async (dispatch: any) => {
   dispatch(getItemsLoading());
