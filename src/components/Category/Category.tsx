@@ -14,24 +14,29 @@ const Categories: React.FC<PropsType> = (props) => {
     const navigate = useNavigate();
 
     const categoriesList: any = store.getState().categories.categoriesList
-    // console.log(categoriesList)
-
+    /**
+     * Фильтрация категорий
+     */
+    const filteredCategories: any = []
     categoriesList.forEach((elem: any) => {
         if (elem.typeId === props.typeId) {
-            console.log("Income", elem.typeId, props.typeId)
+            filteredCategories.push(elem)
         }
-    });
+    })
+    if (filteredCategories.length > 1) {
+        filteredCategories.shift()
+    }
 
     return (
         <div className="cat-block">
 
-            {Object.keys(categoriesList).map((id) => {
+            {Object.keys(filteredCategories).map((id) => {
                 return (
-                    <div className="cat-item" key={categoriesList[id].id} onClick={() => props.callBack(categoriesList[id].img)}>
+                    <div className="cat-item" key={filteredCategories[id].id} onClick={() => props.callBack(filteredCategories[id].img)}>
                         <div className="cat-icon">
-                            <img src={categoriesList[id].img} alt="" />
+                            <img src={filteredCategories[id].img} alt="" />
                         </div>
-                        <p className="cat-name">{categoriesList[id].name}</p>
+                        <p className="cat-name">{filteredCategories[id].name}</p>
                     </div>
                 )
             })
