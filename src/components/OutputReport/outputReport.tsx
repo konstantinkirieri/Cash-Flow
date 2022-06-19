@@ -22,7 +22,7 @@ function sumAmountArr(arrayHandler: any, amountOutput: number) {
 }
 /**
  * 
- * @param params Where: "Income || Expences" Data: {id: , categoryId: , inputValue: , date: }
+ * @param params Where: "Income || Expenses" Data: {id: , categoryId: , inputValue: , date: }
  * @returns Блок с обработанными данными
  */
 export function OutputReport(params: any): JSX.Element {
@@ -40,7 +40,7 @@ export function OutputReport(params: any): JSX.Element {
  */
 export function DoughnutReport(params: any) {
     const income: any = params.income
-    const expences: any = params.expences
+    const expenses: any = params.expenses
     const labels = ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri']
     const data = {
         labels: labels,
@@ -71,23 +71,23 @@ export function DoughnutReport(params: any) {
      */
     let amountOutput = 0
     let amountIncome = 0
-    amountOutput = sumAmountArr(expences, amountOutput)
+    amountOutput = sumAmountArr(expenses, amountOutput)
     amountIncome = sumAmountArr(income, amountIncome)
     const diffAmounts = amountIncome - amountOutput
     const datasetHandler = data.datasets
     /**
      * Поиск и сложение суммы в группах категорий
      */
-    for (let i = 0; i < expences.length; i++) {
+    for (let i = 0; i < expenses.length; i++) {
         const elemNext = i + 1
-        for (let j = elemNext; j < expences.length; j++) {
-            if (expences[i].categoryId === expences[j].categoryId) {
-                const persentPie = ((parseInt(expences[i].inputValue) + parseInt(expences[j].inputValue)) / amountOutput) * 100
+        for (let j = elemNext; j < expenses.length; j++) {
+            if (expenses[i].categoryId === expenses[j].categoryId) {
+                const persentPie = ((parseInt(expenses[i].inputValue) + parseInt(expenses[j].inputValue)) / amountOutput) * 100
                 datasetHandler[0].data.push(parseInt(`${persentPie}`, 10))
-                expences.splice(j, 1)
+                expenses.splice(j, 1)
             }
         }
-        const persentPie = (expences[i].inputValue / amountOutput) * 100
+        const persentPie = (expenses[i].inputValue / amountOutput) * 100
         datasetHandler[0].data.push(parseInt(`${persentPie}`, 10))
     }
     /**

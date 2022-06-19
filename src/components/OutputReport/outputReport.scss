@@ -2,7 +2,7 @@
 @import '../../mixin.scss';
 
 #Income,
-#Expences {
+#Expenses {
     @include buttonSet();
     background-color: $color-1;
     display: flex;
@@ -12,13 +12,13 @@
 }
 
 #Income,
-#Expences {
+#Expenses {
     p {
         padding: 5px;
     }
 }
 
-#Expences {
+#Expenses {
     background-color: $color-2;
 }
 
@@ -54,7 +54,7 @@
 @media screen and (min-width: 768px) and (max-width: 1440px) {
 
     #Income,
-    #Expences {
+    #Expenses {
         width: 50%;
         margin: 25px auto;
     }
@@ -67,7 +67,7 @@
 @media screen and (min-width: 1440px) {
 
     #Income,
-    #Expences {
+    #Expenses {
         width: 30%;
         margin: 25px auto;
     }

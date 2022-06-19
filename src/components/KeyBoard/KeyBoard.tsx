@@ -12,7 +12,7 @@ import { logOut } from "../../services/firebase";
 import { useNavigate } from "react-router-dom";
 
 export const KeyBoard = () => {
-  const [typeId, setTypeId] = useState<"Expences" | "Income">("Expences");
+  const [typeId, setTypeId] = useState<"Expenses" | "Income">("Expenses");
   const [inputValue, setInputValue] = useState("");
   const [img, setImg] = useState('images/Icons/house.png');
   const [view, setView] = useState(false);
@@ -21,7 +21,7 @@ export const KeyBoard = () => {
   const date = startDate.toLocaleDateString();
 
   const handleClickExpenses: any = () => {
-    setTypeId("Expences");
+    setTypeId("Expenses");
   };
 
   const handleClickIncome: any = () => {
@@ -54,7 +54,7 @@ export const KeyBoard = () => {
     console.log("added to firebase");
     setInputValue("");
     setImg("images/Icons/house.png");
-    setTypeId("Expences");
+    setTypeId("Expenses");
     setStartDate(new Date());
   };
 
@@ -113,7 +113,7 @@ export const KeyBoard = () => {
         </div>
         <div className="switcher">
           <button
-            className={"exp-btn" + (typeId === "Expences" ? " btn_focus" : "")}
+            className={"exp-btn" + (typeId === "Expenses" ? " btn_focus" : "")}
             onClick={handleClickExpenses}
           >
             Expenses

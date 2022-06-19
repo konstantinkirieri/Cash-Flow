@@ -11,7 +11,7 @@ import { store } from "../store"
 import React from "react"
 
 export const Report = () => {
-  const expences: any = []
+  const expenses: any = []
   const income: any = []
   const getDatas: any = store.getState().items.itemsList
   const getCategory: any = store.getState().categories.categoriesList
@@ -35,7 +35,7 @@ export const Report = () => {
      * Фильтруем по доходу и расходу
      */
     if (elem.typeId !== "Income") {
-      expences.push(elem)
+      expenses.push(elem)
     } else {
       income.push(elem)
     }
@@ -79,8 +79,8 @@ export const Report = () => {
       <h2 className="reportHeader">Report</h2>
       <Calendar />
       <OutputReport where="Income" param={income} />
-      <OutputReport where="Expences" param={expences} />
-      <DoughnutReport expences={expences} income={income} />
+      <OutputReport where="Expenses" param={expenses} />
+      <DoughnutReport expenses={expenses} income={income} />
     </div>
   )
 }

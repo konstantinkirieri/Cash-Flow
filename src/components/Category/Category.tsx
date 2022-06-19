@@ -6,7 +6,7 @@ import { store } from '../store';
 
 
 interface PropsType {
-    typeId: any
+    typeId: any;
     callBack: (img: any) => void
 }
 

@@ -43,7 +43,7 @@ const AddCategory = () => {
     })
     console.log("added to firebase");
     setName("");
-    setTypeId('Expences');
+    setTypeId('Expenses');
     setImg('images/Icons/default-icon.png');
   };
 
