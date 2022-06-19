@@ -6,19 +6,20 @@ import Divider from '@mui/material/Divider';
 import "./history.scss";
 import { useNavigate } from 'react-router-dom';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
-import { logOut } from "../../services/firebase";
+import { db, logOut } from "../../services/firebase";
 //import "../Switcher/switch.scss";
 import ListItem from '@mui/material/ListItem';
 import { store } from '../store';
 import React from 'react';
+import { ref, remove } from 'firebase/database';
 
 
 export const History = () => {
 
   const itemsList: any = store.getState().items.itemsList;
-
-  const handleDeleteClick = (itemsList: any) => {
-    // remove(ref(db, `UserData/${itemsList.dataId}`))
+  const handleDeleteClick = (elem: any) => {
+    remove(ref(db, `UserData/${elem.dataId}`))
+    console.log(elem)
   }
 
   const navigate = useNavigate();
@@ -69,9 +70,7 @@ export const History = () => {
       <Divider className='divider' />
       <List className='historyList'>
         {Object.keys(itemsList).map((id) => {
-          if (itemsList[id].typeId === "Income") {
-            console.log(itemsList[id].typeId)
-          }
+
           return (
             <ListItem key={itemsList[id].dataId}>
               <div className="listItem">
@@ -84,7 +83,7 @@ export const History = () => {
                   </summary>
                   <div className="dropdownHistory">
                     <button className="dropdownBtn">Edit</button><br></br>
-                    <button className="dropdownBtn" onClick={() => handleDeleteClick(itemsList)}>Delete</button>
+                    <button className="dropdownBtn" onClick={() => handleDeleteClick(itemsList[id])}>Delete</button>
                   </div>
                 </details>
                 <Divider className='dividerItem' />
