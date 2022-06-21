@@ -5,7 +5,6 @@ import "./history.scss";
 import { useNavigate } from 'react-router-dom';
 import HistoryCalendar from '../HistoryCalendar/HistoryCalendar';
 import { db } from "../../services/firebase";
-import { store } from '../store';
 import React from 'react';
 import { ref, remove } from 'firebase/database';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,7 +15,6 @@ import { selectItemsList } from '../store/history/selectors';
 export const History = () => {
   const dispatch = useDispatch()
   const itemsList: any = useSelector(selectItemsList)
-  // const itemsList: any = store.getState().items.itemsList;
   const handleDeleteClick = (elem: any) => {
     remove(ref(db, `UserData/${elem.dataId}`))
     dispatch(getDeleteItems(elem.dataId))

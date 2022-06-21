@@ -7,11 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { store } from "../store";
 import React from "react";
 import { Menu } from "../Menu/Menu";
+import { useSelector } from "react-redux";
+import { selectItemsList } from "../store/history/selectors";
 
 export const Report = () => {
   const expenses: any = []
   const income: any = []
-  const getDatas: any = store.getState().items.itemsList
+  const getDatas: any = useSelector(selectItemsList)
   const getCategory: any = store.getState().categories.categoriesList
   /**
    * Фильтрация стора iteamList на расход/доход
@@ -39,7 +41,8 @@ export const Report = () => {
     }
   })
   const navigate = useNavigate();
-
+  console.log(income)
+  console.log(expenses)
   return (
     <div className="report">
       <div className="reportMenu">
@@ -54,7 +57,7 @@ export const Report = () => {
       <Calendar />
       <OutputReport where="Income" param={income} />
       <OutputReport where="Expenses" param={expenses} />
-      <DoughnutReport expenses={expenses} income={income} />
+      <DoughnutReport expenses={expenses.filter((elem: any) => elem.date === "21.06.2022")} income={income} />
     </div>
   )
 }

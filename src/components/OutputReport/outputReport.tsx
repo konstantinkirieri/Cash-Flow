@@ -48,7 +48,7 @@ export function DoughnutReport(params: any) {
             data: [0],
             backgroundColor: ["#CE9684", "#54A5BF", "#ACAD62", "#C58D9E", "#7BB1AB", "#825656", "#C4D600", "#635087"], // ?
             borderColor: ["#CE9684", "#54A5BF", "#ACAD62", "#C58D9E", "#7BB1AB", "#825656", "#C4D600", "#635087"], // ?
-            borderWidth: 1,
+            borderWidth: 2,
             datalabels: {
                 size: 12,
                 color: "#FFF",
