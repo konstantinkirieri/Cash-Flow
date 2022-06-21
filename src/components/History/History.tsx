@@ -8,14 +8,15 @@ import { db } from "../../services/firebase";
 import { store } from '../store';
 import React from 'react';
 import { ref, remove } from 'firebase/database';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getDeleteItems } from '../store/history/actions';
 import { Menu } from "../Menu/Menu";
+import { selectItemsList } from '../store/history/selectors';
 
 export const History = () => {
   const dispatch = useDispatch()
-
-  const itemsList: any = store.getState().items.itemsList;
+  const itemsList: any = useSelector(selectItemsList)
+  // const itemsList: any = store.getState().items.itemsList;
   const handleDeleteClick = (elem: any) => {
     remove(ref(db, `UserData/${elem.dataId}`))
     dispatch(getDeleteItems(elem.dataId))
