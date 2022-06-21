@@ -43,11 +43,9 @@ export const itemsReducer = (state = initialState, { type, payload }: any) => {
         },
       };
     case DELETE_ITEMS_SUCCESS:
-      console.log(payload)
-      return {
-        ...state,
-        // ...state.itemsList.splice(payload, 1)
-      };
+      const toDelete = { ...state };
+      toDelete.itemsList = toDelete.itemsList.filter((elem: any) => elem.dataId !== payload)
+      return toDelete;
     default:
       return state;
   }

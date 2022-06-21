@@ -12,11 +12,12 @@
 
 .listIncome {
     color: #32CD32;
+
+    &:before {
+        content: "+";
+    }
 }
 
-.listIncome::before {
-    content: "+";
-}
 
 .inputItem {
     color: red;

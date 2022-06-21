@@ -17,13 +17,8 @@ export const History = () => {
 
   const itemsList: any = store.getState().items.itemsList;
   const handleDeleteClick = (elem: any) => {
-    const index = itemsList.findIndex((element: any, index: number) => {
-      if (element.dataId === elem.dataId) {
-        return true
-      }
-    })
     remove(ref(db, `UserData/${elem.dataId}`))
-    dispatch(getDeleteItems(index))
+    dispatch(getDeleteItems(elem.dataId))
   }
 
   const navigate = useNavigate();
@@ -53,18 +48,18 @@ export const History = () => {
           return (
             <div className="listItem" key={itemsList[id].dataId}>
               {/* <div className="listItem"> */}
-                <img className='historyImg' src={itemsList[id].img} alt=''></img>
-                <div className='list'>{itemsList[id].date}</div>
-                <div className={itemsList[id].typeId === 'Income' ? 'listIncome' : 'list'}>{itemsList[id].inputValue}</div>
-                <details className="dropdownSummary">
-                  <summary className="dropdownSummary">
-                    ...
-                  </summary>
-                  <div className="dropdownHistory">
-                    <button className="dropdownBtn">Edit</button><br></br>
-                    <button className="dropdownBtn" onClick={() => handleDeleteClick(itemsList[id])}>Delete</button>
-                  </div>
-                </details>
+              <img className='historyImg' src={itemsList[id].img} alt=''></img>
+              <div className='list'>{itemsList[id].date}</div>
+              <div className={itemsList[id].typeId === 'Income' ? 'listIncome' : 'list'}>{itemsList[id].inputValue}</div>
+              <details className="dropdownSummary">
+                <summary className="dropdownSummary">
+                  ...
+                </summary>
+                <div className="dropdownHistory">
+                  <button className="dropdownBtn">Edit</button><br></br>
+                  <button className="dropdownBtn" onClick={() => handleDeleteClick(itemsList[id])}>Delete</button>
+                </div>
+              </details>
             </div>
             // <Divider className='dividerItem' />
           )
