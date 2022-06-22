@@ -9,12 +9,15 @@ import React from "react";
 import { Menu } from "../Menu/Menu";
 import { useSelector } from "react-redux";
 import { selectItemsList } from "../store/history/selectors";
+import { selectDataCalendar } from "../store/calendar/selectors";
 
 export const Report = () => {
+  const navigate = useNavigate();
   const expenses: any = []
   const income: any = []
   const getDatas: any = useSelector(selectItemsList)
   const getCategory: any = store.getState().categories.categoriesList
+  const getDataCalendar = useSelector(selectDataCalendar)
   /**
    * Фильтрация стора iteamList на расход/доход
    */
@@ -40,9 +43,31 @@ export const Report = () => {
       income.push(elem)
     }
   })
-  const navigate = useNavigate();
-  console.log(income)
-  console.log(expenses)
+
+  /**
+   * Функция принимает массив expenses и отфильтровывает по дате
+   * @returns Возвращает отфильтрованный массив expenses
+   */
+  let filteredExpenses = ""
+  function filterCalendar(): any {
+    switch (getDataCalendar.type) {
+      case "Day":
+        const day = `${getDataCalendar.elem}.06.2022`
+        const formulaDay = expenses.filter((elem: any) => elem.date === day)
+        return filteredExpenses = formulaDay
+      case "Month":
+        const month = getDataCalendar.elem
+        const formulaMonth = expenses.filter((elem: any) => elem.date.split('.')[1] === month)
+        return filteredExpenses = formulaMonth
+      case "Year":
+        const year = getDataCalendar.elem.toString()
+        const formulaYear = expenses.filter((elem: any) => elem.date.split('.')[2] === year)
+        return filteredExpenses = formulaYear
+      default:
+        break;
+    }
+  }
+  filterCalendar()
   return (
     <div className="report">
       <div className="reportMenu">
@@ -56,8 +81,8 @@ export const Report = () => {
       <h2 className="reportHeader">Report</h2>
       <Calendar />
       <OutputReport where="Income" param={income} />
-      <OutputReport where="Expenses" param={expenses} />
-      <DoughnutReport expenses={expenses.filter((elem: any) => elem.date === "21.06.2022")} income={income} />
+      <OutputReport where="Expenses" param={filteredExpenses} />
+      <DoughnutReport expenses={filteredExpenses} income={income} />
     </div>
   )
 }

@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getDataCalendar } from "../store/calendar/actions";
 import "./calendar.scss";
 
 export function Calendar() {
-
+  const dispatch = useDispatch()
   let currentDay: number | string = new Date().getDate();
   let currentMonth: number | string = new Date().toLocaleString("eng", { month: "long" });
   let currentYear: number = new Date().getFullYear();
@@ -11,15 +13,19 @@ export function Calendar() {
   let [outputMessage, setDate] = useState<string | number>(currentMonth);
   const handleClickYear: any = () => {
     setDate(currentYear);
-    console.log(currentYear)
+    dispatch((getDataCalendar({ elem: currentYear, type: "Year" })))
   };
   const handleClickDay: any = () => {
     setDate(currentDay);
-    console.log(currentDay)
+    dispatch((getDataCalendar({ elem: currentDay, type: "Day" })))
   };
   const handleClickMonth: any = () => {
     setDate(currentMonth);
-    console.log(currentMonth)
+    let getMonth: any = new Date().getMonth()
+    if ((getMonth + 1) <= 9) {
+      getMonth = `0${getMonth + 1}`
+    }
+    dispatch((getDataCalendar({ elem: getMonth, type: "Month" })))
   };
 
   if (outputMessage === currentDay) {

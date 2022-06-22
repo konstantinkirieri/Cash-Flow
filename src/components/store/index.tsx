@@ -5,6 +5,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import { itemsReducer } from "./history/reducer";
 import { homeReducer } from "./auth/reducer";
 import { categoriesReducer } from "./categories/reducer";
+import { calendarReducer } from "./calendar/reducer";
 
 
 declare global {
@@ -25,7 +26,8 @@ const persistedReducer = persistReducer(
   combineReducers({
     home: homeReducer,
     items: itemsReducer,
-    categories: categoriesReducer
+    categories: categoriesReducer,
+    dataCalendar: calendarReducer,
   })
 );
 
