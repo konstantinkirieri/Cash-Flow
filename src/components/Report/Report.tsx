@@ -45,29 +45,34 @@ export const Report = () => {
   })
 
   /**
-   * Функция принимает массив expenses и отфильтровывает по дате
-   * @returns Возвращает отфильтрованный массив expenses
+   * Функция принимает массив и отфильтровывает по дате
+   * @returns Возвращает отфильтрованный массив
    */
   let filteredExpenses = ""
-  function filterCalendar(): any {
+  let filteredIncomes = ""
+  function filterCalendar(elem: any[], category: any): any {
     switch (getDataCalendar.type) {
       case "Day":
         const day = `${getDataCalendar.elem}.06.2022`
-        const formulaDay = expenses.filter((elem: any) => elem.date === day)
-        return filteredExpenses = formulaDay
+        const formulaDay = elem.filter((elem: any) => elem.date === day)
+        return category = formulaDay
       case "Month":
         const month = getDataCalendar.elem
-        const formulaMonth = expenses.filter((elem: any) => elem.date.split('.')[1] === month)
-        return filteredExpenses = formulaMonth
+        const formulaMonth = elem.filter((elem: any) => elem.date.split('.')[1] === month)
+        return category = formulaMonth
       case "Year":
         const year = getDataCalendar.elem.toString()
-        const formulaYear = expenses.filter((elem: any) => elem.date.split('.')[2] === year)
-        return filteredExpenses = formulaYear
+        const formulaYear = elem.filter((elem: any) => elem.date.split('.')[2] === year)
+        return category = formulaYear
       default:
-        return expenses
+        return elem
     }
   }
-  filteredExpenses = filterCalendar()
+  filteredExpenses = filterCalendar(expenses, filteredExpenses)
+  filteredIncomes = filterCalendar(income, filteredIncomes)
+  if (filteredIncomes.length === 0) {
+    filteredIncomes = income
+  }
   return (
     <div className="report">
       <div className="reportMenu">
@@ -80,9 +85,9 @@ export const Report = () => {
       </div>
       <h2 className="reportHeader">Report</h2>
       <Calendar />
-      <OutputReport where="Income" param={income} />
+      <OutputReport where="Income" param={filteredIncomes} />
       <OutputReport where="Expenses" param={filteredExpenses} />
-      <DoughnutReport expenses={filteredExpenses} income={income} />
+      <DoughnutReport expenses={filteredExpenses} income={filteredIncomes} />
     </div>
   )
 }
