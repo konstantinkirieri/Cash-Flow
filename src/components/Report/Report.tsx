@@ -64,10 +64,10 @@ export const Report = () => {
         const formulaYear = expenses.filter((elem: any) => elem.date.split('.')[2] === year)
         return filteredExpenses = formulaYear
       default:
-        break;
+        return expenses
     }
   }
-  filterCalendar()
+  filteredExpenses = filterCalendar()
   return (
     <div className="report">
       <div className="reportMenu">
