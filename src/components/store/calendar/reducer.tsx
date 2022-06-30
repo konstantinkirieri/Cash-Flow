@@ -1,7 +1,8 @@
-import { GET_DATA_CALENDAR } from "./actions";
+import { GET_DATA_CALENDAR, GET_DATA_HISTORY_CALENDAR } from "./actions";
 
 const initialState = {
     dataCalendar: "",
+    dataHistoryCalendar: "",
 }
 
 export const calendarReducer = (state = initialState, { type, payload }: any) => {
@@ -10,6 +11,11 @@ export const calendarReducer = (state = initialState, { type, payload }: any) =>
             return {
                 ...state,
                 dataCalendar: payload,
+            }
+        case GET_DATA_HISTORY_CALENDAR:
+            return {
+                ...state,
+                dataHistoryCalendar: payload,
             }
 
         default:
