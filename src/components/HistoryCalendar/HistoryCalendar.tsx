@@ -1,6 +1,6 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './historyCalendar.scss';
 import React from "react";
 import { useDispatch } from "react-redux";
@@ -10,7 +10,9 @@ export function HistoryCalendar() {
   const dispatch = useDispatch()
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([new Date(), new Date()]);
   const [startDate, endDate] = dateRange;
-  dispatch(getDataHistoryCalendar(dateRange))
+  useEffect(() => {
+    dispatch(getDataHistoryCalendar(dateRange))
+  })
   return (
     <label className="historyCalendar">
       <DatePicker className="datepickerHistory"

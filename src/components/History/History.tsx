@@ -28,8 +28,8 @@ export const History = () => {
    */
   if (getDataHistoryCalendar) {
     for (let i = 0; i < itemsList.length; i++) {
-      if (Date.parse(getDataHistoryCalendar[0]) < Date.parse(itemsList[i].date.split(".").reverse().join("-"))) {
-        if (Date.parse(getDataHistoryCalendar[1]) > Date.parse(itemsList[i].date.split(".").reverse().join("-"))) {
+      if (Date.parse(getDataHistoryCalendar[0]) <= Date.parse(itemsList[i].date.split(".").reverse().join("-"))) {
+        if (Date.parse(getDataHistoryCalendar[1]) >= Date.parse(itemsList[i].date.split(".").reverse().join("-"))) {
           itemsListFiltered.push(itemsList[i])
         }
       }
