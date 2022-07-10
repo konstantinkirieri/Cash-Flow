@@ -21,7 +21,7 @@ export const Report = () => {
   /**
    * Фильтрация стора iteamList на расход/доход
    */
-  getDatas.forEach((elem: { typeId: string }) => {
+  getDatas.forEach((elem: { dataId: string, typeId: string, inputValue: string }) => {
     /**
      * Костыль, пока не поправим в базе данных зависимости
      * @param elem Элемент массива из Стора iteamsList
@@ -34,6 +34,14 @@ export const Report = () => {
       }
     }
     categoryHandler(elem)
+    /**
+     * Проверка данных inputValue из базы данных
+     */
+    if (elem.inputValue === "") {
+      console.warn(`This elem.inputValue === " " , dataId="${elem.dataId}"`)
+      elem.inputValue = "0"
+    }
+
     /**
      * Фильтруем по доходу и расходу
      */
